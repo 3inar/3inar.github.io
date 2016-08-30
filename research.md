@@ -25,3 +25,7 @@ Talk given for the Machine Learning @ UiT weekly seminar 23rd of October, 2015.
 * Olsen KS, **Holsbø E**, Rognmo K, Krum-Hansen S, and Lund E. 
 _Stress related to a suspicious mammogram - potential transcriptomic effects._ Abstract.
 The 7th Conference on Epidemiology and Registry-Based Health Research - NordicEpi 2015
+
+### As adviser
+* **Morten Grønnesby**. Automated Lung Sound Analysis. Master thesis. Deptarment of Computer Science, 
+University of Tromsø. June 2016.
