@@ -371,8 +371,6 @@ n_c <- nrow(violent_subset)
 padding=3
 plot(c(range(select(violent_subset, cpp, posterior_cpp, lc, uc))), c(0, n_c+padding), type="n", 
      yaxt="n", bty="n", ylab="", xlab="", main="violence across the board")
-# points(violent_subset$lc, 1:n_c, pch="|", cex = 0.5, col=colors[1])
-# points(violent_subset$uc, 1:n_c, pch="|", cex = 0.5, col=colors[1])
 
 lines(qbeta(c(0.005, 0.995), alpha_p, beta_p), c(n_c+padding,n_c+padding), col=colors[5])
 points(alpha_p/(alpha_p+beta_p), n_c+padding, pch=20, col=colors[5])
@@ -385,10 +383,6 @@ points(violent_subset$posterior_cpp, 1:n_c, pch=20, col=colors[2])
 {% endhighlight %}
 
 ![plot of chunk random_subset](/assets/Rfig/random_subset-1.svg)
-
-{% highlight r %}
-# points(violent_subset$cpp, 1:n_c, pch=20, col=colors[2])
-{% endhighlight %}
 
 Interestingly there seems to be one town toward the bottom there that's 
 genuinely not very violent compared to the rest of the country, as estimated 

@@ -302,8 +302,6 @@ n_c <- nrow(violent_subset)
 padding=3
 plot(c(range(select(violent_subset, cpp, posterior_cpp, lc, uc))), c(0, n_c+padding), type="n", 
      yaxt="n", bty="n", ylab="", xlab="", main="violence across the board")
-# points(violent_subset$lc, 1:n_c, pch="|", cex = 0.5, col=colors[1])
-# points(violent_subset$uc, 1:n_c, pch="|", cex = 0.5, col=colors[1])
 
 lines(qbeta(c(0.005, 0.995), alpha_p, beta_p), c(n_c+padding,n_c+padding), col=colors[5])
 points(alpha_p/(alpha_p+beta_p), n_c+padding, pch=20, col=colors[5])
@@ -313,7 +311,6 @@ plyr::a_ply(1:n_c, 1, function(i) {
   lines(c(obs$uc, obs$lc), c(i,i), col=colors[4])
 })
 points(violent_subset$posterior_cpp, 1:n_c, pch=20, col=colors[2])
-# points(violent_subset$cpp, 1:n_c, pch=20, col=colors[2])
 ```
 
 Interestingly there seems to be one town toward the bottom there that's 
