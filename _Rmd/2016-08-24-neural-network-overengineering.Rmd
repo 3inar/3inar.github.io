@@ -4,7 +4,7 @@ title: Neural network overengineering
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, dev.args=list(bg="transparent"))
 ```
 In my idle hours (ie when I should have been writing a paper), I came across this
 blog post where the author [trained a neural netwok in the fine art of wine tasting](https://medium.com/autonomous-agents/how-to-train-your-neuralnetwork-for-wine-tasting-1b49e0adff3a#.l2fhfa6hr).
