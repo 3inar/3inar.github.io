@@ -4,7 +4,7 @@ title: The most violent show on earth
 ---
 
 
-So I'm currently at a ten month a reserach stay in Paris. I'm reluctant in the 
+So I'm currently at a ten month reserach stay in Paris. I'm reluctant in the 
 face of change, so I often think of home while I'm in my small apartment in a
 building with a slight mouse problem, or in my larger office with,
 astonishingly, also a slight mouse problem (unconfirmed).
@@ -16,9 +16,9 @@ count the number of police reports for violence per 1000 citizens. These are num
 [Statistics Norway (SSB)](https://www.ssb.no/en/), which the papers usually 
 pick up every year, like in 
 [this 2015 article from the tabloid Dagbladet](http://www.dagbladet.no/2015/09/13/nyheter/innenriks/kriminalitet/vold/finnmark/40801169/). 
-It's always the violent crimes statistic the're interested in.
+It's always the violent crimes statistic they're interested in.
 
-The most recent numbers are from 2014. It's the same the ones discussed in that
+The most recent numbers are from 2014. It's the same ones discussed in that
 article. The numbers show Vadsø falling several ranks, with Hasvik (also in
 Finnmark) taking a marked lead in the old ultraviolence. In fact Finmark has a
 surprisingly strong precense in the top ten considering that it's the most
