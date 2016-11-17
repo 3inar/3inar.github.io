@@ -25,5 +25,5 @@ _Stress related to a suspicious mammogram - potential transcriptomic effects._ A
 The 7th Conference on Epidemiology and Registry-Based Health Research - NordicEpi 2015
 
 ### As adviser
-* __Morten Grønnesby__. Automated Lung Sound Analysis. Master thesis. Deptarment of Computer Science, 
+* __Morten Grønnesby__. Automated Lung Sound Analysis. Master thesis. Department of Computer Science, 
 University of Tromsø. June 2016.
