@@ -4,6 +4,9 @@ title: Talks
 permalink: /talks/
 ---
 
+
+* __Predicting breast cancer metastasis from blood gene expression using time-to-diagnosis data to derive signature estimates.__
+Poster presented at the 2017 Statistical Methods for Postgenomic Data workshop. \[[pdf](/assets/pdfs/poster-smpgd2017.pdf)\] 
 * __The pragmatic R programmer.__
 Intro to writing reusable R code and bundling it in packages. Given at the Department of Community Medicine, University of Tromsø. 17th of November, 2016. \[[slides](/assets/pdfs/pragmatic_r.pdf)\] \[[demo package](https://github.com/3inar/tinypackage/)\] 
 * __Version control and you.__

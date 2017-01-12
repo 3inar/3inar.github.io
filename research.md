@@ -4,7 +4,7 @@ title: Research
 permalink: /research/
 ---
 
-This is a list of my academic work. For talks, visit the [talks](/talks/) page.
+This is a list of my academic work. For talks and similar, visit the [talks](/talks/) page.
 
 ### Papers
 * Tartari G, Tiede L, __Holsbø E__, Knudsen K, Raknes IA, Fjukstad B, Mode N, Bjørndalen JM, Lund E, and Bongo LA. 
