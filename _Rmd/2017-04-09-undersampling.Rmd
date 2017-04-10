@@ -23,7 +23,7 @@ stands out more clearly against the overwhelming mass of `False`s?
 This tip that you could always try to balance your classes seems to be a piece of 
 modeling folklore that everyone picks up. The way I pictured it you could just 
 go ahead and balance your data by either oversampling the minority class or 
-undersampling the majority class and and that would be enough. After looking at
+undersampling the majority class and that would be enough. After looking at
 it for this post I'm no longer sure that I trust the balancing of datasets. At 
 the very least it looks as though you have to do some pos hoc correction for this
 balancing act, and it's probably not always well-defined how to do that.
@@ -159,7 +159,7 @@ rug(x)
 
 
 In spite of this clever correction the undersampled estimate is off. It still
-overestimates p(`True`). In fact, the correction is consistent and it's derivation is 
+overestimates p(`True`). In fact, the correction is consistent and its derivation is 
 surprisingly simple. The estimate is worse because we threw away most of our 
 data to make it.
 

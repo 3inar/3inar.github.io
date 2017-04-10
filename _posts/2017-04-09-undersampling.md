@@ -21,7 +21,7 @@ stands out more clearly against the overwhelming mass of `False`s?
 This tip that you could always try to balance your classes seems to be a piece of 
 modeling folklore that everyone picks up. The way I pictured it you could just 
 go ahead and balance your data by either oversampling the minority class or 
-undersampling the majority class and and that would be enough. After looking at
+undersampling the majority class and that would be enough. After looking at
 it for this post I'm no longer sure that I trust the balancing of datasets. At 
 the very least it looks as though you have to do some pos hoc correction for this
 balancing act, and it's probably not always well-defined how to do that.
@@ -189,12 +189,12 @@ rug(x)
 ![plot of chunk posterior_adjustment](/assets/Rfig/posterior_adjustment-1.png)
 
 
-In spite of this clever correction the undersampled extimate is off: it still
-overestimates p(`True`). In fact, the correction is consistent and it's derivation is 
+In spite of this clever correction the undersampled estimate is off. It still
+overestimates p(`True`). In fact, the correction is consistent and its derivation is 
 surprisingly simple. The estimate is worse because we threw away most of our 
 data to make it.
 
-Sure, this is a kind of ridiculous example, I'm sure no one would throw away 99 thousand
+Sure, this is a kind of ridiculous example. I'm sure no one would throw away 99 thousand
 perfectly fine samples because they worry about imbalanced data, but class
 balancing is a thing that people do and it's interesting to see what the implications are. As
 with the logistic regression I'm sure there is some sort of post hoc correction
@@ -215,7 +215,9 @@ estimate the probabilities directly to begin with and save yourself the grief?
 Sure. In the case of logistic regression where the correction for undersampling
 is straight-forward and theoretically sound, it could be useful. But the reasons
 I can come up with aren't because it's inherently better with artificial Balanced 
-Data. I can come up with two interesting cases. First, if you can't fit your 
+Data. 
+
+I can come up with two interesting cases. First, if you can't fit your 
 data in main memory or something, and you're comfortable with  getting a less 
 exact model, go right ahead.
 
