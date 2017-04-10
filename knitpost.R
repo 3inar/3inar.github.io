@@ -1,3 +1,4 @@
+# overwriteOne should contain part of the filenae you want to overwrite
 KnitPost <- function(site.path='~/Dropbox/repos/3inar.github.io/', overwriteAll=F, overwriteOne=NULL) {
   if(!'package:knitr' %in% search()) library('knitr')
 
