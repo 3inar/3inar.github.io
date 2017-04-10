@@ -1,0 +1,232 @@
+---
+layout: post
+title: Understanding undersampling
+---
+
+I really like Frank Harrell's blog. He writes all kinds of useful things, and as 
+I am working in the classification/predition area I was particularly interested 
+in his two posts about [classification vs. prediction](http://www.fharrell.com/2017/01/classification-vs-prediction.html) and [improper scoring rules](http://www.fharrell.com/2017/03/damage-caused-by-classification.html). 
+After posting links to these in the lab Slack I got some questions that
+forced me to do some thinking. Why not undersample the majority class?
+
+## Possibly a motivation
+So the argument for balancing unbalanced classes seems to stem from the use of 
+classification accuracy (= fraction predictions where the predicted class was correct) to 
+evaluate classifiers: 
+if \\(.01\\) of my observations are `True`s, I'd get a \\(.99\\) accuracy by always 
+classifying as `False`. Since "everything is `False`" isn't a very sexy model,
+why not make it seem as though there are more `True`s in the hope that their signal
+stands out more clearly against the overwhelming mass of `False`s?
+
+This tip that you could always try to balance your classes seems to be a piece of 
+modeling folklore that everyone picks up. The way I pictured it you could just 
+go ahead and balance your data by either oversampling the minority class or 
+undersampling the majority class and and that would be enough. After looking at
+it for this post I'm no longer sure that I trust the balancing of datasets. At 
+the very least it looks as though you have to do some pos hoc correction for this
+balancing act, and it's probably not always well-defined how to do that.
+
+## Let's just try
+I'll simulate some data from the following logistic model: 
+\\[ \log \frac{p}{1-p} = \beta_0 + \beta_1x,\\]
+\\[ X\sim N(0, \sigma),\\]
+with \\(\beta_0=9, \beta_1=6,\\) and \\( \sigma=.4\\). This can easily be 
+transformed into a probability of belonging to `True`:
+\\[p = \frac{1}{1+e^{-(9+6x)}}.\\] To generate class labels from probabilities, 
+draw a uniform number \\(u\sim U(0,1)\\) and assign to `True` 
+if \\(u < p\\). This model gives me about \\(600 \times\\) more `False`s than `True`s. 
+I will generate 100 thousand observations
+from this model and fit a logistic regression to i) all the data, ii) 
+a data set where I have subsampled the `False`s to get a fake 50-50 split.
+
+{% highlight r %}
+set.seed(07042017)
+b_0 <- -9
+b_1 <- 6
+
+
+# simulate data
+x <- rnorm(100000, sd=.4)
+log_odds <- b_0 + b_1*x
+p_y <- 1/(1 + exp(-log_odds))
+y <- factor(runif(length(p_y)) <= p_y, levels = c("FALSE", "TRUE"))
+
+# class sizes
+table(y)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## y
+## FALSE  TRUE 
+## 99825   175
+{% endhighlight %}
+
+
+
+{% highlight r %}
+table(y)[2]/sum(table(y))
+{% endhighlight %}
+
+
+
+{% highlight text %}
+##    TRUE 
+## 0.00175
+{% endhighlight %}
+
+
+
+{% highlight r %}
+# logistic regression model on full data
+glm_fit <- glm(y~x, family=binomial)
+
+# undersample F to get a 50-50 split:
+class1 <- which(y=="TRUE")
+class2 <- sample(which(y=="FALSE"), size = length(class1))
+pseudosample <- c(class1, class2)
+
+newx <- x[pseudosample]
+newy <- y[pseudosample]
+
+# logistic regression on undersampled data
+new_glm_fit <- glm(newy~newx, family=binomial)
+
+# compare
+lim <- 2
+curve(1/(1+exp(-(b_0 + b_1*x))), from = -lim, to = lim, lwd=8, col="grey", ylab = "p(True)", ylim=c(0,1))
+curve(1/(1+exp(-(coef(glm_fit)[1] + coef(glm_fit)[2]*x))), lwd=1.5, from = -lim, to = lim, add=T, col="black")
+curve(1/(1+exp(-(coef(new_glm_fit)[1] + coef(new_glm_fit)[2]*x))), lwd=1.5, from = -lim, to = lim, add=T, col="red")
+rug(x)
+{% endhighlight %}
+
+![plot of chunk all_vs_undersampled](/assets/Rfig/all_vs_undersampled-1.png)
+
+In the above figure, the thick, grey line is the true model. The black line is 
+the model estimated from all the data. It's pretty good. And it's certainly
+not bad enough to make me balk at unbalanced data. The red line is from
+undersampling the `False`s to get an artificial 50-50 split. We see that we
+overestimate the probability of `True` a lot. It doesn't look like a super 
+useful model. Clearly the proportion of `True`s in the population matters
+and we just threw it away.
+
+If we wanted to do classification we'd choose some probability threshold 
+above which we'd assign everything to `True`. The standard, theoretically best 
+threshold is \\(p=.5\\). If we use this threshold under the correct model we will 
+nearly always classify as `False`. That's not bad, _that's the correct
+decision._ If we use this threshold under the clearly wrong undersampled model we'd 
+get more predictions of `True`. Most of them would be wrong.
+
+
+## What happened?
+Let's do the above exercise again. This time I will do a nonparametric
+regression instead of logistic regression. Specifically I want to do
+Nadaraya--Watson kernel estimation (NWKE). This is helpful in this
+discussion because we won't have to bend our minds around the whole logit space
+vs. probability space thing of logistic regression. The NWKE
+directly estimates \\(r(x) = E[Y|X=x]\\) by a weighted average of Y around x as
+follows: for observation pairs \\((x_i, y_i), i\in\{1,2,\ldots, n\} \\), let
+
+\\[ \hat r(x) = \sum_{i=1}^n w_i(x)y_i, \\]
+
+where the weight of observation \\(i\\), \\(w_i\\), is a function of \\(x\\). This
+is very easy to reason about, it's an average of all our observations that's
+weighted so that observations closer to \\(x\\) count more. Specifically, the 
+weight is defined as
+
+\\[ w_i(x) = \frac{K(\frac{x-x_i}{h})}{\sum_{j=1}^n K(\frac{x-x_j}{h})}. \\]
+
+The function \\(K\\) is a kernel. For our discussion it's a normal 
+distribution centered on \\(x\\). The bandwidth \\(h\\) controls the amount of influence 
+points far away from x should have. For our discussion it's the standard 
+deviation of our normal distribution. The weights clearly sum to 1 and they're
+never negative.
+
+
+{% highlight r %}
+plot(x, jitter(as.numeric(y)),ylim=c(0.5,4.5), xlim=c(-2, 2), col="grey", ylab="", yaxt="n")
+points(newx, jitter(as.numeric(newy)+2), col="grey")
+lines(ksmooth(x, as.numeric(y), "normal", bandwidth = .25), lwd=1.5)
+lines(ksmooth(newx, as.numeric(newy)+2, "normal", bandwidth = .5), lwd=1.5) # less data, more smoothing
+{% endhighlight %}
+
+![plot of chunk kernel_regression](/assets/Rfig/kernel_regression-1.png)
+
+Above I have put the full data and the undersampled data in the 
+same figure along with their NWKE regressions. The \\(y\\) values are jittered, 
+they are really just zeros and ones. The top pair of clouds is the undersampled data and
+the bottom pair is the full data. These regressions look a lot like our logistic
+regressions from before. As before, the regression from the undersampled data greatly
+overestimates the probability of `True`. Considering the form of the NWKE it
+shouldn't be too surprising: the estimate at \\(x\\) is \\(\sum w_i(x)y_i \\), and if you remove a 
+bunch of the \\(y_i=0\\), naturally the estimate at \\(x\\) will be larger. 
+This is basically what's happening with the logistic
+regression as well: there will be too few \\((\hat r(x) - 0)^2\\) terms in the sum of
+squares that's optimized. This works both ways, you're no better off 
+oversampling `True`s, you will be introducing a bunch of \\(1\\)s to inflate the estimate.
+
+## Posterior correction
+In fact, in logistic regression you get the right odds ratio anyway:
+you estimate the slope, \\(\beta_1\\), correctly in spite of having the wrong proportion of 
+`True`s. You can see this in the figure, the estimated curve looks good but for
+the fact that it's shifted way to the left. It's posible to correct the intercept
+\\(\beta_0 \\) post hoc. This correction is \\(\hat \beta_0^* = \hat \beta_0 - \log(\frac{1-\tau}{\tau}\frac{\bar y}{1-\bar y})\\), where \\(\tau\\) is the proportion of `True`s in the population,
+and \\(\bar y\\) is the proportion of `True`s in your sample. I have this
+from King and Zeng _Logistic regression in rare events data._ Below I apply this 
+correction to our bad model from earlier:
+
+{% highlight r %}
+tau <- table(y)[2]/sum(table(y))
+b_0_corrected <- coef(new_glm_fit)[1] - log((1-tau)/tau)
+lim <- 2
+curve(1/(1+exp(-(b_0 + b_1*x))), from = -lim, to = lim, lwd=8, col="grey", ylab = "p(True)", ylim=c(0,1))
+curve(1/(1+exp(-(coef(glm_fit)[1] + coef(glm_fit)[2]*x))),lwd=1.5, from = -lim, to = lim, add=T, col="black")
+curve(1/(1+exp(-(b_0_corrected + coef(new_glm_fit)[2]*x))), lwd=1.5, from = -lim, to = lim, add=T, col="red")
+rug(x)
+{% endhighlight %}
+
+![plot of chunk posterior_adjustment](/assets/Rfig/posterior_adjustment-1.png)
+
+
+In spite of this clever correction the undersampled extimate is off: it still
+overestimates p(`True`). In fact, the correction is consistent and it's derivation is 
+surprisingly simple. The estimate is worse because we threw away most of our 
+data to make it.
+
+Sure, this is a kind of ridiculous example, I'm sure no one would throw away 99 thousand
+perfectly fine samples because they worry about imbalanced data, but class
+balancing is a thing that people do and it's interesting to see what the implications are. As
+with the logistic regression I'm sure there is some sort of post hoc correction
+procedure for class balancing in many methods. 
+
+Maybe this stuff works if you're doing something like the SVM where you
+basically look at the shapes of the `True`s and the `False`s in euclidean space.
+I don't know. Looking at the NWKE figure above I wouldn't be too optimistic; we
+end up mussing a lot of `False`s in the critical region around
+\\(x=.5\\). Presumably the separating hyperplane would hence be (wrongy) pushed
+toward the `False`s. The SVM is a pure classification algorithm and as such
+intrinsically linked to the classification accuracy scoring rule. If you want a 
+probability output you end up jury-rigging one by putting the distance to the 
+separating plane into some sort of function at which point why not just 
+estimate the probabilities directly to begin with and save yourself the grief?
+
+## Is this ever useful?
+Sure. In the case of logistic regression where the correction for undersampling
+is straight-forward and theoretically sound, it could be useful. But the reasons
+I can come up with aren't because it's inherently better with artificial Balanced 
+Data. I can come up with two interesting cases. First, if you can't fit your 
+data in main memory or something, and you're comfortable with  getting a less 
+exact model, go right ahead.
+
+Second, and perhaps more interesting, is an example from the world of
+epidemiology and other places where case--control studies happen. Diseases are
+as common as they are, they usually happen to a small fraction of all people and
+you can't very well go out and create more cases. But! You can get as many healthy
+controls as you can afford. Hence you can use extra controls to bolster your
+estimates for the non-intercept coefficients and, if you know the prevalence of
+disease in the population, you can simply adjust the intercept. That's
+pretty handy.
+
+I don't think I'd generally recommend people throw away their precious data, 
+however. Though maybe you know something I don't.
