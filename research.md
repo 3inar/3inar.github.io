@@ -7,6 +7,8 @@ permalink: /research/
 This is a list of my academic work. For talks and similar, visit the [talks](/talks/) page.
 
 ### Papers
+* __E. Holsbø__, V. Perduca, L. A. Bongo, E. Lund, and E. Birmelé, _Curve Selection For Predicting Breast Cancer Metastasis From Prospective Gene Expression In Blood._ \[[bioRxiv](http://www.biorxiv.org/content/early/2017/05/23/141325??collection=)\], 2017. Currently under submission.
+
 * Tartari G, Tiede L, __Holsbø E__, Knudsen K, Raknes IA, Fjukstad B, Mode N, Bjørndalen JM, Lund E, and Bongo LA. 
 _Mr. Clean: A Tool for Tracking and Comparing the Lineage of Scientific Visualization Code._
 2nd IEEE Working Conference on Software Visualization
