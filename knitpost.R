@@ -4,10 +4,10 @@ KnitPost <- function(site.path='~/Dropbox/repos/3inar.github.io/', overwriteAll=
 
   ## Blog-specific directories.  This will depend on how you organize your blog.
   site.path <- site.path # directory of jekyll blog (including trailing slash)
-  rmd.path <- paste0(site.path, "_Rmd") # directory where your Rmd-files reside (relative to base)
+  rmd.path <- paste0(site.path, "_Rmd/") # directory where your Rmd-files reside (relative to base)
   fig.dir <- "assets/Rfig/" # directory to save figures
-  posts.path <- paste0(site.path, "_posts") # directory for converted markdown files
-  cache.path <- paste0(site.path, "_cache") # necessary for plots
+  posts.path <- paste0(site.path, "_posts/") # directory for converted markdown files
+  cache.path <- paste0(site.path, "_cache/") # necessary for plots
 
   render_jekyll(highlight = "pygments")
   opts_knit$set(base.url = '/', base.dir = site.path)
