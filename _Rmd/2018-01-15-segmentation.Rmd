@@ -27,7 +27,7 @@ can see this in [some pretty great data](/assets/great_trainingdata.jpg) that I
 made for the purposes of this treatment. I cut out the individual numbers in
 that photo with the crop tool in the OS X Preview app and put them in a folder.
 
-# Segmentatiin with mixture models in R
+# Segmentation with mixture models in R
 R is my preferred statistical computing environment, but I'm sure you can find
 this type of functionality anywhere. I choose to focus on the number I consider the
 worst: 586. I can never get those 8s right.
