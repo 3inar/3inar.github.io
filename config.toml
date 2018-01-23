@@ -1,0 +1,68 @@
+## Basic Configuration
+
+baseurl = "http://3inar.github.io/"
+builddrafts = false
+canonifyurls = false
+languageCode = "en-US"
+
+contentdir = "content"
+layoutdir = "layouts"
+publishdir = "public"
+
+author = "Einar Holsbø"
+title = "Einar Holsbø"
+
+theme = "hugo-goa"
+
+## Hugo Built-in Features
+#disqusShortname = "https-shenoybr-github-io-hugo-goa-demo" # Comment out to disable Disqus.
+#googleAnalytics = "XYZ"
+enableRobotsTXT = true
+
+## Site Settings
+[params]
+author = "Einar Holsbø"
+intro = "Ph. D. student at the University of Tromsø"
+description = "I am currently working on predictive modelling of gene expression \
+  data from the <a href=\"https://site.uit.no/nowac/\">Norwegian Women and Cancer</a> \
+  study. I’m a member of the <a href=\"http://bdps.cs.uit.no/\">Biological Data Processing Systems lab</a>. \
+  I have my co-supervisor Etienne Birmelé at the <a href=\"http://map5.mi.parisdescartes.fr/\">MAP5 lab at l’université Paris Descartes</a>, where I spent ten months in 2016-2017."
+authorimage = "ein.jpg"
+dateformat = "Jan 2, 2006"
+
+## Site Meta Settings
+[params.meta]
+description = "Academic web page"
+keywords = "statistics,machine learning,research,computer science"
+
+## Social Accounts
+[params.social]
+github = "3inar"
+twitter = "0xeinar"
+stackoverflow = "einar"
+email = "einar@cs.uit.no"
+
+## Extras
+[params.extra]
+copyright = ""
+poweredby = true
+highlightjs = true
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
+## Main Menu
+[[menu.main]]
+    name = "blog 123 "
+    weight = 100
+    identifier = "blog 111"
+    url = "/blog/"
+[[menu.main]]
+    name = "about"
+    identifier = "about"
+    weight = 200
+    url = "/about/"
+[[menu.main]]
+    name = "research"
+    identifier = "research"
+    weight = 300
+    url = "/research/"
+
