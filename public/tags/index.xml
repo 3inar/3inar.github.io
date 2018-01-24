@@ -66,6 +66,15 @@
     </item>
     
     <item>
+      <title>Golang</title>
+      <link>/tags/golang/</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Handwritten Digits</title>
       <link>/tags/handwritten-digits/</link>
       <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
@@ -75,11 +84,38 @@
     </item>
     
     <item>
+      <title>Housekeeping</title>
+      <link>/tags/housekeeping/</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/housekeeping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>/tags/hugo/</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Image Segmentation</title>
       <link>/tags/image-segmentation/</link>
       <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/image-segmentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jekyll</title>
+      <link>/tags/jekyll/</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/jekyll/</guid>
       <description></description>
     </item>
     
@@ -152,6 +188,15 @@
       <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>/tags/prediction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruby</title>
+      <link>/tags/ruby/</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/ruby/</guid>
       <description></description>
     </item>
     
