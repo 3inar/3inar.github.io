@@ -21,6 +21,24 @@
     </item>
     
     <item>
+      <title>Bayes</title>
+      <link>/tags/bayes/</link>
+      <pubDate>Mon, 03 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/bayes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Empirical Bayes</title>
+      <link>/tags/empirical-bayes/</link>
+      <pubDate>Mon, 03 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/empirical-bayes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Naive Bayes</title>
       <link>/tags/naive-bayes/</link>
       <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
@@ -35,6 +53,24 @@
       <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>/tags/neural-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Official Statistics</title>
+      <link>/tags/official-statistics/</link>
+      <pubDate>Mon, 03 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/official-statistics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shrinkage</title>
+      <link>/tags/shrinkage/</link>
+      <pubDate>Mon, 03 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/shrinkage/</guid>
       <description></description>
     </item>
     

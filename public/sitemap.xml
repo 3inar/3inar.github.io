@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/blog/2016-10-03-violence/</loc>
+    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/2016-08-24-neural-network-overengineering/</loc>
     <lastmod>2016-08-24T00:00:00+00:00</lastmod>
   </url>
@@ -31,8 +36,14 @@
   </url>
   
   <url>
+    <loc>/tags/bayes/</loc>
+    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/blog/</loc>
-    <lastmod>2016-08-24T00:00:00+00:00</lastmod>
+    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -49,6 +60,12 @@
   </url>
   
   <url>
+    <loc>/tags/empirical-bayes/</loc>
+    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/naive-bayes/</loc>
     <lastmod>2016-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -57,6 +74,18 @@
   <url>
     <loc>/tags/neural-networks/</loc>
     <lastmod>2016-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/official-statistics/</loc>
+    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/shrinkage/</loc>
+    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
