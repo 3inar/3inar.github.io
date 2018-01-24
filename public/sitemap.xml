@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blog/2017-08-24-auc-harmful/</loc>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/2017-04-09-undersampling/</loc>
+    <lastmod>2017-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/about/</loc>
     <lastmod>2016-10-02T22:55:05-04:00</lastmod>
   </url>
@@ -36,6 +46,12 @@
   </url>
   
   <url>
+    <loc>/tags/auc/</loc>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/bayes/</loc>
     <lastmod>2016-10-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -43,7 +59,13 @@
   
   <url>
     <loc>/blog/</loc>
-    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/brier-score/</loc>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -54,14 +76,32 @@
   </url>
   
   <url>
+    <loc>/tags/classification/</loc>
+    <lastmod>2017-04-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/</loc>
-    <lastmod>2016-10-02T22:55:05-04:00</lastmod>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/empirical-bayes/</loc>
     <lastmod>2016-10-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/logistic-regression/</loc>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/model-selection/</loc>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -84,14 +124,32 @@
   </url>
   
   <url>
+    <loc>/tags/prediction/</loc>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/shrinkage/</loc>
     <lastmod>2016-10-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>/tags/simulation/</loc>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
     <lastmod>2016-10-02T22:55:05-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/undersampling/</loc>
+    <lastmod>2017-04-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

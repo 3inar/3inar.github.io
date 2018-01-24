@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on Einar Holsbø</title>
-    <link>/blog/</link>
-    <description>Recent content in Blogs on Einar Holsbø</description>
+    <title>Simulation on Einar Holsbø</title>
+    <link>/tags/simulation/</link>
+    <description>Recent content in Simulation on Einar Holsbø</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 24 Aug 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/simulation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -28,25 +28,6 @@
       <guid>/blog/2017-04-09-undersampling/</guid>
       <description>I really like Frank Harrell’s blog. He writes all kinds of useful things, and as I am working in the classification/predition area I was particularly interested in his two posts about classification vs. prediction and improper scoring rules. After posting links to these in the lab Slack I got some questions that forced me to do some thinking. Why not undersample the majority class?
 Possibly a motivation So the argument for balancing unbalanced classes seems to stem from the use of classification accuracy (= fraction predictions where the predicted class was correct) to evaluate classifiers: if \(.</description>
-    </item>
-    
-    <item>
-      <title>Most violent show on earth</title>
-      <link>/blog/2016-10-03-violence/</link>
-      <pubDate>Mon, 03 Oct 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/2016-10-03-violence/</guid>
-      <description>Warning from January, 2018: The statistics provided by SSB have changed a little since I made this post, for unknown reasons. Hence the text below might not be 100% accurate in terms of what the text says and what the data show. I have tried to tidy it up but I make no guarantees.
-So I’m currently at a ten month reserach stay in Paris. I’m reluctant in the face of change, so I often think of home while I’m in my small apartment in a building with a slight mouse problem, or in my larger office with, astonishingly, also a slight mouse problem (unconfirmed).</description>
-    </item>
-    
-    <item>
-      <title>Neural network overengineering</title>
-      <link>/blog/2016-08-24-neural-network-overengineering/</link>
-      <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/2016-08-24-neural-network-overengineering/</guid>
-      <description>In my idle hours (ie when I should have been writing a paper), I came across this blog post where the author trained a neural netwok in the fine art of wine tasting. I am basically deep down a very lazy person, and from what little I understand of NNs, there are quite a few knobs to fiddle with, which really who has the time with all this untasted wine floating about?</description>
     </item>
     
   </channel>

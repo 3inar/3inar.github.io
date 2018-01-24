@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Auc</title>
+      <link>/tags/auc/</link>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/auc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Bayes</title>
       <link>/tags/bayes/</link>
       <pubDate>Mon, 03 Oct 2016 00:00:00 +0000</pubDate>
@@ -30,11 +39,47 @@
     </item>
     
     <item>
+      <title>Brier Score</title>
+      <link>/tags/brier-score/</link>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/brier-score/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Classification</title>
+      <link>/tags/classification/</link>
+      <pubDate>Sun, 09 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/classification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Empirical Bayes</title>
       <link>/tags/empirical-bayes/</link>
       <pubDate>Mon, 03 Oct 2016 00:00:00 +0000</pubDate>
       
       <guid>/tags/empirical-bayes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Logistic Regression</title>
+      <link>/tags/logistic-regression/</link>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/logistic-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Model Selection</title>
+      <link>/tags/model-selection/</link>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/model-selection/</guid>
       <description></description>
     </item>
     
@@ -66,11 +111,38 @@
     </item>
     
     <item>
+      <title>Prediction</title>
+      <link>/tags/prediction/</link>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/prediction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Shrinkage</title>
       <link>/tags/shrinkage/</link>
       <pubDate>Mon, 03 Oct 2016 00:00:00 +0000</pubDate>
       
       <guid>/tags/shrinkage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Simulation</title>
+      <link>/tags/simulation/</link>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/simulation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Undersampling</title>
+      <link>/tags/undersampling/</link>
+      <pubDate>Sun, 09 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/undersampling/</guid>
       <description></description>
     </item>
     
