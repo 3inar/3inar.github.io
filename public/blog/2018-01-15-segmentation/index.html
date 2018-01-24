@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="description" content="Academic web page">
+<meta name="keywords" content="statistics,machine learning,research,computer science">
+
+<base href="/">
+
+<title>Einar Holsbø</title>
+
+<meta name="generator" content="Hugo 0.34" />
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en-US">
+<div class="container">
+
+
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+<header class="row text-left title">
+  <h1 class="title">Quick-and-dirty image segmentation</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+        PUBLISHED ON JAN 15, 2018 
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-left content">
+    <p>A member of our lab does handwritten digit recognition in a highly structured setting. Without going into details, we want to read images of three-digit handwritten codes and recognize which number the image depicts. To avoid having to predict one of a thousand classes, we want to to split the images into three single digits.</p>
+<p>I’m sure there are some very fancy ways indeed of doing this, but the following structure makes me think we can start with simpler solutions: (i) There are always three digits. Knowing how many digits we’re looking for is useful information. (ii) One image is one number. There is not much else in the image, so it’s enough to just find two cut points along the x-axis.</p>
+<p>My best guess is that the best cut points will be the ones where there is the least amount of ink if you were to somehow collapse the image to fit entirely within the x axis. We do leave gaps between digits when writing, though some digits may be connected by a line due to quirks in handwriting and so on. You can see this in <a href="/assets/great_trainingdata.jpg">some pretty great data</a> that I made for the purposes of this treatment. I cut out the individual numbers in that photo with the crop tool in the OS X Preview app and put them in a folder.</p>
+<div id="segmentation-with-mixture-models-in-r" class="section level1">
+<h1>Segmentation with mixture models in R</h1>
+<p>R is my preferred statistical computing environment, but I’m sure you can find this type of functionality anywhere. I choose to focus on the number I consider the worst: 586. I can never get those 8s right.</p>
+<pre class="r"><code>library(magick)   # for image maipulation</code></pre>
+<pre><code>## Warning: package &#39;magick&#39; was built under R version 3.3.2</code></pre>
+<pre><code>## Linking to ImageMagick 6.9.6.6
+## Enabled features: cairo, fontconfig, freetype, pango, rsvg, webp
+## Disabled features: fftw, ghostscript, lcms, x11</code></pre>
+<pre class="r"><code>library(plyr)     # vectorized operations
+
+img &lt;- image_read(&quot;data/digits/586.jpeg&quot;)
+plot(img)</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/readimage-1.png" width="672" /></p>
+<pre class="r"><code>#convert to greyscale
+img &lt;- image_quantize(img, max = 256, colorspace = &quot;gray&quot;, dither = NULL, treedepth = NULL)
+
+# get the intensities &amp; look at them
+mat &lt;- image_data(img)[1,,]
+nrows &lt;- dim(mat)[1]
+gsm &lt;- matrix(as.numeric(mat), nrow=nrows)
+hist(gsm, main=&quot;Histogram of intensities&quot;)</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/readimage-2.png" width="672" /></p>
+<p>As we can see, the intensities roughly form two clusters, lights and darks (higher and lower numbers). Let’s say that intensity 130 roughly separates the lights from the darks.</p>
+<pre class="r"><code># thresholding
+gsm_tf &lt;- gsm &lt; 130
+image(t(apply(gsm_tf, 1, rev)))</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/thresholding-1.png" width="672" /></p>
+<p>OK! Looks decent. I will go over this row by row (ie column by column because the matrix is sideways) and output the column numbers (ie row numbers, corresponds to x-coordinates in the original image) where there is ink (ie a True value after thresholding). This will yields a distribution over ink horizontally in the image.</p>
+<pre class="r"><code>hst &lt;- alply(gsm_tf, 2, which)
+occ &lt;- NULL
+for (i in 1:length(hst)) {
+  occ &lt;- c(occ, hst[[i]])
+}
+
+hist(occ, nclass=20, main=&quot;Where is the ink at&quot;)</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/density_of_ink-1.png" width="672" /></p>
+<p>This looks roughly like three clusters roughly corresponding to the locations of the three digits. I will model this as a mixture of three normal distributions. That’s exactly what it sounds like: fit three normal distributions to these data. Hopefully one for each bump, which hopefully correspons to one for each digit.</p>
+<p>Mixture models are fit with the EM algorithm, which we can mostly gloss over. But: One important detail is that the method accepts as an argument your best guess as to the size, scale, and location of the three components. I reason as follows: (i) if you split the image into thirds, it’s reasonable to believe that the three numbers each lie in the middle of one of these thirds. These are my guesses for for the means, <code>mu</code>. (ii) Probably there goes as much ink into one digit as the next, so the size, <code>lambda</code>, of each component is probably one third. (iii) I set the initial scale or standard deviation, <code>sigma</code>, to .5 arbitrarily. These are just starting points, you understand; the algorithm iterates toward better values to maximize the likelihood of the data.</p>
+<pre class="r"><code>library(mixtools) # fits mixture distributions</code></pre>
+<pre><code>## Warning: package &#39;mixtools&#39; was built under R version 3.3.2</code></pre>
+<pre><code>## mixtools package, version 1.1.0, Released 2017-03-10
+## This package is based upon work supported by the National Science Foundation under Grant No. SES-0518772.</code></pre>
+<pre class="r"><code>third &lt;- nrows/3   # nrows because the image is tipped on its side
+mix &lt;- normalmixEM(occ, lambda = 1/3, mu = c(third/2, third + third/2, 2*third + third/2), sigma = .5)</code></pre>
+<pre><code>## number of iterations= 50</code></pre>
+<pre class="r"><code>plot(mix, whichplots=2)</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/mixturemodel-1.png" width="672" /></p>
+<p>The plot above shows the mixture distribution, its three components in different colors. This is everything we need: now I can simply choose my first cut as the point where red becomes less likely than green, and the second cut as the point where green becomes less likely than blue. This is the intersection between the respective density curves. You can easily find the analytical solution for this, but I just brute force it with a numerical solver below.</p>
+<pre class="r"><code># I want to be sure that the clusters are in order so that I don&#39;t suddenly
+# compare the wrong components
+mu &lt;- mix$mu[order(mix$mu)]
+sigma &lt;- mix$sigma[order(mix$mu)]
+
+
+sepline &lt;- function(mu, sigma) {
+  f &lt;- function(x) dnorm(x, m=mu[1], sd=sigma[1]) - dnorm(x, m=mu[2], sd=sigma[2])
+
+  uniroot(f, interval=c(mu[1], mu[2]))$root
+}
+
+
+# for knitr reasons I have to reload the image
+img &lt;- image_read(&quot;data/digits/586.jpeg&quot;)
+plot(img)
+abline(v=sepline(mu[1:2], sigma[1:2]), lwd=2, col=&quot;red&quot;)
+abline(v=sepline(mu[2:3], sigma[2:3]), lwd=2, col=&quot;red&quot;)</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/finalsegmentation-1.png" width="672" /></p>
+<p>There you have it! I’m super happy with how well that turned out. It might not be sexy methodology; mixture models date back at least to the late 1800s. But I think it’s good progress for a short afternoon’s work.</p>
+</div>
+<div id="results-for-all-numbers" class="section level1">
+<h1>Results for all numbers</h1>
+<p>I’ll show the results for all of my numbers now. I’ve packaged the above in a function, shown at the end of this post, because that’s just good sense.</p>
+<pre class="r"><code># don&#39;t believe for a second that I didn&#39;t copy-paste this from the 
+# terminal and format it with the vim blockwise visual mode
+filenames &lt;- c(
+  &quot;097.jpeg&quot;,
+  &quot;210.jpeg&quot;,
+  &quot;350.jpeg&quot;,
+  &quot;351.jpeg&quot;,
+  &quot;460.jpeg&quot;,
+  &quot;463.jpeg&quot;,
+  &quot;586.jpeg&quot;,
+  &quot;727.jpeg&quot;,
+  &quot;768.jpeg&quot;,
+  &quot;846.jpeg&quot;
+)
+
+for (fname in filenames) {
+  img &lt;- image_read(paste0(&quot;data/digits/&quot;, fname))
+  plot(img)
+  abline(v=cutpoints(img), col=&quot;red&quot;, lwd=2)
+}</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/allnumbers-1.png" width="672" /></p>
+<pre><code>## number of iterations= 10</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/allnumbers-2.png" width="672" /></p>
+<pre><code>## number of iterations= 8</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/allnumbers-3.png" width="672" /></p>
+<pre><code>## number of iterations= 10</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/allnumbers-4.png" width="672" /></p>
+<pre><code>## number of iterations= 9</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/allnumbers-5.png" width="672" /></p>
+<pre><code>## number of iterations= 9</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/allnumbers-6.png" width="672" /></p>
+<pre><code>## number of iterations= 18</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/allnumbers-7.png" width="672" /></p>
+<pre><code>## number of iterations= 50</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/allnumbers-8.png" width="672" /></p>
+<pre><code>## number of iterations= 16</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/allnumbers-9.png" width="672" /></p>
+<pre><code>## number of iterations= 7</code></pre>
+<p><img src="/blog/2018-01-15-segmentation_files/figure-html/allnumbers-10.png" width="672" /></p>
+<pre><code>## number of iterations= 9</code></pre>
+<div id="the-cutpoint-function" class="section level2">
+<h2>The cutpoint function</h2>
+<pre class="r"><code>cutpoints &lt;- function(img) {
+  img &lt;- image_quantize(img, max = 256, colorspace = &quot;gray&quot;, dither = NULL, treedepth = NULL)
+  
+  mat &lt;- image_data(img)[1,,]
+  nrows &lt;- dim(mat)[1]
+  gsm &lt;- matrix(as.numeric(mat), nrow=nrows)
+  gsm_tf &lt;- gsm &lt; 130
+  
+  hst &lt;- alply(gsm_tf, 2, which)
+  occ &lt;- NULL
+  for (i in 1:length(hst)) {
+    occ &lt;- c(occ, hst[[i]])
+  }
+  
+  third &lt;- nrows/3   # nrows because the image is tipped on its side
+  mix &lt;- normalmixEM(occ, lambda = 1/3, mu = c(third/2, third + third/2, 2*third + third/2), sigma = .5)
+  
+  mu &lt;- mix$mu[order(mix$mu)]
+  sigma &lt;- mix$sigma[order(mix$mu)]
+  
+  
+  sepline &lt;- function(mu, sigma) {
+    f &lt;- function(x) dnorm(x, m=mu[1], sd=sigma[1]) - dnorm(x, m=mu[2], sd=sigma[2])
+  
+    uniroot(f, interval=c(mu[1], mu[2]))$root
+  }
+  
+  
+  c(sepline(mu[1:2], sigma[1:2]), sepline(mu[2:3], sigma[2:3]))
+}</code></pre>
+</div>
+</div>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+      
+      TAGS:
+      
+      
+      <a class="meta" href="/tags/handwritten-digits">HANDWRITTEN DIGITS</a>, 
+      
+      <a class="meta" href="/tags/image-segmentation">IMAGE SEGMENTATION</a>, 
+      
+      <a class="meta" href="/tags/mixture-models">MIXTURE MODELS</a>, 
+      
+      <a class="meta" href="/tags/ocr">OCR</a>
+      
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  <span><a class="menu-item" href="/blog/2017-08-24-auc-harmful/">&lt; prev | </a></span>
+  
+  
+  <span><a class="menu-item" href="/blog">blog</a></span>
+  
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="/">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright"></h6>
+  
+  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+
+<script type="text/javascript">
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+
+

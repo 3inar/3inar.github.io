@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blog/2018-01-15-segmentation/</loc>
+    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/2017-08-24-auc-harmful/</loc>
     <lastmod>2017-08-24T00:00:00+00:00</lastmod>
   </url>
@@ -59,7 +64,7 @@
   
   <url>
     <loc>/blog/</loc>
-    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -83,7 +88,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -94,8 +99,26 @@
   </url>
   
   <url>
+    <loc>/tags/handwritten-digits/</loc>
+    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/image-segmentation/</loc>
+    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/logistic-regression/</loc>
     <lastmod>2017-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/mixture-models/</loc>
+    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -114,6 +137,12 @@
   <url>
     <loc>/tags/neural-networks/</loc>
     <lastmod>2016-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/ocr/</loc>
+    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

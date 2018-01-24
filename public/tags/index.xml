@@ -66,11 +66,38 @@
     </item>
     
     <item>
+      <title>Handwritten Digits</title>
+      <link>/tags/handwritten-digits/</link>
+      <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/handwritten-digits/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image Segmentation</title>
+      <link>/tags/image-segmentation/</link>
+      <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/image-segmentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Logistic Regression</title>
       <link>/tags/logistic-regression/</link>
       <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>/tags/logistic-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mixture Models</title>
+      <link>/tags/mixture-models/</link>
+      <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/mixture-models/</guid>
       <description></description>
     </item>
     
@@ -98,6 +125,15 @@
       <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>/tags/neural-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ocr</title>
+      <link>/tags/ocr/</link>
+      <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/ocr/</guid>
       <description></description>
     </item>
     
