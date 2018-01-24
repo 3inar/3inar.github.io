@@ -88,5 +88,14 @@ Papers  M. Grønnesby, J. C. A. Solis, E. Holsbø, H. Melbye, and L. A. Bongo, M
  H. M. Bøvelstad, E. Holsbø, L. A. Bongo, and E. Lund, A Standard Operating Procedure For Outlier Removal In Large-Sample Epidemiological Transcriptomics Datasets, [bioRxiv], May 2017.</description>
     </item>
     
+    <item>
+      <title>Talks</title>
+      <link>/talks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/talks/</guid>
+      <description>Predicting breast cancer metastasis from blood samples &amp;mdash; “On variance and other problems” Presented at the Breast Cancer and the Immune System workshop, Barbados, 2017. [pdf] Predicting breast cancer metastasis from blood gene expression using time-to-diagnosis data to derive signature estimates. Poster presented at the 2017 Statistical Methods for Postgenomic Data workshop in London. [pdf] The pragmatic R programmer. Intro to writing reusable R code and bundling it in packages.</description>
+    </item>
+    
   </channel>
 </rss>
