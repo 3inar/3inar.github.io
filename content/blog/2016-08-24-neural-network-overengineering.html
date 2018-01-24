@@ -26,7 +26,8 @@ colnames(x) &lt;- c(&quot;Alcohol&quot;, &quot;Malic acid&quot;, &quot;Ash&quot;
 
 # set aside 0.35 of the samples for independent test set as per other blog
 test_idx &lt;- sample(1:length(y), ceiling(length(y)*0.35))</code></pre>
-<p>To get a feel for the data we’ll plot the class-conditional densities of the different predictors. We exclude the training samples, of course, so as not to fool ourselves. The code for this plot is kind of ugly and unintersting so I’ll just hide it. <img src="/blog/2016-08-24-neural-network-overengineering_files/figure-html/density_estimates-1.png" width="672" /></p>
+<p>To get a feel for the data we’ll plot the class-conditional densities of the different predictors. We exclude the training samples, of course, so as not to fool ourselves. The code for this plot is kind of ugly and unintersting so I’ll just hide it.</p>
+<p><img src="/blog/2016-08-24-neural-network-overengineering_files/figure-html/density_estimates-1.png" width="672" /></p>
 <p>Doesn’t look too bad. Some of these don’t look particularly Gaussian, but let’s just say that we’re doing smoothing. Now to fit our model and look at how it classifies the different wines.</p>
 <pre class="r"><code>library(e1071) # provides naiveBayes()</code></pre>
 <pre><code>## Warning: package &#39;e1071&#39; was built under R version 3.3.2</code></pre>

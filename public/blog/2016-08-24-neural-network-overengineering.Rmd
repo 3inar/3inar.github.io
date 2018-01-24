@@ -28,6 +28,7 @@ Anyway, [get the data from UCI](https://archive.ics.uci.edu/ml/datasets/Wine)
 and have a go. Follow this simple guide and you too will have
 created a wine-tasting AI to threaten the job security of sommeliers 
 everywhere. First let's load the data and have a look at it. 
+
 ```{r load}
 set.seed(220816) # for reproducibility 
 
@@ -50,6 +51,7 @@ To get a feel for the data we'll plot the class-conditional densities of
 the different predictors. We exclude the  training samples, of course, 
 so as not to fool ourselves. The code for this plot is kind of ugly and 
 unintersting so I'll just hide it.
+
 ```{r density_estimates, echo=F}
 op <- par(mar = rep(0.2, 4))
 
@@ -78,6 +80,7 @@ for (i in 1:ncol(x)) {
 Doesn't look too bad. Some of these don't look particularly Gaussian, 
 but let's just say that we're doing smoothing. Now to fit our model and 
 look at how it classifies the different wines.
+
 ```{r modelfit}
 library(e1071) # provides naiveBayes()
 nbfit <- naiveBayes(x[-test_idx, ], y[-test_idx])
@@ -89,6 +92,7 @@ confusion <- table(pred, y[test_idx]); confusion
 That's a pretty friendly-looking confusion matrix; we only have a single 
 misclassification. Accuracy is the number of correctly classified observations 
 over the total number of observations classified:
+
 ```{r acc}
 acc_est <- sum(diag(confusion))/sum(confusion); acc_est
 ```
@@ -96,6 +100,7 @@ acc_est <- sum(diag(confusion))/sum(confusion); acc_est
 So that's pretty good. Since I believe in uncertainty estimates, we'll do a 
 bootstrapped quantile confidence interval. I estimate by 100% guessing that
 5000 bootstrap samples is enough. Much more than enough probably.
+
 ```{r bootstrap}
 library(plyr)
 boots <- raply(5000, sample((1:nrow(x))[-test_idx], replace=T))

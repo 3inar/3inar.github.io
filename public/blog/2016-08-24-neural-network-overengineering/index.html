@@ -56,7 +56,7 @@
   
 </section>
 <section id="content-pane" class="row">
-  <div class="col-md-12 text-justify content">
+  <div class="col-md-12 text-left content">
     <p>In my idle hours (ie when I should have been writing a paper), I came across this blog post where the author <a href="https://medium.com/autonomous-agents/how-to-train-your-neuralnetwork-for-wine-tasting-1b49e0adff3a#.l2fhfa6hr">trained a neural netwok in the fine art of wine tasting</a>. I am basically deep down a very lazy person, and from what little I understand of NNs, there are quite a few knobs to fiddle with, which really who has the time with all this untasted wine floating about? 5.56 hidden nodes? 600 epochs? Feature scaling? Honestly! What I need is something <em>simple</em>.</p>
 <p>Now for simplicity you can hardly beat good old Naive Bayes. For those of us who forget, Naive Bayes is to assume that the predictors \( x_i \) in an observation \( x = [x_1, x_1, , x_p] \) are independent so that the probability of a given sample, \( x\), belonging to a given class, \(C\), is \( p(C | X = x) p(C)_{i=1}^p p(x_i|C) \). The class-conditional densities, \(p(x_i | C)\), are usually fit as maximum-likelihood-estimate Gaussians.</p>
 <p>Anyway, <a href="https://archive.ics.uci.edu/ml/datasets/Wine">get the data from UCI</a> and have a go. Follow this simple guide and you too will have created a wine-tasting AI to threaten the job security of sommeliers everywhere. First let’s load the data and have a look at it.</p>
@@ -75,7 +75,8 @@ colnames(x) &lt;- c(&quot;Alcohol&quot;, &quot;Malic acid&quot;, &quot;Ash&quot;
 
 # set aside 0.35 of the samples for independent test set as per other blog
 test_idx &lt;- sample(1:length(y), ceiling(length(y)*0.35))</code></pre>
-<p>To get a feel for the data we’ll plot the class-conditional densities of the different predictors. We exclude the training samples, of course, so as not to fool ourselves. The code for this plot is kind of ugly and unintersting so I’ll just hide it. <img src="/blog/2016-08-24-neural-network-overengineering_files/figure-html/density_estimates-1.png" width="672" /></p>
+<p>To get a feel for the data we’ll plot the class-conditional densities of the different predictors. We exclude the training samples, of course, so as not to fool ourselves. The code for this plot is kind of ugly and unintersting so I’ll just hide it.</p>
+<p><img src="/blog/2016-08-24-neural-network-overengineering_files/figure-html/density_estimates-1.png" width="672" /></p>
 <p>Doesn’t look too bad. Some of these don’t look particularly Gaussian, but let’s just say that we’re doing smoothing. Now to fit our model and look at how it classifies the different wines.</p>
 <pre class="r"><code>library(e1071) # provides naiveBayes()</code></pre>
 <pre><code>## Warning: package &#39;e1071&#39; was built under R version 3.3.2</code></pre>
