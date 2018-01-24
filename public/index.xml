@@ -77,5 +77,16 @@ So I’m currently at a ten month reserach stay in Paris. I’m reluctant in the
       <description>In my idle hours (ie when I should have been writing a paper), I came across this blog post where the author trained a neural netwok in the fine art of wine tasting. I am basically deep down a very lazy person, and from what little I understand of NNs, there are quite a few knobs to fiddle with, which really who has the time with all this untasted wine floating about?</description>
     </item>
     
+    <item>
+      <title>Research</title>
+      <link>/research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/research/</guid>
+      <description>This is a list of my academic work. For talks and similar, visit the talks page.
+Papers  M. Grønnesby, J. C. A. Solis, E. Holsbø, H. Melbye, and L. A. Bongo, Machine Learning Based Crackle Detection in Lung Sounds, [arXiv], May 2017. Currently under submission.
+ H. M. Bøvelstad, E. Holsbø, L. A. Bongo, and E. Lund, A Standard Operating Procedure For Outlier Removal In Large-Sample Epidemiological Transcriptomics Datasets, [bioRxiv], May 2017.</description>
+    </item>
+    
   </channel>
 </rss>
