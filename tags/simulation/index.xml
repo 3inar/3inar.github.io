@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Simulation on Einar Holsbø</title>
+    <link>http://3inar.github.io/tags/simulation/</link>
+    <description>Recent content in Simulation on Einar Holsbø</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 24 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://3inar.github.io/tags/simulation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AUC and accuracy considered harmful to model selection</title>
+      <link>http://3inar.github.io/blog/2017-08-24-auc-harmful/</link>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://3inar.github.io/blog/2017-08-24-auc-harmful/</guid>
+      <description>It’s pretty hard to build a predictive model, let’s be honest. My previous post was about the strange practice of under-/oversampling. We impose this on ourselves because we want to do yes/no classification instead of predicting probability. This post is on the same theme. It has a very clear message: if we use accuracy-like model performance measures (looking at you, AUC, F1, etc.) we reduce our ability to select the best model.</description>
+    </item>
+    
+    <item>
+      <title>Understanding undersampling</title>
+      <link>http://3inar.github.io/blog/2017-04-09-undersampling/</link>
+      <pubDate>Sun, 09 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://3inar.github.io/blog/2017-04-09-undersampling/</guid>
+      <description>I really like Frank Harrell’s blog. He writes all kinds of useful things, and as I am working in the classification/predition area I was particularly interested in his two posts about classification vs. prediction and improper scoring rules. After posting links to these in the lab Slack I got some questions that forced me to do some thinking. Why not undersample the majority class?
+Possibly a motivation So the argument for balancing unbalanced classes seems to stem from the use of classification accuracy (= fraction predictions where the predicted class was correct) to evaluate classifiers: if \(.</description>
+    </item>
+    
+  </channel>
+</rss>
