@@ -2,89 +2,89 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Einar Holsbø</title>
-    <link>/</link>
+    <link>http://3inar.github.io/</link>
     <description>Recent content on Einar Holsbø</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 24 Jan 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://3inar.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Changing website framework from Jekyll to Hugo</title>
-      <link>/blog/2018-01-24-hugo/</link>
+      <link>http://3inar.github.io/blog/2018-01-24-hugo/</link>
       <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2018-01-24-hugo/</guid>
+      <guid>http://3inar.github.io/blog/2018-01-24-hugo/</guid>
       <description>I decided to move away from Jekyll as a framework for running this website as I had some gemfile problems (now ruby doesn’t work at all for arcane reasons) and I figured it would be saner, simpler, and faster to just stop using something ruby-based. The switch to Hugo took a couple of hours where most of it went into (i) picking a theme and (ii) making sure the blog posts still work.</description>
     </item>
     
     <item>
       <title>Quick-and-dirty image segmentation</title>
-      <link>/blog/2018-01-15-segmentation/</link>
+      <link>http://3inar.github.io/blog/2018-01-15-segmentation/</link>
       <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2018-01-15-segmentation/</guid>
+      <guid>http://3inar.github.io/blog/2018-01-15-segmentation/</guid>
       <description>A member of our lab does handwritten digit recognition in a highly structured setting. Without going into details, we want to read images of three-digit handwritten codes and recognize which number the image depicts. To avoid having to predict one of a thousand classes, we want to to split the images into three single digits.
 I’m sure there are some very fancy ways indeed of doing this, but the following structure makes me think we can start with simpler solutions: (i) There are always three digits.</description>
     </item>
     
     <item>
       <title>AUC and accuracy considered harmful to model selection</title>
-      <link>/blog/2017-08-24-auc-harmful/</link>
+      <link>http://3inar.github.io/blog/2017-08-24-auc-harmful/</link>
       <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-08-24-auc-harmful/</guid>
+      <guid>http://3inar.github.io/blog/2017-08-24-auc-harmful/</guid>
       <description>It’s pretty hard to build a predictive model, let’s be honest. My previous post was about the strange practice of under-/oversampling. We impose this on ourselves because we want to do yes/no classification instead of predicting probability. This post is on the same theme. It has a very clear message: if we use accuracy-like model performance measures (looking at you, AUC, F1, etc.) we reduce our ability to select the best model.</description>
     </item>
     
     <item>
       <title>Understanding undersampling</title>
-      <link>/blog/2017-04-09-undersampling/</link>
+      <link>http://3inar.github.io/blog/2017-04-09-undersampling/</link>
       <pubDate>Sun, 09 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-04-09-undersampling/</guid>
+      <guid>http://3inar.github.io/blog/2017-04-09-undersampling/</guid>
       <description>I really like Frank Harrell’s blog. He writes all kinds of useful things, and as I am working in the classification/predition area I was particularly interested in his two posts about classification vs. prediction and improper scoring rules. After posting links to these in the lab Slack I got some questions that forced me to do some thinking. Why not undersample the majority class?
 Possibly a motivation So the argument for balancing unbalanced classes seems to stem from the use of classification accuracy (= fraction predictions where the predicted class was correct) to evaluate classifiers: if \(.</description>
     </item>
     
     <item>
       <title>Most violent show on earth</title>
-      <link>/blog/2016-10-03-violence/</link>
+      <link>http://3inar.github.io/blog/2016-10-03-violence/</link>
       <pubDate>Mon, 03 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2016-10-03-violence/</guid>
+      <guid>http://3inar.github.io/blog/2016-10-03-violence/</guid>
       <description>Warning from January, 2018: The statistics provided by SSB have changed a little since I made this post, for unknown reasons. Hence the text below might not be 100% accurate in terms of what the text says and what the data show. I have tried to tidy it up but I make no guarantees.
 So I’m currently at a ten month reserach stay in Paris. I’m reluctant in the face of change, so I often think of home while I’m in my small apartment in a building with a slight mouse problem, or in my larger office with, astonishingly, also a slight mouse problem (unconfirmed).</description>
     </item>
     
     <item>
       <title>Neural network overengineering</title>
-      <link>/blog/2016-08-24-neural-network-overengineering/</link>
+      <link>http://3inar.github.io/blog/2016-08-24-neural-network-overengineering/</link>
       <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2016-08-24-neural-network-overengineering/</guid>
+      <guid>http://3inar.github.io/blog/2016-08-24-neural-network-overengineering/</guid>
       <description>In my idle hours (ie when I should have been writing a paper), I came across this blog post where the author trained a neural netwok in the fine art of wine tasting. I am basically deep down a very lazy person, and from what little I understand of NNs, there are quite a few knobs to fiddle with, which really who has the time with all this untasted wine floating about?</description>
     </item>
     
     <item>
       <title>Research</title>
-      <link>/research/</link>
+      <link>http://3inar.github.io/research/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/research/</guid>
+      <guid>http://3inar.github.io/research/</guid>
       <description>This is a list of my academic work. For talks and similar, visit the talks page.
 Papers  M. Grønnesby, J. C. A. Solis, E. Holsbø, H. Melbye, and L. A. Bongo, Machine Learning Based Crackle Detection in Lung Sounds, [arXiv], May 2017. Currently under submission. H. M. Bøvelstad, E. Holsbø, L. A. Bongo, and E. Lund, A Standard Operating Procedure For Outlier Removal In Large-Sample Epidemiological Transcriptomics Datasets, [bioRxiv], May 2017.</description>
     </item>
     
     <item>
       <title>Talks</title>
-      <link>/talks/</link>
+      <link>http://3inar.github.io/talks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/talks/</guid>
-      <description>Predicting breast cancer metastasis from blood samples &amp;mdash; “On variance and other problems” Presented at the Breast Cancer and the Immune System workshop, Barbados, 2017. [pdf] Predicting breast cancer metastasis from blood gene expression using time-to-diagnosis data to derive signature estimates. Poster presented at the 2017 Statistical Methods for Postgenomic Data workshop in London. [pdf] The pragmatic R programmer. Intro to writing reusable R code and bundling it in packages.</description>
+      <guid>http://3inar.github.io/talks/</guid>
+      <description>Shrinkage estimation for fun and profit BDPS lab meeting, University of Tromsø. 19th of February, 2018. [pdf] Predicting breast cancer metastasis from blood samples &amp;mdash; “On variance and other problems” Presented at the Breast Cancer and the Immune System workshop, Barbados, 2017. [pdf] Predicting breast cancer metastasis from blood gene expression using time-to-diagnosis data to derive signature estimates. Poster presented at the 2017 Statistical Methods for Postgenomic Data workshop in London.</description>
     </item>
     
   </channel>

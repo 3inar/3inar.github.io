@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Talks on Einar Holsbø</title>
-    <link>/talks/</link>
+    <link>http://3inar.github.io/talks/</link>
     <description>Recent content in Talks on Einar Holsbø</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     
-	<atom:link href="/talks/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://3inar.github.io/talks/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Talks</title>
-      <link>/talks/</link>
+      <link>http://3inar.github.io/talks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/talks/</guid>
-      <description>Predicting breast cancer metastasis from blood samples &amp;mdash; “On variance and other problems” Presented at the Breast Cancer and the Immune System workshop, Barbados, 2017. [pdf] Predicting breast cancer metastasis from blood gene expression using time-to-diagnosis data to derive signature estimates. Poster presented at the 2017 Statistical Methods for Postgenomic Data workshop in London. [pdf] The pragmatic R programmer. Intro to writing reusable R code and bundling it in packages.</description>
+      <guid>http://3inar.github.io/talks/</guid>
+      <description>Shrinkage estimation for fun and profit BDPS lab meeting, University of Tromsø. 19th of February, 2018. [pdf] Predicting breast cancer metastasis from blood samples &amp;mdash; “On variance and other problems” Presented at the Breast Cancer and the Immune System workshop, Barbados, 2017. [pdf] Predicting breast cancer metastasis from blood gene expression using time-to-diagnosis data to derive signature estimates. Poster presented at the 2017 Statistical Methods for Postgenomic Data workshop in London.</description>
     </item>
     
   </channel>
