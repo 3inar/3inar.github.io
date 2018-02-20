@@ -10,7 +10,7 @@
 <meta name="description" content="Academic web page">
 <meta name="keywords" content="statistics,machine learning,research,computer science">
 
-<base href="http://3inar.github.io/">
+<base href="/">
 
 <title>Einar Holsbø</title>
 
@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-<link rel="stylesheet" href="http://3inar.github.io/css/main.css">
+<link rel="stylesheet" href="/css/main.css">
 
 
 
@@ -43,8 +43,9 @@
 
 
 <script type="text/javascript"
-   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML">
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
 
 
 <header class="row text-left title">
@@ -158,17 +159,17 @@ violence14 &lt;- crimes %&gt;% filter(tid==&quot;2014&quot;, lovbruddstype==&quo
 })</code></pre>
 <p><img src="/blog/2016-10-03-violence_files/figure-html/rate_vs_pop-1.png" width="672" /></p>
 <p>Hasvik s really sticking out there at the top left! The high-leverage point all the way to the right is Oslo. If you feel that there is a lot more going on for better or worse in the smaller towns you might be right: Notice the slight funnel shape toward the mean as population increases. In a town of two people the population is 0.002 thousand people. If one person does violence to the other, the violence rate goes up by 1/0.002 = 500. This is the smallest possible jump in crime rate in a town of two people, and the crime rate can only be multiples of 500 there, assuming there are no semi-reported crimes. If the same thing were to happen in Oslo, with a 2014 population (in thousands) of about 634, we’d get a modest bump of 1/634 ≈ 0.002: the smallest possible crime rate jump in a town of 634 thousand people. Clearly there will be more variance in crime rate (or any sort of count per population) in small towns, which means that small towns will be overrepresented in both extremes, both most violent and least violent.</p>
-<p>An intro to stats course will probably teach you that the standard error of the mean is \(_{x} = /,\) with \(n\) the number of samples you’re taking the mean of. Howard Wainer calls this De Moivre’s equation, and also calls it <a href="http://press.princeton.edu/chapters/s8863.pdf">the most dangerous equation in the world</a>. You should read that <code>.pdf</code>, it’s really good. I’ll wait.</p>
+<p>An intro to stats course will probably teach you that the standard error of the mean is <span class="math inline">\(\sigma_{\bar x} = \sigma/\sqrt{n},\)</span> with <span class="math inline">\(n\)</span> the number of samples you’re taking the mean of. Howard Wainer calls this De Moivre’s equation, and also calls it <a href="http://press.princeton.edu/chapters/s8863.pdf">the most dangerous equation in the world</a>. You should read that <code>.pdf</code>, it’s really good. I’ll wait.</p>
 </div>
 <div id="baseball-and-violent-crime-basically-the-same-thing" class="section level3">
 <h3>Baseball and violent crime: basically the same thing?</h3>
 <p>Perhaps when looking at numbers like these it’s a good idea to be honest about uncertainty, if only to avoid a smaller schools-type debacle as discussed in the Wainer <code>.pdf</code>. I recently saw this interesting blog post from David Robinson about <a href="http://varianceexplained.org/r/empirical_bayes_baseball/">using empirical Bayes to shrink batting averages</a>.<br />
 It’s kind of a similar problem: some players have few chances at batting, and the guy who only got two chances but hit them both will have a perfect hit rate of 1, while she who tried hundreds of times is very likely to have a couple of misses no matter her skill level. When viewed in extremes like this it’s kind of obvious that the one statistic is more reliable than the other.</p>
-<p>You can model batting averages as Bernoulli trials: you get \(n\) chances and will hit or miss with probability \(p\) or \(1-p\), respectively. Estimate \(p\) as number of hits over number of chances. Our crime rates aren’t like this; none of them are between zero and one to start with. Let’s do some sweeping generalizations, though: Let’s say that in a given year a person only reports either one or zero violent crimes, and that each person has the same probability of being involved in violent crime as the next, independent of each other. We could recalculate the crime rates as number of crime reports per person (cpp) instead of crime reports per thousands of people. The two quantities are proportional, so the ranking will stay the same, and it will enable us to model crime reports as Bernoulli trials, and crime rate, \(p\), as Beta-distributed. It wouldn’t be strictly speaking true, but it might be useful.</p>
+<p>You can model batting averages as Bernoulli trials: you get <span class="math inline">\(n\)</span> chances and will hit or miss with probability <span class="math inline">\(p\)</span> or <span class="math inline">\(1-p\)</span>, respectively. Estimate <span class="math inline">\(p\)</span> as number of hits over number of chances. Our crime rates aren’t like this; none of them are between zero and one to start with. Let’s do some sweeping generalizations, though: Let’s say that in a given year a person only reports either one or zero violent crimes, and that each person has the same probability of being involved in violent crime as the next, independent of each other. We could recalculate the crime rates as number of crime reports per person (cpp) instead of crime reports per thousands of people. The two quantities are proportional, so the ranking will stay the same, and it will enable us to model crime reports as Bernoulli trials, and crime rate, <span class="math inline">\(p\)</span>, as Beta-distributed. It wouldn’t be strictly speaking true, but it might be useful.</p>
 </div>
 <div id="shrinking-our-estimates" class="section level3">
 <h3>Shrinking our estimates</h3>
-<p>Bayesian statistics are all about having some first guess about (actually prior distribution over) what a parameter such as our crime rate, \(p\), is, and adjusting this guess (to get a posterior distribution) as data becomes available. This is empirical Bayes because we will use the observed crime rates in all of Norway as a prior distribution. A purist would decide on a prior based on gut-feel and know-how.</p>
+<p>Bayesian statistics are all about having some first guess about (actually prior distribution over) what a parameter such as our crime rate, <span class="math inline">\(p\)</span>, is, and adjusting this guess (to get a posterior distribution) as data becomes available. This is empirical Bayes because we will use the observed crime rates in all of Norway as a prior distribution. A purist would decide on a prior based on gut-feel and know-how.</p>
 <p>We’ll <a href="http://stats.stackexchange.com/questions/12232/calculating-the-parameters-of-a-beta-distribution-using-the-mean-and-variance">fit a Beta distribution</a> as prior because it is a handy distribution for probabilities (it is restricted to [0,1]), and because it is <a href="https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions">a conjugate prior to the binomial likelihood</a>, which means we can model a person’s reporting a violent crime as a bernoulli trial and get an exact posterior in the shape of a shifted, scaled beta. We won’t even have to mess about with the usual Bayesian sampling procedures. In other words, we start with an initial-guess beta distribution over crime rates and use our observed rate in a given town to shift and adjust the prior into another beta: the posterior.</p>
 <pre class="r"><code># calculate cpp
 violence14 &lt;- mutate(violence14, cpp=anmeldelser/personer)
@@ -183,7 +184,7 @@ beta_p &lt;- alpha_p * (1 / mu - 1)
 hist(violence14$cpp, col=colors[4], border=F, nclass=25, prob=T, main=&quot;per capita violence&quot;)
 curve(dbeta(x, alpha_p, beta_p), add=T, col=colors[5], lwd=1.5)</code></pre>
 <p><img src="/blog/2016-10-03-violence_files/figure-html/fit_prior-1.png" width="672" /></p>
-<p>The histogram is our observed crime rates in a big pile, the red curve is our empirical prior based on these data. I think it looks fine. To gloss over some details: the Wikipedia link to conjugate priors and the David Robinson post above will tell you that the posterior mean for a given town, which is sensible prediction from the posterior, is \(  \), where \(r \) is the observed number of violent crime reports, \(N\) is the population, and \(_0, _0\) are the parameters of the prior. These are our new estimates.</p>
+<p>The histogram is our observed crime rates in a big pile, the red curve is our empirical prior based on these data. I think it looks fine. To gloss over some details: the Wikipedia link to conjugate priors and the David Robinson post above will tell you that the posterior mean for a given town, which is sensible prediction from the posterior, is <span class="math inline">\(\frac{r + \alpha_0}{N + \alpha_0 + \beta_0}\)</span>, where <span class="math inline">\(r\)</span> is the observed number of violent crime reports, <span class="math inline">\(N\)</span> is the population, and <span class="math inline">\(\alpha_0, \beta_0\)</span> are the parameters of the prior. These are our new estimates.</p>
 <pre class="r"><code>violence14 &lt;- mutate(violence14, posterior_cpp=(anmeldelser+alpha_p)/(personer+alpha_p+beta_p))</code></pre>
 <p>Let’s compare the observed and posterior rates in a plot. The upper points in the plot represent posterior estimates, while the lower points are the observed rates. Corresponding estimates are connected by a line.</p>
 <pre class="r"><code>op &lt;- par(mar = c(4,5,2,2) + 0.1)
@@ -302,16 +303,16 @@ points(violent_subset$posterior_cpp, 1:n_c, pch=20, col=colors[2])</code></pre>
 <section id="menu-pane" class="row menu text-center">
   
   
-  <span><a class="menu-item" href="http://3inar.github.io/blog/2016-08-24-neural-network-overengineering/">&lt; prev | </a></span>
+  <span><a class="menu-item" href="/blog/2016-08-24-neural-network-overengineering/">&lt; prev | </a></span>
   
   
   <span><a class="menu-item" href="/blog">blog</a></span>
   
   
-  <span><a class="menu-item" href="http://3inar.github.io/blog/2017-04-09-undersampling/"> | next &gt;</a></span>
+  <span><a class="menu-item" href="/blog/2017-04-09-undersampling/"> | next &gt;</a></span>
   
   
-  <h4 class="text-center"><a class="menu-item" href="http://3inar.github.io/">home</a></h4>
+  <h4 class="text-center"><a class="menu-item" href="/">home</a></h4>
 </section>
 
 

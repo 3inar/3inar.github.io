@@ -10,7 +10,7 @@
 <meta name="description" content="Academic web page">
 <meta name="keywords" content="statistics,machine learning,research,computer science">
 
-<base href="http://3inar.github.io/">
+<base href="/">
 
 <title>Einar Holsbø</title>
 
@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-<link rel="stylesheet" href="http://3inar.github.io/css/main.css">
+<link rel="stylesheet" href="/css/main.css">
 
 
 
@@ -43,8 +43,9 @@
 
 
 <script type="text/javascript"
-   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML">
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
 
 
 <header class="row text-left title">
@@ -66,7 +67,7 @@
 <p>I often do little simulations to try to make sense of a confusing world. Below I present some pretty convincing evidence for the case of dropping classification in favor of prediction. At least in the model selection phase.</p>
 <div id="a-simulation-model" class="section level1">
 <h1>A simulation model</h1>
-<p>I will make a simulation model based on the one in my undersampling post. Once again the log odds of class <code>True</code> is \( (p) = -9 +6x, \) but I now sample \(X N(1.5, 1)\). This is different from last because I no longer want severe class imbalance. I will also add an uninformative noise variable \(X_{} N(0, 2)\) post hoc. The below function generates a data set to these specifications.</p>
+<p>I will make a simulation model based on the one in my undersampling post. Once again the log odds of class <code>True</code> is <span class="math inline">\(\textrm{logit}(p) = -9 +6x,\)</span> but I now sample <span class="math inline">\(X \sim N(1.5, 1)\)</span>. This is different from last because I no longer want severe class imbalance. I will also add an uninformative noise variable <span class="math inline">\(X_{\epsilon} \sim N(0, 2)\)</span> post hoc. The below function generates a data set to these specifications.</p>
 <pre class="r"><code>set.seed(23082017)
 
 generate_data &lt;- function(n=100) {
@@ -86,8 +87,8 @@ generate_data &lt;- function(n=100) {
 }</code></pre>
 <p>This suggests two logistic regression models:</p>
 <ul>
-<li>The true model, \( (p) = _0 + _1x + ; \)</li>
-<li>A clearly worse model, \( (p) = _0 + _1x + <em>2x</em>{} + . \)</li>
+<li>The true model, <span class="math inline">\(\textrm{logit}(p) = \beta_0 + \beta_1x + \epsilon;\)</span></li>
+<li>A clearly worse model, <span class="math inline">\(\textrm{logit}(p) = \beta_0 + \beta_1x + \beta_2x_{\epsilon} + \epsilon.\)</span></li>
 </ul>
 <p>Imagine that we didn’t know the truth. Our goal is to choose between the two models: which one predicts better?</p>
 </div>
@@ -95,7 +96,7 @@ generate_data &lt;- function(n=100) {
 <h1>Three performance metrics</h1>
 <p>I will compare three metrics for model performance on held-out data.</p>
 <ul>
-<li>Accuracy is the fraction of times we got the classification right. For this metric I will adopt the standard decision rule of classifying as <code>True</code> when \(p &gt; .5\).</li>
+<li>Accuracy is the fraction of times we got the classification right. For this metric I will adopt the standard decision rule of classifying as <code>True</code> when <span class="math inline">\(\hat p &gt; .5\)</span>.</li>
 <li>The area under the ROC curve is a strange measure that luckliy directly corresponds to the probability of ranking a <code>True</code> higher than a <code>False</code>.</li>
 </ul>
 <p>So both of these measures have a straight-forward interpretation, which is nice. But since the main thesis of this post is that you shouldn’t use them, let’s look at a third metric:</p>
@@ -169,7 +170,7 @@ text(nsim, 0.61, paste0(&quot;AUC (beta=&quot;, signif(mean(auc_decision), 2), &
 </div>
 <div id="why-is-the-brier-score-better" class="section level1">
 <h1>Why is the Brier score better?</h1>
-<p>To get accuracy we impose a (more or less) random threshold on the prediction. Many would argue that this is a problem in itself. As a score it has the problem that a miniscule improvement in model can lead to any size improvement in accuracy. Consider the following: among \(n\) observations to classify, we gave a <code>True</code> the probability of \(.5\). Mistake. Classified as <code>False</code>. If we improve the model a very little so that the probability is now \(.5001\) we get a discrete jump of \(1/n\) in accuracy! We’ve crossed the magical barrier. Any further improvement in predicted probability makes no difference. The jump from \(.5\) to \(.5001\) is as good as a jump from \(.5\) to \(1\). Similarly, a model that predicts a probability of \(.5\) for all <code>False</code>s and \(.5001\) for all <code>True</code>s has perfect accuracy. It’s as good as a model that predicted zero for all <code>False</code>s and unity for all <code>True</code>s. Clearly that’s nonsense. Similar reasoning applies to AUC, which is just accuracy stretched out, or indeed anything based on counting “correct” classifications. The Brier score is a <a href="https://en.wikipedia.org/wiki/Scoring_rule#ProperScoringRules">proper scoring rule</a>. Any change in predictions results in a proportional change in Brier score. Hence the Brier score is a more sensitive and sensible instrument. It reflects the actual improvement in model.</p>
+<p>To get accuracy we impose a (more or less) random threshold on the prediction. Many would argue that this is a problem in itself. As a score it has the problem that a miniscule improvement in model can lead to any size improvement in accuracy. Consider the following: among <span class="math inline">\(n\)</span> observations to classify, we gave a <code>True</code> the probability of <span class="math inline">\(.5\)</span>. Mistake. Classified as <code>False</code>. If we improve the model a very little so that the probability is now <span class="math inline">\(.5001\)</span> we get a discrete jump of <span class="math inline">\(1/n\)</span> in accuracy! We’ve crossed the magical barrier. Any further improvement in predicted probability makes no difference. The jump from <span class="math inline">\(.5\)</span> to <span class="math inline">\(.5001\)</span> is as good as a jump from <span class="math inline">\(.5\)</span> to <span class="math inline">\(1\)</span>. Similarly, a model that predicts a probability of <span class="math inline">\(.5\)</span> for all <code>False</code>s and <span class="math inline">\(.5001\)</span> for all <code>True</code>s has perfect accuracy. It’s as good as a model that predicted zero for all <code>False</code>s and unity for all <code>True</code>s. Clearly that’s nonsense. Similar reasoning applies to AUC, which is just accuracy stretched out, or indeed anything based on counting “correct” classifications. The Brier score is a <a href="https://en.wikipedia.org/wiki/Scoring_rule#ProperScoringRules">proper scoring rule</a>. Any change in predictions results in a proportional change in Brier score. Hence the Brier score is a more sensitive and sensible instrument. It reflects the actual improvement in model.</p>
 </div>
 <div id="full-disclosure" class="section level1">
 <h1>Full disclosure</h1>
@@ -217,16 +218,16 @@ text(nsim, 0.61, paste0(&quot;AUC (beta=&quot;, signif(mean(auc_decision), 2), &
 <section id="menu-pane" class="row menu text-center">
   
   
-  <span><a class="menu-item" href="http://3inar.github.io/blog/2017-04-09-undersampling/">&lt; prev | </a></span>
+  <span><a class="menu-item" href="/blog/2017-04-09-undersampling/">&lt; prev | </a></span>
   
   
   <span><a class="menu-item" href="/blog">blog</a></span>
   
   
-  <span><a class="menu-item" href="http://3inar.github.io/blog/2018-01-15-segmentation/"> | next &gt;</a></span>
+  <span><a class="menu-item" href="/blog/2018-01-15-segmentation/"> | next &gt;</a></span>
   
   
-  <h4 class="text-center"><a class="menu-item" href="http://3inar.github.io/">home</a></h4>
+  <h4 class="text-center"><a class="menu-item" href="/">home</a></h4>
 </section>
 
 

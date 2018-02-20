@@ -124,7 +124,7 @@ that small towns will be overrepresented in both extremes, both most violent and
 least violent.
 
 An intro to stats course will probably teach you that the standard error of the 
-mean is \\(\sigma_{\bar x} = \sigma/\sqrt{n},\\) with \\(n\\) the number of
+mean is $\sigma_{\bar x} = \sigma/\sqrt{n},$ with $n$ the number of
 samples you're taking the mean of. Howard Wainer calls this De Moivre's
 equation, and also calls it
 [the most dangerous equation in the world](http://press.princeton.edu/chapters/s8863.pdf).
@@ -142,9 +142,9 @@ rate of 1, while she who tried hundreds of times is very likely to have a couple
 misses no matter her skill level. When viewed in extremes like this 
 it's kind of obvious that the one statistic is more reliable than the other.
 
-You can model batting averages as Bernoulli trials: you get \\(n\\) chances and
-will hit or miss with probability \\(p\\) or \\(1-p\\), respectively. Estimate
-\\(p\\) as number of hits over number of chances. Our crime rates aren't like
+You can model batting averages as Bernoulli trials: you get $n$ chances and
+will hit or miss with probability $p$ or $1-p$, respectively. Estimate
+$p$ as number of hits over number of chances. Our crime rates aren't like
 this; none of them are between zero and one to start with. Let's do some
 sweeping generalizations, though: Let's say that in a given year a person only
 reports either one or zero violent crimes, and that each person has the same 
@@ -152,13 +152,13 @@ probability of being involved in violent crime as the next, independent of each
 other. We could recalculate the crime rates as number of crime reports per 
 person (cpp) instead of crime reports per thousands of people. The two
 quantities are proportional, so the ranking will stay the same, and it will 
-enable us to model crime reports as Bernoulli trials, and crime rate, \\(p\\),
+enable us to model crime reports as Bernoulli trials, and crime rate, $p$,
 as Beta-distributed. It wouldn't be strictly speaking true, but it might be
 useful.
 
 ### Shrinking our estimates
 Bayesian statistics are all about having some first guess about (actually prior 
-distribution over) what a parameter such as our crime rate, \\(p\\), is, and 
+distribution over) what a parameter such as our crime rate, $p$, is, and 
 adjusting this guess (to get a posterior distribution) as data becomes 
 available. This is empirical Bayes because we will use the observed crime rates 
 in all of Norway as a prior distribution. A purist would decide on a prior based
@@ -194,9 +194,9 @@ The histogram is our observed crime rates in a big pile, the red curve is our
 empirical prior based on these data. I think it looks fine. To gloss over some 
 details: the Wikipedia link to conjugate priors and the David Robinson post 
 above will tell you that the posterior mean for a given town, which is sensible 
-prediction from the posterior, is \\( \frac{r + \alpha_0}{N + \alpha_0 + 
-\beta_0} \\), where \\(r \\) is the observed number of violent crime reports, 
-\\(N\\) is the population, and \\(\alpha_0, \beta_0\\) are the parameters of the
+prediction from the posterior, is $\frac{r + \alpha_0}{N + \alpha_0 + 
+\beta_0}$, where $r$ is the observed number of violent crime reports, 
+$N$ is the population, and $\alpha_0, \beta_0$ are the parameters of the
 prior. These are our new estimates.
 ```{r posterior_est}
 violence14 <- mutate(violence14, posterior_cpp=(anmeldelser+alpha_p)/(personer+alpha_p+beta_p))

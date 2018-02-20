@@ -22,10 +22,10 @@ in favor of prediction. At least in the model selection phase.
 
 # A simulation model
 I will make a simulation model based on the one in my undersampling post.
-Once again the log odds of class `True` is \\( \textrm{logit}(p) = -9 +6x, \\) but I 
-now sample \\(X \sim N(1.5, 1)\\). This is different from last because I no longer want 
+Once again the log odds of class `True` is $\textrm{logit}(p) = -9 +6x,$ but I 
+now sample $X \sim N(1.5, 1)$. This is different from last because I no longer want 
 severe class imbalance. I will also add an uninformative noise variable
-\\(X_{\epsilon} \sim N(0, 2)\\) post hoc. The below function generates a data set 
+$X_{\epsilon} \sim N(0, 2)$ post hoc. The below function generates a data set 
 to these specifications.
 
 ```{r data_gen}
@@ -50,8 +50,8 @@ generate_data <- function(n=100) {
 
 This suggests two logistic regression models:
 
-* The true model, \\( \textrm{logit}(p) = \beta_0 + \beta_1x + \epsilon; \\)
-* A clearly worse model, \\( \textrm{logit}(p) = \beta_0 + \beta_1x + \beta_2x_{\epsilon} + \epsilon. \\)
+* The true model, $\textrm{logit}(p) = \beta_0 + \beta_1x + \epsilon;$
+* A clearly worse model, $\textrm{logit}(p) = \beta_0 + \beta_1x + \beta_2x_{\epsilon} + \epsilon.$
 
 Imagine that we didn't know the truth. Our goal is to choose between the two
 models: which one predicts better?
@@ -61,7 +61,7 @@ I will compare three metrics for model performance on held-out data.
 
 * Accuracy is
 the fraction of times we got the classification right. For this metric I will adopt the 
-standard decision rule of classifying as `True` when \\(\hat p > .5\\). 
+standard decision rule of classifying as `True` when $\hat p > .5$. 
 * The area under the ROC
 curve is a strange measure that luckliy directly corresponds to the
 probability of ranking a `True` higher than a `False`. 
@@ -160,14 +160,14 @@ still: it is little better than making a monkey decide.
 To get accuracy we impose a (more or less) random threshold on the prediction. 
 Many would argue that this is a problem in itself. As a score it has the problem
 that a miniscule improvement in model can lead to any size improvement in 
-accuracy. Consider the following: among \\(n\\) observations to classify, we 
-gave a `True` the probability of \\(.5\\). Mistake. Classified as `False`. If we
-improve the model a very little so that the probability is now \\(.5001\\) we
-get a discrete jump of \\(1/n\\) in accuracy! We've crossed the magical barrier.
+accuracy. Consider the following: among $n$ observations to classify, we 
+gave a `True` the probability of $.5$. Mistake. Classified as `False`. If we
+improve the model a very little so that the probability is now $.5001$ we
+get a discrete jump of $1/n$ in accuracy! We've crossed the magical barrier.
 Any further improvement in predicted probability makes no difference. The jump
-from \\(.5\\) to \\(.5001\\) is as good as a jump from \\(.5\\) to \\(1\\). 
-Similarly, a model that predicts a probability of \\(.5\\) for all `False`s and 
-\\(.5001\\) for all `True`s has perfect accuracy. It's as good as a model that 
+from $.5$ to $.5001$ is as good as a jump from $.5$ to $1$. 
+Similarly, a model that predicts a probability of $.5$ for all `False`s and 
+$.5001$ for all `True`s has perfect accuracy. It's as good as a model that 
 predicted zero for all `False`s and unity for all `True`s. Clearly that's 
 nonsense. Similar reasoning applies to AUC, which is just accuracy stretched 
 out, or indeed anything based on counting "correct" classifications. The Brier 

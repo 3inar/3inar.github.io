@@ -10,7 +10,7 @@
 <meta name="description" content="Academic web page">
 <meta name="keywords" content="statistics,machine learning,research,computer science">
 
-<base href="http://3inar.github.io/">
+<base href="/">
 
 <title>Einar Holsbø</title>
 
@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-<link rel="stylesheet" href="http://3inar.github.io/css/main.css">
+<link rel="stylesheet" href="/css/main.css">
 
 
 
@@ -43,8 +43,9 @@
 
 
 <script type="text/javascript"
-   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML">
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
 
 
 <header class="row text-left title">
@@ -65,12 +66,12 @@
     <p>I really like Frank Harrell’s blog. He writes all kinds of useful things, and as I am working in the classification/predition area I was particularly interested in his two posts about <a href="http://www.fharrell.com/2017/01/classification-vs-prediction.html">classification vs. prediction</a> and <a href="http://www.fharrell.com/2017/03/damage-caused-by-classification.html">improper scoring rules</a>. After posting links to these in the lab Slack I got some questions that forced me to do some thinking. Why not undersample the majority class?</p>
 <div id="possibly-a-motivation" class="section level2">
 <h2>Possibly a motivation</h2>
-<p>So the argument for balancing unbalanced classes seems to stem from the use of classification accuracy (= fraction predictions where the predicted class was correct) to evaluate classifiers: if \(.01\) of my observations are <code>True</code>s, I’d get a \(.99\) accuracy by always classifying as <code>False</code>. Since “everything is <code>False</code>” isn’t a very sexy model, why not make it seem as though there are more <code>True</code>s in the hope that their signal stands out more clearly against the overwhelming mass of <code>False</code>s?</p>
+<p>So the argument for balancing unbalanced classes seems to stem from the use of classification accuracy (= fraction predictions where the predicted class was correct) to evaluate classifiers: if <span class="math inline">\(.01\)</span> of my observations are <code>True</code>s, I’d get a <span class="math inline">\(.99\)</span> accuracy by always classifying as <code>False</code>. Since “everything is <code>False</code>” isn’t a very sexy model, why not make it seem as though there are more <code>True</code>s in the hope that their signal stands out more clearly against the overwhelming mass of <code>False</code>s?</p>
 <p>This tip that you could always try to balance your classes seems to be a piece of modeling folklore that everyone picks up. The way I pictured it you could just go ahead and balance your data by either oversampling the minority class or undersampling the majority class and that would be enough. After looking at it for this post I’m no longer sure that I trust the balancing of datasets. At the very least it looks as though you have to do some pos hoc correction for this balancing act, and it’s probably not always well-defined how to do that.</p>
 </div>
 <div id="lets-just-try" class="section level2">
 <h2>Let’s just try</h2>
-<p>I’ll simulate some data from the following logistic model: \[  = _0 + _1x,\] \[ XN(0, ),\] with \(_0=9, _1=6,\) and \( =.4\). This can easily be transformed into a probability of belonging to <code>True</code>: \[p = .\] To generate class labels from probabilities, draw a uniform number \(uU(0,1)\) and assign to <code>True</code> if \(u &lt; p\). This model gives me about \(600 \) more <code>False</code>s than <code>True</code>s. I will generate 100 thousand observations from this model and fit a logistic regression to i) all the data, ii) a data set where I have subsampled the <code>False</code>s to get a fake 50-50 split.</p>
+<p>I’ll simulate some data from the following logistic model: <span class="math display">\[ \log \frac{p}{1-p} = \beta_0 + \beta_1x,\]</span> <span class="math display">\[ X\sim N(0, \sigma),\]</span> with <span class="math inline">\(\beta_0=9, \beta_1=6,\)</span> and <span class="math inline">\(\sigma=.4\)</span>. This can easily be transformed into a probability of belonging to <code>True</code>: <span class="math display">\[p = \frac{1}{1+e^{-(9+6x)}}.\]</span> To generate class labels from probabilities, draw a uniform number <span class="math inline">\(u\sim U(0,1)\)</span> and assign to <code>True</code> if <span class="math inline">\(u &lt; p\)</span>. This model gives me about <span class="math inline">\(600 \times\)</span> more <code>False</code>s than <code>True</code>s. I will generate 100 thousand observations from this model and fit a logistic regression to i) all the data, ii) a data set where I have subsampled the <code>False</code>s to get a fake 50-50 split.</p>
 <pre class="r"><code>set.seed(07042017)
 b_0 &lt;- -9
 b_1 &lt;- 6
@@ -112,25 +113,25 @@ curve(1/(1+exp(-(coef(new_glm_fit)[1] + coef(new_glm_fit)[2]*x))), lwd=1.5, from
 rug(x)</code></pre>
 <p><img src="/blog/2017-04-09-undersampling_files/figure-html/all_vs_undersampled-1.png" width="672" /></p>
 <p>In the above figure, the thick, grey line is the true model. The black line is the model estimated from all the data. It’s pretty good. And it’s certainly not bad enough to make me balk at unbalanced data. The red line is from undersampling the <code>False</code>s to get an artificial 50-50 split. We see that we overestimate the probability of <code>True</code> a lot. It doesn’t look like a super useful model. Clearly the proportion of <code>True</code>s in the population matters and we just threw it away.</p>
-<p>If we wanted to do classification we’d choose some probability threshold above which we’d assign everything to <code>True</code>. The standard, theoretically best threshold is \(p=.5\). If we use this threshold under the correct model we will nearly always classify as <code>False</code>. That’s not bad, <em>that’s the correct decision.</em> If we use this threshold under the clearly wrong undersampled model we’d get more predictions of <code>True</code>. Most of them would be wrong.</p>
+<p>If we wanted to do classification we’d choose some probability threshold above which we’d assign everything to <code>True</code>. The standard, theoretically best threshold is <span class="math inline">\(p=.5\)</span>. If we use this threshold under the correct model we will nearly always classify as <code>False</code>. That’s not bad, <em>that’s the correct decision.</em> If we use this threshold under the clearly wrong undersampled model we’d get more predictions of <code>True</code>. Most of them would be wrong.</p>
 </div>
 <div id="what-happened" class="section level2">
 <h2>What happened?</h2>
-<p>Let’s do the above exercise again. This time I will do a nonparametric regression instead of logistic regression. Specifically I want to do Nadaraya–Watson kernel estimation (NWKE). This is helpful in this discussion because we won’t have to bend our minds around the whole logit space vs. probability space thing of logistic regression. The NWKE directly estimates \(r(x) = E[Y|X=x]\) by a weighted average of Y around x as follows: for observation pairs \((x_i, y_i), i{1,2,, n} \), let</p>
-<p>\[ r(x) = _{i=1}^n w_i(x)y_i, \]</p>
-<p>where the weight of observation \(i\), \(w_i\), is a function of \(x\). This is very easy to reason about, it’s an average of all our observations that’s weighted so that observations closer to \(x\) count more. Specifically, the weight is defined as</p>
-<p>\[ w_i(x) = . \]</p>
-<p>The function \(K\) is a kernel. For our discussion it’s a normal distribution centered on \(x\). The bandwidth \(h\) controls the amount of influence points far away from x should have. For our discussion it’s the standard deviation of our normal distribution. The weights clearly sum to 1 and they’re never negative.</p>
+<p>Let’s do the above exercise again. This time I will do a nonparametric regression instead of logistic regression. Specifically I want to do Nadaraya–Watson kernel estimation (NWKE). This is helpful in this discussion because we won’t have to bend our minds around the whole logit space vs. probability space thing of logistic regression. The NWKE directly estimates <span class="math inline">\(r(x) = E[Y|X=x]\)</span> by a weighted average of Y around x as follows: for observation pairs <span class="math inline">\((x_i, y_i), i\in\{1,2,\ldots, n\}\)</span>, let</p>
+<p><span class="math display">\[ \hat r(x) = \sum_{i=1}^n w_i(x)y_i, \]</span></p>
+<p>where the weight of observation <span class="math inline">\(i\)</span>, <span class="math inline">\(w_i\)</span>, is a function of <span class="math inline">\(x\)</span>. This is very easy to reason about, it’s an average of all our observations that’s weighted so that observations closer to <span class="math inline">\(x\)</span> count more. Specifically, the weight is defined as</p>
+<p><span class="math display">\[ w_i(x) = \frac{K(\frac{x-x_i}{h})}{\sum_{j=1}^n K(\frac{x-x_j}{h})}. \]</span></p>
+<p>The function <span class="math inline">\(K\)</span> is a kernel. For our discussion it’s a normal distribution centered on <span class="math inline">\(x\)</span>. The bandwidth <span class="math inline">\(h\)</span> controls the amount of influence points far away from x should have. For our discussion it’s the standard deviation of our normal distribution. The weights clearly sum to 1 and they’re never negative.</p>
 <pre class="r"><code>plot(x, jitter(as.numeric(y)),ylim=c(0.5,4.5), xlim=c(-2, 2), col=&quot;grey&quot;, ylab=&quot;&quot;, yaxt=&quot;n&quot;)
 points(newx, jitter(as.numeric(newy)+2), col=&quot;grey&quot;)
 lines(ksmooth(x, as.numeric(y), &quot;normal&quot;, bandwidth = .25), lwd=1.5)
 lines(ksmooth(newx, as.numeric(newy)+2, &quot;normal&quot;, bandwidth = .5), lwd=1.5) # less data, more smoothing</code></pre>
 <p><img src="/blog/2017-04-09-undersampling_files/figure-html/kernel_regression-1.png" width="672" /></p>
-<p>Above I have put the full data and the undersampled data in the same figure along with their NWKE regressions. The \(y\) values are jittered, they are really just zeros and ones. The top pair of clouds is the undersampled data and the bottom pair is the full data. These regressions look a lot like our logistic regressions from before. As before, the regression from the undersampled data greatly overestimates the probability of <code>True</code>. Considering the form of the NWKE it shouldn’t be too surprising: the estimate at \(x\) is \(w_i(x)y_i \), and if you remove a bunch of the \(y_i=0\), naturally the estimate at \(x\) will be larger. This is basically what’s happening with the logistic regression as well: there will be too few \((r(x) - 0)^2\) terms in the sum of squares that’s optimized. This works both ways, you’re no better off oversampling <code>True</code>s, you will be introducing a bunch of \(1\)s to inflate the estimate.</p>
+<p>Above I have put the full data and the undersampled data in the same figure along with their NWKE regressions. The <span class="math inline">\(y\)</span> values are jittered, they are really just zeros and ones. The top pair of clouds is the undersampled data and the bottom pair is the full data. These regressions look a lot like our logistic regressions from before. As before, the regression from the undersampled data greatly overestimates the probability of <code>True</code>. Considering the form of the NWKE it shouldn’t be too surprising: the estimate at <span class="math inline">\(x\)</span> is <span class="math inline">\(\sum w_i(x)y_i\)</span>, and if you remove a bunch of the <span class="math inline">\(y_i=0\)</span>, naturally the estimate at <span class="math inline">\(x\)</span> will be larger. This is basically what’s happening with the logistic regression as well: there will be too few <span class="math inline">\((\hat r(x) - 0)^2\)</span> terms in the sum of squares that’s optimized. This works both ways, you’re no better off oversampling <code>True</code>s, you will be introducing a bunch of <span class="math inline">\(1\)</span>s to inflate the estimate.</p>
 </div>
 <div id="posterior-correction" class="section level2">
 <h2>Posterior correction</h2>
-<p>In fact, in logistic regression you get the right odds ratio anyway: you estimate the slope, \(_1\), correctly in spite of having the wrong proportion of <code>True</code>s. You can see this in the figure, the estimated curve looks good but for the fact that it’s shifted way to the left. It’s posible to correct the intercept \(_0 \) post hoc. This correction is \(_0^* = _0 - ()\), where \(\) is the proportion of <code>True</code>s in the population, and \(y\) is the proportion of <code>True</code>s in your sample. I have this from King and Zeng <em>Logistic regression in rare events data.</em> Below I apply this correction to our bad model from earlier:</p>
+<p>In fact, in logistic regression you get the right odds ratio anyway: you estimate the slope, <span class="math inline">\(\beta_1\)</span>, correctly in spite of having the wrong proportion of <code>True</code>s. You can see this in the figure, the estimated curve looks good but for the fact that it’s shifted way to the left. It’s posible to correct the intercept <span class="math inline">\(\beta_0\)</span> post hoc. This correction is <span class="math inline">\(\hat \beta_0^* = \hat \beta_0 - \log(\frac{1-\tau}{\tau}\frac{\bar y}{1-\bar y})\)</span>, where <span class="math inline">\(\tau\)</span> is the proportion of <code>True</code>s in the population, and <span class="math inline">\(\bar y\)</span> is the proportion of <code>True</code>s in your sample. I have this from King and Zeng <em>Logistic regression in rare events data.</em> Below I apply this correction to our bad model from earlier:</p>
 <pre class="r"><code>tau &lt;- table(y)[2]/sum(table(y))
 b_0_corrected &lt;- coef(new_glm_fit)[1] - log((1-tau)/tau)
 lim &lt;- 2
@@ -141,7 +142,7 @@ rug(x)</code></pre>
 <p><img src="/blog/2017-04-09-undersampling_files/figure-html/posterior_adjustment-1.png" width="672" /></p>
 <p>In spite of this clever correction the undersampled estimate is off. It still overestimates p(<code>True</code>). In fact, the correction is consistent and its derivation is surprisingly simple. The estimate is worse because we threw away most of our data to make it.</p>
 <p>Sure, this is a kind of ridiculous example. I’m sure no one would throw away 99 thousand perfectly fine samples because they worry about imbalanced data, but class balancing is a thing that people do and it’s interesting to see what the implications are. As with the logistic regression I’m sure there is some sort of post hoc correction procedure for class balancing in many methods.</p>
-<p>Maybe this stuff works if you’re doing something like the SVM where you basically look at the shapes of the <code>True</code>s and the <code>False</code>s in euclidean space. I don’t know. Looking at the NWKE figure above I wouldn’t be too optimistic; we end up mussing a lot of <code>False</code>s in the critical region around \(x=.5\). Presumably the separating hyperplane would hence be (wrongy) pushed toward the <code>False</code>s. The SVM is a pure classification algorithm and as such intrinsically linked to the classification accuracy scoring rule. If you want a probability output you end up jury-rigging one by putting the distance to the separating plane into some sort of function at which point why not just estimate the probabilities directly to begin with and save yourself the grief?</p>
+<p>Maybe this stuff works if you’re doing something like the SVM where you basically look at the shapes of the <code>True</code>s and the <code>False</code>s in euclidean space. I don’t know. Looking at the NWKE figure above I wouldn’t be too optimistic; we end up mussing a lot of <code>False</code>s in the critical region around <span class="math inline">\(x=.5\)</span>. Presumably the separating hyperplane would hence be (wrongy) pushed toward the <code>False</code>s. The SVM is a pure classification algorithm and as such intrinsically linked to the classification accuracy scoring rule. If you want a probability output you end up jury-rigging one by putting the distance to the separating plane into some sort of function at which point why not just estimate the probabilities directly to begin with and save yourself the grief?</p>
 </div>
 <div id="is-this-ever-useful" class="section level2">
 <h2>Is this ever useful?</h2>
@@ -190,16 +191,16 @@ rug(x)</code></pre>
 <section id="menu-pane" class="row menu text-center">
   
   
-  <span><a class="menu-item" href="http://3inar.github.io/blog/2016-10-03-violence/">&lt; prev | </a></span>
+  <span><a class="menu-item" href="/blog/2016-10-03-violence/">&lt; prev | </a></span>
   
   
   <span><a class="menu-item" href="/blog">blog</a></span>
   
   
-  <span><a class="menu-item" href="http://3inar.github.io/blog/2017-08-24-auc-harmful/"> | next &gt;</a></span>
+  <span><a class="menu-item" href="/blog/2017-08-24-auc-harmful/"> | next &gt;</a></span>
   
   
-  <h4 class="text-center"><a class="menu-item" href="http://3inar.github.io/">home</a></h4>
+  <h4 class="text-center"><a class="menu-item" href="/">home</a></h4>
 </section>
 
 

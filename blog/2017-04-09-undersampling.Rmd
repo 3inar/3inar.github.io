@@ -19,7 +19,7 @@ forced me to do some thinking. Why not undersample the majority class?
 So the argument for balancing unbalanced classes seems to stem from the use of 
 classification accuracy (= fraction predictions where the predicted class was correct) to 
 evaluate classifiers: 
-if \\(.01\\) of my observations are `True`s, I'd get a \\(.99\\) accuracy by always 
+if $.01$ of my observations are `True`s, I'd get a $.99$ accuracy by always 
 classifying as `False`. Since "everything is `False`" isn't a very sexy model,
 why not make it seem as though there are more `True`s in the hope that their signal
 stands out more clearly against the overwhelming mass of `False`s?
@@ -34,13 +34,13 @@ balancing act, and it's probably not always well-defined how to do that.
 
 ## Let's just try
 I'll simulate some data from the following logistic model: 
-\\[ \log \frac{p}{1-p} = \beta_0 + \beta_1x,\\]
-\\[ X\sim N(0, \sigma),\\]
-with \\(\beta_0=9, \beta_1=6,\\) and \\( \sigma=.4\\). This can easily be 
+$$ \log \frac{p}{1-p} = \beta_0 + \beta_1x,$$
+$$ X\sim N(0, \sigma),$$
+with $\beta_0=9, \beta_1=6,$ and $\sigma=.4$. This can easily be 
 transformed into a probability of belonging to `True`:
-\\[p = \frac{1}{1+e^{-(9+6x)}}.\\] To generate class labels from probabilities, 
-draw a uniform number \\(u\sim U(0,1)\\) and assign to `True` 
-if \\(u < p\\). This model gives me about \\(600 \times\\) more `False`s than `True`s. 
+$$p = \frac{1}{1+e^{-(9+6x)}}.$$ To generate class labels from probabilities, 
+draw a uniform number $u\sim U(0,1)$ and assign to `True` 
+if $u < p$. This model gives me about $600 \times$ more `False`s than `True`s. 
 I will generate 100 thousand observations
 from this model and fit a logistic regression to i) all the data, ii) 
 a data set where I have subsampled the `False`s to get a fake 50-50 split.
@@ -92,7 +92,7 @@ and we just threw it away.
 
 If we wanted to do classification we'd choose some probability threshold 
 above which we'd assign everything to `True`. The standard, theoretically best 
-threshold is \\(p=.5\\). If we use this threshold under the correct model we will 
+threshold is $p=.5$. If we use this threshold under the correct model we will 
 nearly always classify as `False`. That's not bad, _that's the correct
 decision._ If we use this threshold under the clearly wrong undersampled model we'd 
 get more predictions of `True`. Most of them would be wrong.
@@ -104,20 +104,20 @@ regression instead of logistic regression. Specifically I want to do
 Nadaraya--Watson kernel estimation (NWKE). This is helpful in this
 discussion because we won't have to bend our minds around the whole logit space
 vs. probability space thing of logistic regression. The NWKE
-directly estimates \\(r(x) = E[Y|X=x]\\) by a weighted average of Y around x as
-follows: for observation pairs \\((x_i, y_i), i\in\{1,2,\ldots, n\} \\), let
+directly estimates $r(x) = E[Y|X=x]$ by a weighted average of Y around x as
+follows: for observation pairs $(x_i, y_i), i\in\{1,2,\ldots, n\}$, let
 
-\\[ \hat r(x) = \sum_{i=1}^n w_i(x)y_i, \\]
+$$ \hat r(x) = \sum_{i=1}^n w_i(x)y_i, $$
 
-where the weight of observation \\(i\\), \\(w_i\\), is a function of \\(x\\). This
+where the weight of observation $i$, $w_i$, is a function of $x$. This
 is very easy to reason about, it's an average of all our observations that's
-weighted so that observations closer to \\(x\\) count more. Specifically, the 
+weighted so that observations closer to $x$ count more. Specifically, the 
 weight is defined as
 
-\\[ w_i(x) = \frac{K(\frac{x-x_i}{h})}{\sum_{j=1}^n K(\frac{x-x_j}{h})}. \\]
+$$ w_i(x) = \frac{K(\frac{x-x_i}{h})}{\sum_{j=1}^n K(\frac{x-x_j}{h})}. $$
 
-The function \\(K\\) is a kernel. For our discussion it's a normal 
-distribution centered on \\(x\\). The bandwidth \\(h\\) controls the amount of influence 
+The function $K$ is a kernel. For our discussion it's a normal 
+distribution centered on $x$. The bandwidth $h$ controls the amount of influence 
 points far away from x should have. For our discussion it's the standard 
 deviation of our normal distribution. The weights clearly sum to 1 and they're
 never negative.
@@ -130,25 +130,25 @@ lines(ksmooth(newx, as.numeric(newy)+2, "normal", bandwidth = .5), lwd=1.5) # le
 ```
 
 Above I have put the full data and the undersampled data in the 
-same figure along with their NWKE regressions. The \\(y\\) values are jittered, 
+same figure along with their NWKE regressions. The $y$ values are jittered, 
 they are really just zeros and ones. The top pair of clouds is the undersampled data and
 the bottom pair is the full data. These regressions look a lot like our logistic
 regressions from before. As before, the regression from the undersampled data greatly
 overestimates the probability of `True`. Considering the form of the NWKE it
-shouldn't be too surprising: the estimate at \\(x\\) is \\(\sum w_i(x)y_i \\), and if you remove a 
-bunch of the \\(y_i=0\\), naturally the estimate at \\(x\\) will be larger. 
+shouldn't be too surprising: the estimate at $x$ is $\sum w_i(x)y_i$, and if you remove a 
+bunch of the $y_i=0$, naturally the estimate at $x$ will be larger. 
 This is basically what's happening with the logistic
-regression as well: there will be too few \\((\hat r(x) - 0)^2\\) terms in the sum of
+regression as well: there will be too few $(\hat r(x) - 0)^2$ terms in the sum of
 squares that's optimized. This works both ways, you're no better off 
-oversampling `True`s, you will be introducing a bunch of \\(1\\)s to inflate the estimate.
+oversampling `True`s, you will be introducing a bunch of $1$s to inflate the estimate.
 
 ## Posterior correction
 In fact, in logistic regression you get the right odds ratio anyway:
-you estimate the slope, \\(\beta_1\\), correctly in spite of having the wrong proportion of 
+you estimate the slope, $\beta_1$, correctly in spite of having the wrong proportion of 
 `True`s. You can see this in the figure, the estimated curve looks good but for
 the fact that it's shifted way to the left. It's posible to correct the intercept
-\\(\beta_0 \\) post hoc. This correction is \\(\hat \beta_0^* = \hat \beta_0 - \log(\frac{1-\tau}{\tau}\frac{\bar y}{1-\bar y})\\), where \\(\tau\\) is the proportion of `True`s in the population,
-and \\(\bar y\\) is the proportion of `True`s in your sample. I have this
+$\beta_0$ post hoc. This correction is $\hat \beta_0^* = \hat \beta_0 - \log(\frac{1-\tau}{\tau}\frac{\bar y}{1-\bar y})$, where $\tau$ is the proportion of `True`s in the population,
+and $\bar y$ is the proportion of `True`s in your sample. I have this
 from King and Zeng _Logistic regression in rare events data._ Below I apply this 
 correction to our bad model from earlier:
 ```{r posterior_adjustment}
@@ -177,7 +177,7 @@ Maybe this stuff works if you're doing something like the SVM where you
 basically look at the shapes of the `True`s and the `False`s in euclidean space.
 I don't know. Looking at the NWKE figure above I wouldn't be too optimistic; we
 end up mussing a lot of `False`s in the critical region around
-\\(x=.5\\). Presumably the separating hyperplane would hence be (wrongy) pushed
+$x=.5$. Presumably the separating hyperplane would hence be (wrongy) pushed
 toward the `False`s. The SVM is a pure classification algorithm and as such
 intrinsically linked to the classification accuracy scoring rule. If you want a 
 probability output you end up jury-rigging one by putting the distance to the 

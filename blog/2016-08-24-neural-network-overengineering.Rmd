@@ -18,10 +18,10 @@ Feature scaling? Honestly! What I need is something _simple_.
 
 Now for simplicity you can hardly beat good old Naive Bayes.
 For those of us who forget, Naive Bayes is to assume that the predictors 
-\\( x_i \\) in an observation \\( \mathbf x = [x_1, x_1, \ldots, x_p] \\) are independent
-so that the probability of a given sample, \\( \mathbf x\\), belonging to a given class, 
-\\(C\\), is \\( p(C | X = \mathbf x) \propto p(C)\prod_{i=1}^p p(x_i|C) \\). The 
-class-conditional densities, \\(p(x_i | C)\\), are usually fit as 
+$x_i$ in an observation $\mathbf x = [x_1, x_1, \ldots, x_p]$ are independent
+so that the probability of a given sample, $\mathbf x$, belonging to a given class, 
+$C$, is $p(C | X = \mathbf x) \propto p(C)\prod_{i=1}^p p(x_i|C)$. The 
+class-conditional densities, $p(x_i | C)$, are usually fit as 
 maximum-likelihood-estimate Gaussians.
 
 Anyway, [get the data from UCI](https://archive.ics.uci.edu/ml/datasets/Wine)

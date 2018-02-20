@@ -10,7 +10,7 @@
 <meta name="description" content="Academic web page">
 <meta name="keywords" content="statistics,machine learning,research,computer science">
 
-<base href="http://3inar.github.io/">
+<base href="/">
 
 <title>Einar Holsbø</title>
 
@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-<link rel="stylesheet" href="http://3inar.github.io/css/main.css">
+<link rel="stylesheet" href="/css/main.css">
 
 
 
@@ -43,8 +43,9 @@
 
 
 <script type="text/javascript"
-   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML">
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
 
 
 <header class="row text-left title">
@@ -63,7 +64,7 @@
 <section id="content-pane" class="row">
   <div class="col-md-12 text-left content">
     <p>In my idle hours (ie when I should have been writing a paper), I came across this blog post where the author <a href="https://medium.com/autonomous-agents/how-to-train-your-neuralnetwork-for-wine-tasting-1b49e0adff3a#.l2fhfa6hr">trained a neural netwok in the fine art of wine tasting</a>. I am basically deep down a very lazy person, and from what little I understand of NNs, there are quite a few knobs to fiddle with, which really who has the time with all this untasted wine floating about? 5.56 hidden nodes? 600 epochs? Feature scaling? Honestly! What I need is something <em>simple</em>.</p>
-<p>Now for simplicity you can hardly beat good old Naive Bayes. For those of us who forget, Naive Bayes is to assume that the predictors \( x_i \) in an observation \( x = [x_1, x_1, , x_p] \) are independent so that the probability of a given sample, \( x\), belonging to a given class, \(C\), is \( p(C | X = x) p(C)_{i=1}^p p(x_i|C) \). The class-conditional densities, \(p(x_i | C)\), are usually fit as maximum-likelihood-estimate Gaussians.</p>
+<p>Now for simplicity you can hardly beat good old Naive Bayes. For those of us who forget, Naive Bayes is to assume that the predictors <span class="math inline">\(x_i\)</span> in an observation <span class="math inline">\(\mathbf x = [x_1, x_1, \ldots, x_p]\)</span> are independent so that the probability of a given sample, <span class="math inline">\(\mathbf x\)</span>, belonging to a given class, <span class="math inline">\(C\)</span>, is <span class="math inline">\(p(C | X = \mathbf x) \propto p(C)\prod_{i=1}^p p(x_i|C)\)</span>. The class-conditional densities, <span class="math inline">\(p(x_i | C)\)</span>, are usually fit as maximum-likelihood-estimate Gaussians.</p>
 <p>Anyway, <a href="https://archive.ics.uci.edu/ml/datasets/Wine">get the data from UCI</a> and have a go. Follow this simple guide and you too will have created a wine-tasting AI to threaten the job security of sommeliers everywhere. First let’s load the data and have a look at it.</p>
 <pre class="r"><code>set.seed(220816) # for reproducibility 
 
@@ -153,10 +154,10 @@ quantile(stats, c(0.025, 0.975))</code></pre>
   <span><a class="menu-item" href="/blog">blog</a></span>
   
   
-  <span><a class="menu-item" href="http://3inar.github.io/blog/2016-10-03-violence/"> | next &gt;</a></span>
+  <span><a class="menu-item" href="/blog/2016-10-03-violence/"> | next &gt;</a></span>
   
   
-  <h4 class="text-center"><a class="menu-item" href="http://3inar.github.io/">home</a></h4>
+  <h4 class="text-center"><a class="menu-item" href="/">home</a></h4>
 </section>
 
 

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mixture Models on Einar Holsbø</title>
-    <link>http://3inar.github.io/tags/mixture-models/</link>
+    <link>/tags/mixture-models/</link>
     <description>Recent content in Mixture Models on Einar Holsbø</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Mon, 15 Jan 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://3inar.github.io/tags/mixture-models/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/mixture-models/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Quick-and-dirty image segmentation</title>
-      <link>http://3inar.github.io/blog/2018-01-15-segmentation/</link>
+      <link>/blog/2018-01-15-segmentation/</link>
       <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/blog/2018-01-15-segmentation/</guid>
+      <guid>/blog/2018-01-15-segmentation/</guid>
       <description>A member of our lab does handwritten digit recognition in a highly structured setting. Without going into details, we want to read images of three-digit handwritten codes and recognize which number the image depicts. To avoid having to predict one of a thousand classes, we want to to split the images into three single digits.
 I’m sure there are some very fancy ways indeed of doing this, but the following structure makes me think we can start with simpler solutions: (i) There are always three digits.</description>
     </item>
