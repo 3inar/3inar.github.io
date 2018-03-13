@@ -10,7 +10,7 @@
 <meta name="description" content="Academic web page">
 <meta name="keywords" content="statistics,machine learning,research,computer science">
 
-<base href="/">
+<base href="http://3inar.github.io/">
 
 <title>Einar Holsbø</title>
 
@@ -25,16 +25,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="http://3inar.github.io/css/main.css">
 
 
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="apple-touch-icon" sizes="180x180" href="http://3inar.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="http://3inar.github.io/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="http://3inar.github.io/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="http://3inar.github.io/manifest.json">
+<link rel="mask-icon" href="http://3inar.github.io/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="theme-color" content="#ffffff">
 
 </head>
@@ -82,7 +82,7 @@ colnames(x) &lt;- c(&quot;Alcohol&quot;, &quot;Malic acid&quot;, &quot;Ash&quot;
 # set aside 0.35 of the samples for independent test set as per other blog
 test_idx &lt;- sample(1:length(y), ceiling(length(y)*0.35))</code></pre>
 <p>To get a feel for the data we’ll plot the class-conditional densities of the different predictors. We exclude the training samples, of course, so as not to fool ourselves. The code for this plot is kind of ugly and unintersting so I’ll just hide it.</p>
-<p><img src="/blog/2016-08-24-neural-network-overengineering_files/figure-html/density_estimates-1.png" width="672" /></p>
+<p><img src="http://3inar.github.io/blog/2016-08-24-neural-network-overengineering_files/figure-html/density_estimates-1.png" width="672" /></p>
 <p>Doesn’t look too bad. Some of these don’t look particularly Gaussian, but let’s just say that we’re doing smoothing. Now to fit our model and look at how it classifies the different wines.</p>
 <pre class="r"><code>library(e1071) # provides naiveBayes()</code></pre>
 <pre><code>## Warning: package &#39;e1071&#39; was built under R version 3.3.2</code></pre>
@@ -127,11 +127,11 @@ quantile(stats, c(0.025, 0.975))</code></pre>
       TAGS:
       
       
-      <a class="meta" href="/tags/naive-bayes">NAIVE BAYES</a>, 
+      <a class="meta" href="http://3inar.github.io/tags/naive-bayes">NAIVE BAYES</a>, 
       
-      <a class="meta" href="/tags/neural-networks">NEURAL NETWORKS</a>, 
+      <a class="meta" href="http://3inar.github.io/tags/neural-networks">NEURAL NETWORKS</a>, 
       
-      <a class="meta" href="/tags/wine">WINE</a>
+      <a class="meta" href="http://3inar.github.io/tags/wine">WINE</a>
       
       
       
@@ -151,13 +151,13 @@ quantile(stats, c(0.025, 0.975))</code></pre>
   
   
   
-  <span><a class="menu-item" href="/blog">blog</a></span>
+  <span><a class="menu-item" href="http://3inar.github.io/blog">blog</a></span>
   
   
-  <span><a class="menu-item" href="/blog/2016-10-03-violence/"> | next &gt;</a></span>
+  <span><a class="menu-item" href="http://3inar.github.io/blog/2016-10-03-violence/"> | next &gt;</a></span>
   
   
-  <h4 class="text-center"><a class="menu-item" href="/">home</a></h4>
+  <h4 class="text-center"><a class="menu-item" href="http://3inar.github.io/">home</a></h4>
 </section>
 
 
