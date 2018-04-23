@@ -1,5 +1,5 @@
 ---
-title: "Comparing a relative risk with an odds ratio"
+title: "Comparing a relative risk to an odds ratio"
 author: "Einar"
 date: 2018-04-22
 description: "When is an odds ratio similar to a relative risk?"
@@ -27,7 +27,7 @@ has probability $p$ is $p/(1-p),$ so the odds ratio is $OR = \frac{p_1/(1-p_1)}{
 
 ## Exploratory analysis
 As usual my first instinct is to simulate some numbers and see what happens. Below 
-I generate pairs of probabilities uniformly on between 0 and 1 and plot the relationship 
+I generate pairs of probabilities uniformly between 0 and 1 and plot the relationship 
 between their ORs and RRs.
 ```{r}
 # generate probabilities
