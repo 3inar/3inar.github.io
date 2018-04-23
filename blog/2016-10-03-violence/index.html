@@ -10,7 +10,7 @@
 <meta name="description" content="Academic web page">
 <meta name="keywords" content="statistics,machine learning,research,computer science">
 
-<base href="http://3inar.github.io/">
+<base href="/">
 
 <title>Einar Holsbø</title>
 
@@ -25,16 +25,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-<link rel="stylesheet" href="http://3inar.github.io/css/main.css">
+<link rel="stylesheet" href="/css/main.css">
 
 
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="http://3inar.github.io/apple-touch-icon.png">
-<link rel="icon" type="image/png" href="http://3inar.github.io/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="http://3inar.github.io/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="http://3inar.github.io/manifest.json">
-<link rel="mask-icon" href="http://3inar.github.io/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="theme-color" content="#ffffff">
 
 </head>
@@ -71,12 +71,12 @@
 <h3>Fetching + tidying SSB data</h3>
 <p>My office wife through many years, <a href="http://fjukstad.github.io/">Bjørn</a>, has been good enough to help me with the SSB API, most of the below is adapted from his code. You can skip this if you’re not too excited about tidying data sets.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ──────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
 ## ✔ tibble  1.4.2     ✔ dplyr   0.7.4
 ## ✔ tidyr   0.8.0     ✔ stringr 1.3.0
 ## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ─────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(stringr)
@@ -156,7 +156,7 @@ violence14 &lt;- crimes %&gt;% filter(tid==&quot;2014&quot;, lovbruddstype==&quo
        col=colors[4], main=&quot;crime rate as a f&#39;n of population&quot;, bty=&quot;n&quot;)
   abline(h=mean(anmeldelser_pk), col=colors[5], lwd=1.5)
 })</code></pre>
-<p><img src="http://3inar.github.io/blog/2016-10-03-violence_files/figure-html/rate_vs_pop-1.png" width="672" /></p>
+<p><img src="/blog/2016-10-03-violence_files/figure-html/rate_vs_pop-1.png" width="672" /></p>
 <p>Hasvik s really sticking out there at the top left! The high-leverage point all the way to the right is Oslo. If you feel that there is a lot more going on for better or worse in the smaller towns you might be right: Notice the slight funnel shape toward the mean as population increases. In a town of two people the population is 0.002 thousand people. If one person does violence to the other, the violence rate goes up by 1/0.002 = 500. This is the smallest possible jump in crime rate in a town of two people, and the crime rate can only be multiples of 500 there, assuming there are no semi-reported crimes. If the same thing were to happen in Oslo, with a 2014 population (in thousands) of about 634, we’d get a modest bump of 1/634 ≈ 0.002: the smallest possible crime rate jump in a town of 634 thousand people. Clearly there will be more variance in crime rate (or any sort of count per population) in small towns, which means that small towns will be overrepresented in both extremes, both most violent and least violent.</p>
 <p>An intro to stats course will probably teach you that the standard error of the mean is <span class="math inline">\(\sigma_{\bar x} = \sigma/\sqrt{n},\)</span> with <span class="math inline">\(n\)</span> the number of samples you’re taking the mean of. Howard Wainer calls this De Moivre’s equation, and also calls it <a href="http://press.princeton.edu/chapters/s8863.pdf">the most dangerous equation in the world</a>. You should read that <code>.pdf</code>, it’s really good. I’ll wait.</p>
 </div>
@@ -182,7 +182,7 @@ beta_p &lt;- alpha_p * (1 / mu - 1)
 # check the fit
 hist(violence14$cpp, col=colors[4], border=F, nclass=25, prob=T, main=&quot;per capita violence&quot;)
 curve(dbeta(x, alpha_p, beta_p), add=T, col=colors[5], lwd=1.5)</code></pre>
-<p><img src="http://3inar.github.io/blog/2016-10-03-violence_files/figure-html/fit_prior-1.png" width="672" /></p>
+<p><img src="/blog/2016-10-03-violence_files/figure-html/fit_prior-1.png" width="672" /></p>
 <p>The histogram is our observed crime rates in a big pile, the red curve is our empirical prior based on these data. I think it looks fine. To gloss over some details: the Wikipedia link to conjugate priors and the David Robinson post above will tell you that the posterior mean for a given town, which is sensible prediction from the posterior, is <span class="math inline">\(\frac{r + \alpha_0}{N + \alpha_0 + \beta_0}\)</span>, where <span class="math inline">\(r\)</span> is the observed number of violent crime reports, <span class="math inline">\(N\)</span> is the population, and <span class="math inline">\(\alpha_0, \beta_0\)</span> are the parameters of the prior. These are our new estimates.</p>
 <pre class="r"><code>violence14 &lt;- mutate(violence14, posterior_cpp=(anmeldelser+alpha_p)/(personer+alpha_p+beta_p))</code></pre>
 <p>Let’s compare the observed and posterior rates in a plot. The upper points in the plot represent posterior estimates, while the lower points are the observed rates. Corresponding estimates are connected by a line.</p>
@@ -199,7 +199,7 @@ points(post, pch=20, col=colors[4])
 plyr::a_ply(violence14, 1, function(x) {
   lines(c(x$posterior_cpp, x$cpp), c(1,0), col=colors[4])
 })</code></pre>
-<p><img src="http://3inar.github.io/blog/2016-10-03-violence_files/figure-html/compare_adjustment-1.png" width="672" /></p>
+<p><img src="/blog/2016-10-03-violence_files/figure-html/compare_adjustment-1.png" width="672" /></p>
 <p>This plot shows the effect of shrinking the observed crime rates toward the prior distribution. We see that the more extreme estimates have been shrunk toward the center because our prior distribution says that there shouldn’t be that much happening toward the tails. The crossing lines indicate towns that have been shifted to a new position in the violence ranking. Hasvik is still reigning champion.</p>
 </div>
 <div id="a-more-honest-top-ten" class="section level3">
@@ -234,7 +234,7 @@ plyr::a_ply(1:n_c, 1, function(i) {
   lines(c(obs$uc, obs$lc), c(i,i), col=colors[4], lwd=1.5)
 })
 points(top10$cpp, 1:n_c, pch=20, col=colors[1])</code></pre>
-<p><img src="http://3inar.github.io/blog/2016-10-03-violence_files/figure-html/now_top_ten-1.png" width="672" /></p>
+<p><img src="/blog/2016-10-03-violence_files/figure-html/now_top_ten-1.png" width="672" /></p>
 <p>We can see that the violence rates in the top ten mostly have very wide credible intervals because they were mostly estimated in smaller towns. The posterior estimate for Oslo is inside all the intervals. We can also see that the estimates for the larger towns, Tønsberg, Ullensaker, and Oslo, didn’t move much or at all, while the one for tiny Hasvik of about one thousand people had a large adjustment. It’s hard for me to argue that Hasvik deserves to be called most violent in Norway based on this; it really could have ended up anywhere in the top ten or even outside of the top ten from natural variability. Really I wouldn’t stick my hand in the fire for this exact top ten at all, apart from maybe Tønsberg and Ullensaker, which are larger towns where the violence rate can be estimated more exactly. What’s their deal anyway.</p>
 <p>Meanwhile Oslo is pretty violent, and we can say so with reasonable accuracy. In the adjusted rankings it’s placed 7th out of 348, so it’s not as though it’s a very ambitious goal to be less violent than Oslo.</p>
 <pre class="r"><code>violence14 %&gt;% arrange(desc(posterior_cpp)) %&gt;% 
@@ -261,7 +261,7 @@ plyr::a_ply(1:n_c, 1, function(i) {
   lines(c(obs$uc, obs$lc), c(i,i), col=colors[4])
 })
 points(violent_subset$posterior_cpp, 1:n_c, pch=20, col=colors[2])</code></pre>
-<p><img src="http://3inar.github.io/blog/2016-10-03-violence_files/figure-html/random_subset-1.png" width="672" /></p>
+<p><img src="/blog/2016-10-03-violence_files/figure-html/random_subset-1.png" width="672" /></p>
 <p>All in all I’d hold off on moving away from Vadsø or Hasvik based on the number of violent crime reports in 2014. Unless you choose to <a href="https://archive.li/faHW">believe in the law of small numbers</a>.</p>
 </div>
 
@@ -277,13 +277,13 @@ points(violent_subset$posterior_cpp, 1:n_c, pch=20, col=colors[2])</code></pre>
       TAGS:
       
       
-      <a class="meta" href="http://3inar.github.io/tags/bayes">BAYES</a>, 
+      <a class="meta" href="/tags/bayes">BAYES</a>, 
       
-      <a class="meta" href="http://3inar.github.io/tags/empirical-bayes">EMPIRICAL BAYES</a>, 
+      <a class="meta" href="/tags/empirical-bayes">EMPIRICAL BAYES</a>, 
       
-      <a class="meta" href="http://3inar.github.io/tags/official-statistics">OFFICIAL STATISTICS</a>, 
+      <a class="meta" href="/tags/official-statistics">OFFICIAL STATISTICS</a>, 
       
-      <a class="meta" href="http://3inar.github.io/tags/shrinkage">SHRINKAGE</a>
+      <a class="meta" href="/tags/shrinkage">SHRINKAGE</a>
       
       
       
@@ -302,16 +302,16 @@ points(violent_subset$posterior_cpp, 1:n_c, pch=20, col=colors[2])</code></pre>
 <section id="menu-pane" class="row menu text-center">
   
   
-  <span><a class="menu-item" href="http://3inar.github.io/blog/2016-08-24-neural-network-overengineering/">&lt; prev | </a></span>
+  <span><a class="menu-item" href="/blog/2016-08-24-neural-network-overengineering/">&lt; prev | </a></span>
   
   
-  <span><a class="menu-item" href="http://3inar.github.io/blog">blog</a></span>
+  <span><a class="menu-item" href="/blog">blog</a></span>
   
   
-  <span><a class="menu-item" href="http://3inar.github.io/blog/2017-04-09-undersampling/"> | next &gt;</a></span>
+  <span><a class="menu-item" href="/blog/2017-04-09-undersampling/"> | next &gt;</a></span>
   
   
-  <h4 class="text-center"><a class="menu-item" href="http://3inar.github.io/">home</a></h4>
+  <h4 class="text-center"><a class="menu-item" href="/">home</a></h4>
 </section>
 
 
