@@ -71,12 +71,12 @@
 <h3>Fetching + tidying SSB data</h3>
 <p>My office wife through many years, <a href="http://fjukstad.github.io/">Bjørn</a>, has been good enough to help me with the SSB API, most of the below is adapted from his code. You can skip this if you’re not too excited about tidying data sets.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ──────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
 ## ✔ tibble  1.4.2     ✔ dplyr   0.7.4
 ## ✔ tidyr   0.8.0     ✔ stringr 1.3.0
 ## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ─────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(stringr)
@@ -241,7 +241,7 @@ points(top10$cpp, 1:n_c, pch=20, col=colors[1])</code></pre>
                select(sted) %&gt;%  `==`(&quot;Oslo kommune&quot;) %&gt;% which</code></pre>
 <pre><code>## [1] 7</code></pre>
 <pre class="r"><code>nrow(violence14)</code></pre>
-<pre><code>## [1] 371</code></pre>
+<pre><code>## [1] 365</code></pre>
 </div>
 <div id="brum-a-new-hope" class="section level3">
 <h3>Bærum: a new hope</h3>
