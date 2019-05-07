@@ -14,7 +14,7 @@
 
 <title>Einar Holsbø</title>
 
-<meta name="generator" content="Hugo 0.34" />
+<meta name="generator" content="Hugo 0.55.5" />
 
 
 
@@ -63,11 +63,26 @@
 </section>
 <section id="content-pane" class="row">
   <div class="col-md-12 text-left content">
-    <p>It’s pretty hard to build a predictive model, let’s be honest. My previous post was about the strange practice of under-/oversampling. We impose this on ourselves because we want to do yes/no classification instead of predicting probability. This post is on the same theme. It has a very clear message: if we use accuracy-like model performance measures (looking at you, AUC, F1, etc.) we reduce our ability to select the best model.</p>
-<p>I often do little simulations to try to make sense of a confusing world. Below I present some pretty convincing evidence for the case of dropping classification in favor of prediction. At least in the model selection phase.</p>
+    
+
+
+<p>It’s pretty hard to build a predictive model, let’s be honest. My previous post
+was about the strange practice of under-/oversampling. We impose this on
+ourselves because we want to do yes/no classification instead of predicting
+probability. This post is on the same theme. It has a very clear message: if we
+use accuracy-like model performance measures (looking at you, AUC, F1, etc.) we
+reduce our ability to select the best model.</p>
+<p>I often do little simulations to try to make sense of a confusing world. Below I
+present some pretty convincing evidence for the case of dropping classification
+in favor of prediction. At least in the model selection phase.</p>
 <div id="a-simulation-model" class="section level1">
 <h1>A simulation model</h1>
-<p>I will make a simulation model based on the one in my undersampling post. Once again the log odds of class <code>True</code> is <span class="math inline">\(\textrm{logit}(p) = -9 +6x,\)</span> but I now sample <span class="math inline">\(X \sim N(1.5, 1)\)</span>. This is different from last because I no longer want severe class imbalance. I will also add an uninformative noise variable <span class="math inline">\(X_{\epsilon} \sim N(0, 2)\)</span> post hoc. The below function generates a data set to these specifications.</p>
+<p>I will make a simulation model based on the one in my undersampling post.
+Once again the log odds of class <code>True</code> is <span class="math inline">\(\textrm{logit}(p) = -9 +6x,\)</span> but I
+now sample <span class="math inline">\(X \sim N(1.5, 1)\)</span>. This is different from last because I no longer want
+severe class imbalance. I will also add an uninformative noise variable
+<span class="math inline">\(X_{\epsilon} \sim N(0, 2)\)</span> post hoc. The below function generates a data set
+to these specifications.</p>
 <pre class="r"><code>set.seed(23082017)
 
 generate_data &lt;- function(n=100) {
@@ -90,18 +105,29 @@ generate_data &lt;- function(n=100) {
 <li>The true model, <span class="math inline">\(\textrm{logit}(p) = \beta_0 + \beta_1x + \epsilon;\)</span></li>
 <li>A clearly worse model, <span class="math inline">\(\textrm{logit}(p) = \beta_0 + \beta_1x + \beta_2x_{\epsilon} + \epsilon.\)</span></li>
 </ul>
-<p>Imagine that we didn’t know the truth. Our goal is to choose between the two models: which one predicts better?</p>
+<p>Imagine that we didn’t know the truth. Our goal is to choose between the two
+models: which one predicts better?</p>
 </div>
 <div id="three-performance-metrics" class="section level1">
 <h1>Three performance metrics</h1>
 <p>I will compare three metrics for model performance on held-out data.</p>
 <ul>
-<li>Accuracy is the fraction of times we got the classification right. For this metric I will adopt the standard decision rule of classifying as <code>True</code> when <span class="math inline">\(\hat p &gt; .5\)</span>.</li>
-<li>The area under the ROC curve is a strange measure that luckliy directly corresponds to the probability of ranking a <code>True</code> higher than a <code>False</code>.</li>
+<li>Accuracy is
+the fraction of times we got the classification right. For this metric I will adopt the
+standard decision rule of classifying as <code>True</code> when <span class="math inline">\(\hat p &gt; .5\)</span>.</li>
+<li>The area under the ROC
+curve is a strange measure that luckliy directly corresponds to the
+probability of ranking a <code>True</code> higher than a <code>False</code>.</li>
 </ul>
-<p>So both of these measures have a straight-forward interpretation, which is nice. But since the main thesis of this post is that you shouldn’t use them, let’s look at a third metric:</p>
+<p>So both of these measures
+have a straight-forward interpretation, which is nice. But since the main
+thesis of this post is that you shouldn’t use them, let’s look at a third
+metric:</p>
 <ul>
-<li>Brier score is the mean squared error between estimated probabilities and the true probabilities (the true probabilities are either unity or zero). It measures the calibration of your probability estimates, but has no simple interpretation.</li>
+<li>Brier score is the mean squared error between estimated
+probabilities and the true probabilities (the true probabilities are either
+unity or zero). It measures the calibration of your probability estimates, but
+has no simple interpretation.</li>
 </ul>
 <pre class="r"><code>library(AUC)</code></pre>
 <pre><code>## AUC 0.3.0</code></pre>
@@ -122,7 +148,9 @@ accuracy_cost &lt;- function(truth, predicted) {
 </div>
 <div id="an-experiment" class="section level1">
 <h1>An experiment</h1>
-<p>I will simulate the scenario where we compare the two methods by five-fold cross validation to get a score for each. I want to estimate the statistical power of each metric: the probability that it gives the true model a better score.</p>
+<p>I will simulate the scenario where we compare the two methods by five-fold cross
+validation to get a score for each. I want to estimate the statistical power of
+each metric: the probability that it gives the true model a better score.</p>
 <pre class="r"><code>library(plyr)
 library(boot)</code></pre>
 <pre><code>## Warning: package &#39;boot&#39; was built under R version 3.3.2</code></pre>
@@ -143,7 +171,10 @@ experiment &lt;- function(cost_function) {
   
   c(good=good, bad=bad)
 }</code></pre>
-<p>Below I run the experiment 10000 times for each of the three performance metrics. Beware that if you run this yourself it’ll take a while! Afterward I go over the scores of the two models and check whether the One True Model scored better. I use this below to estimate power.</p>
+<p>Below I run the experiment 10000 times for each of the three performance
+metrics. Beware that if you run this yourself it’ll take a while! Afterward I
+go over the scores of the two models and check whether the
+One True Model scored better. I use this below to estimate power.</p>
 <pre class="r"><code>nsim &lt;- 10000
 auc_scores &lt;- raply(nsim, experiment(auc_cost))
 brier_scores &lt;- raply(nsim, experiment(brier_cost))
@@ -166,15 +197,39 @@ text(nsim, 0.71, paste0(&quot;Brier score (beta=&quot;, signif(mean(brier_decisi
 text(nsim, 0.48, paste0(&quot;Accuracy (beta=&quot;, signif(mean(accuracy_decision), 2), &quot;)&quot;), col=cols[2], cex=1.2, pos=2)
 text(nsim, 0.61, paste0(&quot;AUC (beta=&quot;, signif(mean(auc_decision), 2), &quot;)&quot;), col=cols[3], cex=1.2, pos=2)</code></pre>
 <p><img src="/blog/2017-08-24-auc-harmful_files/figure-html/plots-1.png" width="672" /></p>
-<p>The plot above shows the convergence of our three simulations toward the final estimates. Showing just the numbers isn’t social media friendly. The results are unequivocal. In this simulation, using Brier score gives you an extra .10 power to detect the right model over AUC! Accuracy is worse still: it is little better than making a monkey decide.</p>
+<p>The plot above shows the convergence of our three simulations toward the final
+estimates. Showing just the numbers isn’t social media friendly. The
+results are unequivocal. In this simulation, using Brier score gives you an
+extra .10 power to detect the right model over AUC! Accuracy is worse
+still: it is little better than making a monkey decide.</p>
 </div>
 <div id="why-is-the-brier-score-better" class="section level1">
 <h1>Why is the Brier score better?</h1>
-<p>To get accuracy we impose a (more or less) random threshold on the prediction. Many would argue that this is a problem in itself. As a score it has the problem that a miniscule improvement in model can lead to any size improvement in accuracy. Consider the following: among <span class="math inline">\(n\)</span> observations to classify, we gave a <code>True</code> the probability of <span class="math inline">\(.5\)</span>. Mistake. Classified as <code>False</code>. If we improve the model a very little so that the probability is now <span class="math inline">\(.5001\)</span> we get a discrete jump of <span class="math inline">\(1/n\)</span> in accuracy! We’ve crossed the magical barrier. Any further improvement in predicted probability makes no difference. The jump from <span class="math inline">\(.5\)</span> to <span class="math inline">\(.5001\)</span> is as good as a jump from <span class="math inline">\(.5\)</span> to <span class="math inline">\(1\)</span>. Similarly, a model that predicts a probability of <span class="math inline">\(.5\)</span> for all <code>False</code>s and <span class="math inline">\(.5001\)</span> for all <code>True</code>s has perfect accuracy. It’s as good as a model that predicted zero for all <code>False</code>s and unity for all <code>True</code>s. Clearly that’s nonsense. Similar reasoning applies to AUC, which is just accuracy stretched out, or indeed anything based on counting “correct” classifications. The Brier score is a <a href="https://en.wikipedia.org/wiki/Scoring_rule#ProperScoringRules">proper scoring rule</a>. Any change in predictions results in a proportional change in Brier score. Hence the Brier score is a more sensitive and sensible instrument. It reflects the actual improvement in model.</p>
+<p>To get accuracy we impose a (more or less) random threshold on the prediction.
+Many would argue that this is a problem in itself. As a score it has the problem
+that a miniscule improvement in model can lead to any size improvement in
+accuracy. Consider the following: among <span class="math inline">\(n\)</span> observations to classify, we
+gave a <code>True</code> the probability of <span class="math inline">\(.5\)</span>. Mistake. Classified as <code>False</code>. If we
+improve the model a very little so that the probability is now <span class="math inline">\(.5001\)</span> we
+get a discrete jump of <span class="math inline">\(1/n\)</span> in accuracy! We’ve crossed the magical barrier.
+Any further improvement in predicted probability makes no difference. The jump
+from <span class="math inline">\(.5\)</span> to <span class="math inline">\(.5001\)</span> is as good as a jump from <span class="math inline">\(.5\)</span> to <span class="math inline">\(1\)</span>.
+Similarly, a model that predicts a probability of <span class="math inline">\(.5\)</span> for all <code>False</code>s and
+<span class="math inline">\(.5001\)</span> for all <code>True</code>s has perfect accuracy. It’s as good as a model that
+predicted zero for all <code>False</code>s and unity for all <code>True</code>s. Clearly that’s
+nonsense. Similar reasoning applies to AUC, which is just accuracy stretched
+out, or indeed anything based on counting “correct” classifications. The Brier
+score is a <a href="https://en.wikipedia.org/wiki/Scoring_rule#ProperScoringRules">proper scoring
+rule</a>. Any change
+in predictions results in a proportional change in Brier score. Hence the Brier
+score is a more sensitive and sensible instrument. It reflects the actual
+improvement in model.</p>
 </div>
 <div id="full-disclosure" class="section level1">
 <h1>Full disclosure</h1>
-<p>Recently I ran days, maybe weeks, worth of resampling validation on our local supercomputer. All based on AUC score. I have yet to rerun those experiments; maybe I should follow my own advice.</p>
+<p>Recently I ran days, maybe weeks, worth of resampling validation
+on our local supercomputer. All based on AUC score. I have yet to rerun
+those experiments; maybe I should follow my own advice.</p>
 </div>
 
   </div>

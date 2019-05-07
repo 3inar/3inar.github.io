@@ -3,73 +3,14 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/blog/2018-04-22-odds-ratios/</loc>
-    <lastmod>2018-04-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2018-01-24-hugo/</loc>
-    <lastmod>2018-01-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2018-01-15-segmentation/</loc>
-    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2017-08-24-auc-harmful/</loc>
-    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2017-04-09-undersampling/</loc>
-    <lastmod>2017-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2016-10-03-violence/</loc>
-    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2016-08-24-neural-network-overengineering/</loc>
-    <lastmod>2016-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/auc/</loc>
-    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/bayes/</loc>
-    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/blog/</loc>
     <lastmod>2018-04-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/brier-score/</loc>
-    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/classification/</loc>
-    <lastmod>2017-04-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>/blog/2018-04-22-odds-ratios/</loc>
+    <lastmod>2018-04-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -79,80 +20,8 @@
   </url>
   
   <url>
-    <loc>/tags/empirical-bayes/</loc>
-    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/golang/</loc>
-    <lastmod>2018-01-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/handwritten-digits/</loc>
-    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/housekeeping/</loc>
-    <lastmod>2018-01-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/hugo/</loc>
-    <lastmod>2018-01-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/image-segmentation/</loc>
-    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/jekyll/</loc>
-    <lastmod>2018-01-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/logistic-regression/</loc>
-    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/mixture-models/</loc>
-    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/model-selection/</loc>
-    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/naive-bayes/</loc>
-    <lastmod>2016-08-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/neural-networks/</loc>
-    <lastmod>2016-08-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/ocr/</loc>
-    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
+    <loc>/tags/</loc>
+    <lastmod>2018-04-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -169,18 +38,6 @@
   </url>
   
   <url>
-    <loc>/tags/official-statistics/</loc>
-    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/prediction/</loc>
-    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/probability/</loc>
     <lastmod>2018-04-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -193,7 +50,32 @@
   </url>
   
   <url>
-    <loc>/research/</loc>
+    <loc>/blog/2018-01-24-hugo/</loc>
+    <lastmod>2018-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/golang/</loc>
+    <lastmod>2018-01-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/housekeeping/</loc>
+    <lastmod>2018-01-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/hugo/</loc>
+    <lastmod>2018-01-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/jekyll/</loc>
+    <lastmod>2018-01-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -203,8 +85,66 @@
   </url>
   
   <url>
-    <loc>/tags/shrinkage/</loc>
-    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
+    <loc>/blog/2018-01-15-segmentation/</loc>
+    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/handwritten-digits/</loc>
+    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/image-segmentation/</loc>
+    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/mixture-models/</loc>
+    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/ocr/</loc>
+    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/2017-08-24-auc-harmful/</loc>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/auc/</loc>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/brier-score/</loc>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/logistic-regression/</loc>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/model-selection/</loc>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/prediction/</loc>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -215,13 +155,14 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>/blog/2017-04-09-undersampling/</loc>
+    <lastmod>2017-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/talks/</loc>
+    <loc>/tags/classification/</loc>
+    <lastmod>2017-04-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -231,9 +172,68 @@
   </url>
   
   <url>
+    <loc>/blog/2016-10-03-violence/</loc>
+    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/bayes/</loc>
+    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/empirical-bayes/</loc>
+    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/official-statistics/</loc>
+    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/shrinkage/</loc>
+    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/2016-08-24-neural-network-overengineering/</loc>
+    <lastmod>2016-08-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/naive-bayes/</loc>
+    <lastmod>2016-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/neural-networks/</loc>
+    <lastmod>2016-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/wine/</loc>
     <lastmod>2016-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/research/</loc>
+  </url>
+  
+  <url>
+    <loc>/talks/</loc>
   </url>
   
 </urlset>

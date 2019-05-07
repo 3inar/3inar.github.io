@@ -14,7 +14,7 @@
 
 <title>Einar Holsbø</title>
 
-<meta name="generator" content="Hugo 0.34" />
+<meta name="generator" content="Hugo 0.55.5" />
 
 
 
@@ -63,14 +63,29 @@
 </section>
 <section id="content-pane" class="row">
   <div class="col-md-12 text-left content">
-    <p>In connection with a meta analysis I helped with recently we wanted to compare some relative risk results from another analysis with the odds ratios that came from ours. This made me wonder to what extent the two measurements are comparable. The short story is that they aren’t generally comparable, but when dealing with small probabilities they are quite similar. The long story follows below.</p>
+    
+
+
+<p>In connection with a meta analysis I helped with recently we wanted to compare
+some relative risk results from another analysis with the odds ratios that came
+from ours. This made me wonder to what extent the two measurements are
+comparable. The short story is that they aren’t generally comparable, but when
+dealing with small probabilities they are quite similar. The long story follows
+below.</p>
 <div id="definitions" class="section level2">
 <h2>Definitions</h2>
-<p>Suppose we are comparing the probability of falling ill between two groups. People who belong to group one have a <span class="math inline">\(p_1\)</span> probability of falling ill; people who belong to group two have a <span class="math inline">\(p_2\)</span> probability of falling ill. The <em>relative risk</em> between the two groups is the ratio of the two probabilities <span class="math inline">\(RR = p_1/p_2\)</span>, while the <em>odds ratio</em> is the ratio of the odds in the two groups. The odds of some event that has probability <span class="math inline">\(p\)</span> is <span class="math inline">\(p/(1-p),\)</span> so the odds ratio is <span class="math inline">\(OR = \frac{p_1/(1-p_1)}{p_2/(1-p_2)} = \frac{p_1(1-p_2)}{p_2(1-p_1)}.\)</span></p>
+<p>Suppose we are comparing the probability of falling ill between two groups. People
+who belong to group one have a <span class="math inline">\(p_1\)</span> probability of falling ill; people who belong
+to group two have a <span class="math inline">\(p_2\)</span> probability of falling ill. The <em>relative risk</em> between
+the two groups is the ratio of the two probabilities <span class="math inline">\(RR = p_1/p_2\)</span>, while the
+<em>odds ratio</em> is the ratio of the odds in the two groups. The odds of some event that
+has probability <span class="math inline">\(p\)</span> is <span class="math inline">\(p/(1-p),\)</span> so the odds ratio is <span class="math inline">\(OR = \frac{p_1/(1-p_1)}{p_2/(1-p_2)} = \frac{p_1(1-p_2)}{p_2(1-p_1)}.\)</span></p>
 </div>
 <div id="exploratory-analysis" class="section level2">
 <h2>Exploratory analysis</h2>
-<p>As usual my first instinct is to simulate some numbers and see what happens. Below I generate pairs of probabilities uniformly between 0 and 1 and plot the relationship between their ORs and RRs.</p>
+<p>As usual my first instinct is to simulate some numbers and see what happens. Below
+I generate pairs of probabilities uniformly between 0 and 1 and plot the relationship
+between their ORs and RRs.</p>
 <pre class="r"><code># generate probabilities
 probs1 &lt;- runif(100000)
 probs2 &lt;- runif(100000)
@@ -83,32 +98,49 @@ plot(OR, RR, xlim=c(0,15), ylim=c(0,15), pch=20, col=&quot;grey&quot;, bty=&quot
 abline(0,1, col=&quot;black&quot;, lwd=2)
 abline(1,0, col=&quot;black&quot;, lwd=2)</code></pre>
 <p><img src="/blog/2018-04-22-odds-ratios_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>The plot shows OR-RR pairs for <span class="math inline">\((p_1, p_2)\)</span> pairs. There is a black line horizontally at RR=1, and a black line with zero intercept, unity slope. The general pattern here is fairly uninteresting. Focussing on the case where <span class="math inline">\(p_1 &gt; p_2:\)</span> For a given RR the OR is always greater. This is because <span class="math inline">\(OR = RR\cdot\frac{1-p_2}{1-p_1},\)</span> where <span class="math inline">\(\frac{1-p_2}{1-p_1} \gt 1.\)</span> it is the other way around when <span class="math inline">\(p_2 &gt; p_1\)</span>. Other than this there isn’t much reason to believe that we can compare these quantities if we know nothing else about them. What if we know that at least one of the probabilities is quite small? Let’s say less than 5%?</p>
+<p>The plot shows OR-RR pairs for <span class="math inline">\((p_1, p_2)\)</span> pairs. There is a black line
+horizontally at RR=1, and a black line with zero intercept, unity slope.
+The general pattern here is fairly uninteresting. Focussing on the case
+where <span class="math inline">\(p_1 &gt; p_2:\)</span> For a given RR the OR is always greater. This is
+because <span class="math inline">\(OR = RR\cdot\frac{1-p_2}{1-p_1},\)</span> where <span class="math inline">\(\frac{1-p_2}{1-p_1} \gt 1.\)</span> it is the other way around when <span class="math inline">\(p_2 &gt; p_1\)</span>. Other than this there isn’t much
+reason to believe that we can compare these quantities if we know nothing else
+about them. What if we know that at least one of the probabilities is quite small?
+Let’s say less than 5%?</p>
 <pre class="r"><code>one_small &lt;- probs1 &lt; .05 | probs2 &lt; .05
 
 plot(OR[one_small], RR[one_small], xlim=c(0,15), ylim=c(0,15), pch=20, 
      col=&quot;grey&quot;, bty=&quot;n&quot;, main=&quot;At least one probability &lt; .05&quot;)
 abline(0,1, col=&quot;black&quot;, lwd=2)</code></pre>
 <p><img src="/blog/2018-04-22-odds-ratios_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>OK! This is pretty good, at least, say, below five. If we look at it the other way, and focus on the case where one probability is greater than 95% we are pretty much guaranteed not to have comparable RR and OR.</p>
+<p>OK! This is pretty good, at least, say, below five. If we look at it the other way,
+and focus on the case where one probability is greater than 95% we are pretty
+much guaranteed not to have comparable RR and OR.</p>
 <pre class="r"><code>one_large &lt;- probs1 &gt; .95 | probs2 &gt; .95
 
 plot(OR[one_large], RR[one_large], xlim=c(0,15), ylim=c(0,15), pch=20, 
      col=&quot;grey&quot;, bty=&quot;n&quot;, main=&quot;At least one probability &gt; .95&quot;)
 abline(0,1, col=&quot;black&quot;, lwd=2)</code></pre>
 <p><img src="/blog/2018-04-22-odds-ratios_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>So we should definitely be careful there. What if both probabilities are small though?</p>
+<p>So we should definitely be careful there. What if both probabilities are small
+though?</p>
 <pre class="r"><code>small &lt;- probs1 &lt; .05 &amp; probs2 &lt; .05
 
 plot(OR[small], RR[small], xlim=c(0,15), ylim=c(0,15), pch=20, 
      col=&quot;grey&quot;, bty=&quot;n&quot;, main=&quot;Both probabilities &lt; .05&quot;)
 abline(0,1, col=&quot;black&quot;, lwd=2)</code></pre>
 <p><img src="/blog/2018-04-22-odds-ratios_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>This is great! Dealing with rare events you can safely compare an odds ratio with a relative risk. Incidentally we were dealing with some very small death rates in our meta analysis and so a comparison should be possible. However we got an odds ratio of 6 and the other analysis reported a relative risk of somehting like 12, which as we saw is impossible if the base probabilities are the same.</p>
+<p>This is great! Dealing with rare events you can safely compare an odds ratio
+with a relative risk. Incidentally we were dealing with some very small death
+rates in our meta analysis and so a comparison should be possible. However we
+got an odds ratio of 6 and the other analysis reported a relative risk of
+somehting like 12, which as we saw is impossible if the base probabilities are
+the same.</p>
 </div>
 <div id="whats-special-about-small-probabilities" class="section level2">
 <h2>What’s special about small probabilities</h2>
-<p>We can rewrite the odds ratio once again to get <span class="math inline">\(OR = \frac{p_1 - p_1p_2}{p_2 - p_1p_2}\)</span>. Now if we let <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> approach zero, the term <span class="math inline">\(p_1p_2\)</span> approaches zero much faster and so <span class="math inline">\(\frac{p_1 - p_1p_2}{p_2 - p_1p_2} \approx \frac{p_1}{p_2}=RR.\)</span> If we let <span class="math inline">\(p_1 \to 1\)</span> we get <span class="math inline">\(\frac{p_1 - p_1p_2}{p_2 - p_1p_2} \to \infty\)</span>. This explains both the low-probability figure and the high-probability figure.</p>
+<p>We can rewrite the odds ratio once again to get <span class="math inline">\(OR = \frac{p_1 - p_1p_2}{p_2 - p_1p_2}\)</span>. Now if we let <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> approach zero, the term <span class="math inline">\(p_1p_2\)</span>
+approaches zero much faster and so <span class="math inline">\(\frac{p_1 - p_1p_2}{p_2 - p_1p_2} \approx \frac{p_1}{p_2}=RR.\)</span> If we let <span class="math inline">\(p_1 \to 1\)</span> we get <span class="math inline">\(\frac{p_1 - p_1p_2}{p_2 - p_1p_2} \to \infty\)</span>. This explains both the low-probability figure and the
+high-probability figure.</p>
 </div>
 
   </div>

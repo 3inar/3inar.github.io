@@ -9,7 +9,7 @@ tags: ["shrinkage", "official statistics", "bayes", "empirical bayes"]
 knitr::opts_chunk$set(echo = TRUE, dev.args=list(bg="transparent"))
 
 library(wesanderson)
-colors <- wes_palette("Cavalcanti")
+colors <- wes_palette("Cavalcanti1")
 # Surprise maps for Canadian mischief
 # https://medium.com/@uwdata/surprise-maps-showing-the-unexpected-e92b67398865#.hsb0bmd0r
 ```

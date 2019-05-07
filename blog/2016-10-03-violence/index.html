@@ -14,7 +14,7 @@
 
 <title>Einar Holsbø</title>
 
-<meta name="generator" content="Hugo 0.34" />
+<meta name="generator" content="Hugo 0.55.5" />
 
 
 
@@ -63,20 +63,41 @@
 </section>
 <section id="content-pane" class="row">
   <div class="col-md-12 text-left content">
-    <p><strong>Warning from January, 2018: The statistics provided by SSB have changed a little since I made this post, for unknown reasons. Hence the text below might not be 100% accurate in terms of what the text says and what the data show. I have tried to tidy it up but I make no guarantees.</strong></p>
-<p>So I’m currently at a ten month reserach stay in Paris. I’m reluctant in the face of change, so I often think of home while I’m in my small apartment in a building with a slight mouse problem, or in my larger office with, astonishingly, also a slight mouse problem (unconfirmed).</p>
-<p>I come from a small town called Vadsø in the Norwegian county of Finnmark. It’s a small town of some 6000 people; it’s nice and quiet. <strong>Or is it??</strong> For some years we’ve had the honor of being the most violent town in Norway, if you count the number of police reports for violence per 1000 citizens. These are numbers from <a href="https://www.ssb.no/en/">Statistics Norway (SSB)</a>, which the papers usually pick up every year, like in <a href="http://www.dagbladet.no/2015/09/13/nyheter/innenriks/kriminalitet/vold/finnmark/40801169/">this 2015 article from the tabloid Dagbladet</a>. It’s always the violent crimes statistic they’re interested in.</p>
-<p>The most recent numbers are from 2014. It’s the same ones discussed in that article. The numbers show Vadsø falling several ranks, with Hasvik (also in Finnmark) taking a marked lead in the old ultraviolence. In fact Finmark has a surprisingly strong precense in the top ten considering that it’s the most sparsely populated county in Norway. People must be traveling for hours to find a good fight! Sadly I didn’t go to journalist school, but I do have a slight interest in numbers, so I’m going to have a look at these statistics.</p>
+    
+
+
+<p><strong>Warning from January, 2018: The statistics provided by SSB have changed a little since I made this post, for unknown reasons. Hence the text below might not be 100% accurate in terms of what the text says and what the data show. I have tried to tidy it up but I make no guarantees.</strong></p>
+<p>So I’m currently at a ten month reserach stay in Paris. I’m reluctant in the
+face of change, so I often think of home while I’m in my small apartment in a
+building with a slight mouse problem, or in my larger office with,
+astonishingly, also a slight mouse problem (unconfirmed).</p>
+<p>I come from a small town called Vadsø in the Norwegian county of Finnmark. It’s
+a small town of some 6000 people; it’s nice and quiet. <strong>Or is it??</strong> For some
+years we’ve had the honor of being the most violent town in Norway, if you
+count the number of police reports for violence per 1000 citizens. These are numbers from
+<a href="https://www.ssb.no/en/">Statistics Norway (SSB)</a>, which the papers usually
+pick up every year, like in
+<a href="http://www.dagbladet.no/2015/09/13/nyheter/innenriks/kriminalitet/vold/finnmark/40801169/">this 2015 article from the tabloid Dagbladet</a>.
+It’s always the violent crimes statistic they’re interested in.</p>
+<p>The most recent numbers are from 2014. It’s the same ones discussed in that
+article. The numbers show Vadsø falling several ranks, with Hasvik (also in
+Finnmark) taking a marked lead in the old ultraviolence. In fact Finmark has a
+surprisingly strong precense in the top ten considering that it’s the most
+sparsely populated county in Norway. People must be traveling for hours to find
+a good fight! Sadly I didn’t go to journalist school, but I do have a slight
+interest in numbers, so I’m going to have a look at these statistics.</p>
 <div id="fetching-tidying-ssb-data" class="section level3">
 <h3>Fetching + tidying SSB data</h3>
-<p>My office wife through many years, <a href="http://fjukstad.github.io/">Bjørn</a>, has been good enough to help me with the SSB API, most of the below is adapted from his code. You can skip this if you’re not too excited about tidying data sets.</p>
+<p>My office wife through many years, <a href="http://fjukstad.github.io/">Bjørn</a>, has been
+good enough to help me with the SSB API, most of the below is adapted from his
+code. You can skip this if you’re not too excited about tidying data sets.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ───────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
-## ✔ tibble  1.4.2     ✔ dplyr   0.7.4
-## ✔ tidyr   0.8.0     ✔ stringr 1.3.0
-## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ──────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.1.0       ✔ purrr   0.3.0  
+## ✔ tibble  2.0.1       ✔ dplyr   0.8.0.1
+## ✔ tidyr   0.8.2       ✔ stringr 1.3.1  
+## ✔ readr   1.3.1       ✔ forcats 0.4.0</code></pre>
+<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(stringr)
@@ -149,7 +170,12 @@ violence14 &lt;- crimes %&gt;% filter(tid==&quot;2014&quot;, lovbruddstype==&quo
 ## 11            Sigdal           7            2.0     3509
 ## 12   Leksvik (-2017)           5            1.4     3555
 ## 13                Ål           6            1.3     4713</code></pre>
-<p>There’s a clear overrepresentation of Finnmark in the violence top ten; if you live in one of the -dals you’re presumably going to have a much calmer time of it. Vadsø is sadly only the eight most violent. Common to both lists is that it’s all small towns. The biggest ones have a population of about 10,000. The below plot shows the violent crime rate as a function of population size. The red line is at the mean.</p>
+<p>There’s a clear overrepresentation of Finnmark in the violence top ten; if you
+live in one of the -dals you’re presumably going to have a much calmer time of
+it. Vadsø is sadly only the eight most violent. Common to both lists is that
+it’s all small towns. The biggest ones have a population of about 10,000. The
+below plot shows the violent crime rate as a function of population size. The
+red line is at the mean.</p>
 <pre class="r"><code>with(violence14, {
   plot(personer/1000, anmeldelser_pk,
        xlab=&quot;population (in thousands)&quot;, ylab=&quot;violence rate&quot;, pch=20, 
@@ -157,19 +183,72 @@ violence14 &lt;- crimes %&gt;% filter(tid==&quot;2014&quot;, lovbruddstype==&quo
   abline(h=mean(anmeldelser_pk), col=colors[5], lwd=1.5)
 })</code></pre>
 <p><img src="/blog/2016-10-03-violence_files/figure-html/rate_vs_pop-1.png" width="672" /></p>
-<p>Hasvik s really sticking out there at the top left! The high-leverage point all the way to the right is Oslo. If you feel that there is a lot more going on for better or worse in the smaller towns you might be right: Notice the slight funnel shape toward the mean as population increases. In a town of two people the population is 0.002 thousand people. If one person does violence to the other, the violence rate goes up by 1/0.002 = 500. This is the smallest possible jump in crime rate in a town of two people, and the crime rate can only be multiples of 500 there, assuming there are no semi-reported crimes. If the same thing were to happen in Oslo, with a 2014 population (in thousands) of about 634, we’d get a modest bump of 1/634 ≈ 0.002: the smallest possible crime rate jump in a town of 634 thousand people. Clearly there will be more variance in crime rate (or any sort of count per population) in small towns, which means that small towns will be overrepresented in both extremes, both most violent and least violent.</p>
-<p>An intro to stats course will probably teach you that the standard error of the mean is <span class="math inline">\(\sigma_{\bar x} = \sigma/\sqrt{n},\)</span> with <span class="math inline">\(n\)</span> the number of samples you’re taking the mean of. Howard Wainer calls this De Moivre’s equation, and also calls it <a href="http://press.princeton.edu/chapters/s8863.pdf">the most dangerous equation in the world</a>. You should read that <code>.pdf</code>, it’s really good. I’ll wait.</p>
+<p>Hasvik s really sticking out there at the top left! The high-leverage point all
+the way to the right is Oslo. If you feel that there is a lot more going on for
+better or worse in the smaller towns you might be right: Notice the slight
+funnel shape toward the mean as population increases. In a town of two people
+the population is 0.002 thousand people. If one person does violence to the
+other, the violence rate goes up by 1/0.002 = 500. This is the smallest
+possible jump in crime rate in a town of two people, and the crime rate can only
+be multiples of 500 there, assuming there are no semi-reported crimes. If the
+same thing were to happen in Oslo, with a 2014 population (in thousands) of
+about 634, we’d get a modest bump of 1/634 ≈ 0.002: the smallest possible crime
+rate jump in a town of 634 thousand people. Clearly there will be more variance
+in crime rate (or any sort of count per population) in small towns, which means
+that small towns will be overrepresented in both extremes, both most violent and
+least violent.</p>
+<p>An intro to stats course will probably teach you that the standard error of the
+mean is <span class="math inline">\(\sigma_{\bar x} = \sigma/\sqrt{n},\)</span> with <span class="math inline">\(n\)</span> the number of
+samples you’re taking the mean of. Howard Wainer calls this De Moivre’s
+equation, and also calls it
+<a href="http://press.princeton.edu/chapters/s8863.pdf">the most dangerous equation in the world</a>.
+You should read that <code>.pdf</code>, it’s really good. I’ll wait.</p>
 </div>
 <div id="baseball-and-violent-crime-basically-the-same-thing" class="section level3">
 <h3>Baseball and violent crime: basically the same thing?</h3>
-<p>Perhaps when looking at numbers like these it’s a good idea to be honest about uncertainty, if only to avoid a smaller schools-type debacle as discussed in the Wainer <code>.pdf</code>. I recently saw this interesting blog post from David Robinson about <a href="http://varianceexplained.org/r/empirical_bayes_baseball/">using empirical Bayes to shrink batting averages</a>.<br />
-It’s kind of a similar problem: some players have few chances at batting, and the guy who only got two chances but hit them both will have a perfect hit rate of 1, while she who tried hundreds of times is very likely to have a couple of misses no matter her skill level. When viewed in extremes like this it’s kind of obvious that the one statistic is more reliable than the other.</p>
-<p>You can model batting averages as Bernoulli trials: you get <span class="math inline">\(n\)</span> chances and will hit or miss with probability <span class="math inline">\(p\)</span> or <span class="math inline">\(1-p\)</span>, respectively. Estimate <span class="math inline">\(p\)</span> as number of hits over number of chances. Our crime rates aren’t like this; none of them are between zero and one to start with. Let’s do some sweeping generalizations, though: Let’s say that in a given year a person only reports either one or zero violent crimes, and that each person has the same probability of being involved in violent crime as the next, independent of each other. We could recalculate the crime rates as number of crime reports per person (cpp) instead of crime reports per thousands of people. The two quantities are proportional, so the ranking will stay the same, and it will enable us to model crime reports as Bernoulli trials, and crime rate, <span class="math inline">\(p\)</span>, as Beta-distributed. It wouldn’t be strictly speaking true, but it might be useful.</p>
+<p>Perhaps when looking at numbers like these it’s a good idea to be honest about
+uncertainty, if only to avoid a smaller schools-type debacle as discussed in the
+Wainer <code>.pdf</code>. I recently saw this interesting blog post from David Robinson
+about
+<a href="http://varianceexplained.org/r/empirical_bayes_baseball/">using empirical Bayes to shrink batting averages</a>.<br />
+It’s kind of a similar problem: some players have few chances at batting,
+and the guy who only got two chances but hit them both will have a perfect hit
+rate of 1, while she who tried hundreds of times is very likely to have a couple of
+misses no matter her skill level. When viewed in extremes like this
+it’s kind of obvious that the one statistic is more reliable than the other.</p>
+<p>You can model batting averages as Bernoulli trials: you get <span class="math inline">\(n\)</span> chances and
+will hit or miss with probability <span class="math inline">\(p\)</span> or <span class="math inline">\(1-p\)</span>, respectively. Estimate
+<span class="math inline">\(p\)</span> as number of hits over number of chances. Our crime rates aren’t like
+this; none of them are between zero and one to start with. Let’s do some
+sweeping generalizations, though: Let’s say that in a given year a person only
+reports either one or zero violent crimes, and that each person has the same
+probability of being involved in violent crime as the next, independent of each
+other. We could recalculate the crime rates as number of crime reports per
+person (cpp) instead of crime reports per thousands of people. The two
+quantities are proportional, so the ranking will stay the same, and it will
+enable us to model crime reports as Bernoulli trials, and crime rate, <span class="math inline">\(p\)</span>,
+as Beta-distributed. It wouldn’t be strictly speaking true, but it might be
+useful.</p>
 </div>
 <div id="shrinking-our-estimates" class="section level3">
 <h3>Shrinking our estimates</h3>
-<p>Bayesian statistics are all about having some first guess about (actually prior distribution over) what a parameter such as our crime rate, <span class="math inline">\(p\)</span>, is, and adjusting this guess (to get a posterior distribution) as data becomes available. This is empirical Bayes because we will use the observed crime rates in all of Norway as a prior distribution. A purist would decide on a prior based on gut-feel and know-how.</p>
-<p>We’ll <a href="http://stats.stackexchange.com/questions/12232/calculating-the-parameters-of-a-beta-distribution-using-the-mean-and-variance">fit a Beta distribution</a> as prior because it is a handy distribution for probabilities (it is restricted to [0,1]), and because it is <a href="https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions">a conjugate prior to the binomial likelihood</a>, which means we can model a person’s reporting a violent crime as a bernoulli trial and get an exact posterior in the shape of a shifted, scaled beta. We won’t even have to mess about with the usual Bayesian sampling procedures. In other words, we start with an initial-guess beta distribution over crime rates and use our observed rate in a given town to shift and adjust the prior into another beta: the posterior.</p>
+<p>Bayesian statistics are all about having some first guess about (actually prior
+distribution over) what a parameter such as our crime rate, <span class="math inline">\(p\)</span>, is, and
+adjusting this guess (to get a posterior distribution) as data becomes
+available. This is empirical Bayes because we will use the observed crime rates
+in all of Norway as a prior distribution. A purist would decide on a prior based
+on gut-feel and know-how.</p>
+<p>We’ll
+<a href="http://stats.stackexchange.com/questions/12232/calculating-the-parameters-of-a-beta-distribution-using-the-mean-and-variance">fit a Beta distribution</a>
+as prior because it is a handy distribution for probabilities
+(it is restricted to [0,1]), and because it is
+<a href="https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions">a conjugate prior to the binomial likelihood</a>,
+which means we can model a person’s reporting a violent crime as a bernoulli
+trial and get an exact posterior in the shape of a shifted, scaled beta. We
+won’t even have to mess about with the usual Bayesian sampling procedures. In
+other words, we start with an initial-guess beta distribution over crime rates
+and use our observed rate in a given town to shift and adjust the prior into
+another beta: the posterior.</p>
 <pre class="r"><code># calculate cpp
 violence14 &lt;- mutate(violence14, cpp=anmeldelser/personer)
 
@@ -183,9 +262,17 @@ beta_p &lt;- alpha_p * (1 / mu - 1)
 hist(violence14$cpp, col=colors[4], border=F, nclass=25, prob=T, main=&quot;per capita violence&quot;)
 curve(dbeta(x, alpha_p, beta_p), add=T, col=colors[5], lwd=1.5)</code></pre>
 <p><img src="/blog/2016-10-03-violence_files/figure-html/fit_prior-1.png" width="672" /></p>
-<p>The histogram is our observed crime rates in a big pile, the red curve is our empirical prior based on these data. I think it looks fine. To gloss over some details: the Wikipedia link to conjugate priors and the David Robinson post above will tell you that the posterior mean for a given town, which is sensible prediction from the posterior, is <span class="math inline">\(\frac{r + \alpha_0}{N + \alpha_0 + \beta_0}\)</span>, where <span class="math inline">\(r\)</span> is the observed number of violent crime reports, <span class="math inline">\(N\)</span> is the population, and <span class="math inline">\(\alpha_0, \beta_0\)</span> are the parameters of the prior. These are our new estimates.</p>
+<p>The histogram is our observed crime rates in a big pile, the red curve is our
+empirical prior based on these data. I think it looks fine. To gloss over some
+details: the Wikipedia link to conjugate priors and the David Robinson post
+above will tell you that the posterior mean for a given town, which is sensible
+prediction from the posterior, is <span class="math inline">\(\frac{r + \alpha_0}{N + \alpha_0 + \beta_0}\)</span>, where <span class="math inline">\(r\)</span> is the observed number of violent crime reports,
+<span class="math inline">\(N\)</span> is the population, and <span class="math inline">\(\alpha_0, \beta_0\)</span> are the parameters of the
+prior. These are our new estimates.</p>
 <pre class="r"><code>violence14 &lt;- mutate(violence14, posterior_cpp=(anmeldelser+alpha_p)/(personer+alpha_p+beta_p))</code></pre>
-<p>Let’s compare the observed and posterior rates in a plot. The upper points in the plot represent posterior estimates, while the lower points are the observed rates. Corresponding estimates are connected by a line.</p>
+<p>Let’s compare the observed and posterior rates in a plot. The upper points
+in the plot represent posterior estimates, while the lower points are the
+observed rates. Corresponding estimates are connected by a line.</p>
 <pre class="r"><code>op &lt;- par(mar = c(4,5,2,2) + 0.1)
 plot(c(range(select(violence14, cpp, posterior_cpp))), c(0,1), type=&quot;n&quot;, 
      ylab=&quot;&quot;, xlab=&quot;estimate&quot;, bty=&quot;n&quot;, yaxt=&quot;n&quot;)
@@ -200,12 +287,27 @@ plyr::a_ply(violence14, 1, function(x) {
   lines(c(x$posterior_cpp, x$cpp), c(1,0), col=colors[4])
 })</code></pre>
 <p><img src="/blog/2016-10-03-violence_files/figure-html/compare_adjustment-1.png" width="672" /></p>
-<p>This plot shows the effect of shrinking the observed crime rates toward the prior distribution. We see that the more extreme estimates have been shrunk toward the center because our prior distribution says that there shouldn’t be that much happening toward the tails. The crossing lines indicate towns that have been shifted to a new position in the violence ranking. Hasvik is still reigning champion.</p>
+<p>This plot shows the effect of shrinking the observed crime rates toward the prior
+distribution. We see that the more extreme estimates have been shrunk toward the
+center because our prior distribution says that there shouldn’t be that much
+happening toward the tails. The crossing lines indicate towns that have been
+shifted to a new position in the violence ranking. Hasvik is still reigning
+champion.</p>
 </div>
 <div id="a-more-honest-top-ten" class="section level3">
 <h3>A more honest top ten</h3>
-<p>Since the posterior is just a shifted and scaled beta distribution, for which we can easily calculate the parameters, we can compute credible intervals for these new estimates. Credible intervals is the nicer sibling of confidence intervals, what I show below are .99 credible intervals, which can be interpreted as “based on this analysis I belive the parameter falls within this interval with 99% probability.”</p>
-<p>Oslo is, according to about 634 thousand people, the only city in Norway. It’s clarly something to compare to when you’re one of the <em>provinciaux</em>. Below are the posterior point estimates and credible intervals for the top ten most violent cities, plus the same for Oslo in the bottom, eleventh row. The yellow points are the observed rates before adjustment. The posterior estimate for Oslo is also marked with a vertical line to compare with.</p>
+<p>Since the posterior is just a shifted and scaled beta distribution, for which we
+can easily calculate the parameters, we can compute credible intervals for these
+new estimates. Credible intervals is the nicer sibling of confidence intervals,
+what I show below are .99 credible intervals, which can be interpreted as
+“based on this analysis I belive the parameter falls within this interval with
+99% probability.”</p>
+<p>Oslo is, according to about 634 thousand people, the only city in Norway. It’s
+clarly something to compare to when you’re one of the <em>provinciaux</em>. Below are the
+posterior point estimates and credible intervals for the top ten most violent
+cities, plus the same for Oslo in the bottom, eleventh row.
+The yellow points are the observed rates before adjustment. The posterior
+estimate for Oslo is also marked with a vertical line to compare with.</p>
 <pre class="r"><code># calculate the parameters of the posterior, get the .99 credible interval
 violence14 &lt;- mutate(violence14, alpha=alpha_p+anmeldelser) %&gt;% 
               mutate(beta=beta_p+personer-anmeldelser) %&gt;%
@@ -235,8 +337,20 @@ plyr::a_ply(1:n_c, 1, function(i) {
 })
 points(top10$cpp, 1:n_c, pch=20, col=colors[1])</code></pre>
 <p><img src="/blog/2016-10-03-violence_files/figure-html/now_top_ten-1.png" width="672" /></p>
-<p>We can see that the violence rates in the top ten mostly have very wide credible intervals because they were mostly estimated in smaller towns. The posterior estimate for Oslo is inside all the intervals. We can also see that the estimates for the larger towns, Tønsberg, Ullensaker, and Oslo, didn’t move much or at all, while the one for tiny Hasvik of about one thousand people had a large adjustment. It’s hard for me to argue that Hasvik deserves to be called most violent in Norway based on this; it really could have ended up anywhere in the top ten or even outside of the top ten from natural variability. Really I wouldn’t stick my hand in the fire for this exact top ten at all, apart from maybe Tønsberg and Ullensaker, which are larger towns where the violence rate can be estimated more exactly. What’s their deal anyway.</p>
-<p>Meanwhile Oslo is pretty violent, and we can say so with reasonable accuracy. In the adjusted rankings it’s placed 7th out of 348, so it’s not as though it’s a very ambitious goal to be less violent than Oslo.</p>
+<p>We can see that the violence rates in the top ten mostly have very wide credible
+intervals because they were mostly estimated in smaller towns. The posterior
+estimate for Oslo is inside all the intervals. We can also see that the
+estimates for the larger towns, Tønsberg, Ullensaker, and Oslo, didn’t move much
+or at all, while the one for tiny Hasvik of about one thousand people had a
+large adjustment. It’s hard for me to argue that Hasvik deserves to be called
+most violent in Norway based on this; it really could have ended up anywhere in
+the top ten or even outside of the top ten from natural variability. Really I
+wouldn’t stick my hand in the fire for this exact top ten at all, apart from
+maybe Tønsberg and Ullensaker, which are larger towns where the violence rate
+can be estimated more exactly. What’s their deal anyway.</p>
+<p>Meanwhile Oslo is pretty violent, and we can say so with reasonable accuracy. In
+the adjusted rankings it’s placed 7th out of 348, so it’s not as though it’s a
+very ambitious goal to be less violent than Oslo.</p>
 <pre class="r"><code>violence14 %&gt;% arrange(desc(posterior_cpp)) %&gt;% 
                select(sted) %&gt;%  `==`(&quot;Oslo kommune&quot;) %&gt;% which</code></pre>
 <pre><code>## [1] 7</code></pre>
@@ -245,7 +359,11 @@ points(top10$cpp, 1:n_c, pch=20, col=colors[1])</code></pre>
 </div>
 <div id="brum-a-new-hope" class="section level3">
 <h3>Bærum: a new hope</h3>
-<p>Below I show a random subset of 100 from the posterior ranking, I’ve left out the names to avoid overplotting. I also only show the posterior estimates. At the very top, in red, I’ve shown the point estimate and .99 credible interval from the prior distribution. This is what our best guess would be if we knew nothing at all about a town.</p>
+<p>Below I show a random subset of 100 from the posterior ranking, I’ve left out
+the names to avoid overplotting. I also only show the posterior estimates. At
+the very top, in red, I’ve shown the point estimate and .99 credible interval
+from the prior distribution. This is what our best guess would be if we knew
+nothing at all about a town.</p>
 <pre class="r"><code>set.seed(67890)
 violent_subset &lt;- violence14 %&gt;% sample_n(100) %&gt;% arrange(posterior_cpp)
 n_c &lt;- nrow(violent_subset)
@@ -262,7 +380,9 @@ plyr::a_ply(1:n_c, 1, function(i) {
 })
 points(violent_subset$posterior_cpp, 1:n_c, pch=20, col=colors[2])</code></pre>
 <p><img src="/blog/2016-10-03-violence_files/figure-html/random_subset-1.png" width="672" /></p>
-<p>All in all I’d hold off on moving away from Vadsø or Hasvik based on the number of violent crime reports in 2014. Unless you choose to <a href="https://archive.li/faHW">believe in the law of small numbers</a>.</p>
+<p>All in all I’d hold off on moving away from Vadsø or
+Hasvik based on the number of violent crime reports in 2014. Unless you choose
+to <a href="https://archive.li/faHW">believe in the law of small numbers</a>.</p>
 </div>
 
   </div>
