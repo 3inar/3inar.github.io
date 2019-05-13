@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>wine on Einar Holsbø</title>
-    <link>/tags/wine/</link>
+    <link>http://3inar.github.io/tags/wine/</link>
     <description>Recent content in wine on Einar Holsbø</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 24 Aug 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/wine/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://3inar.github.io/tags/wine/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Neural network overengineering</title>
-      <link>/blog/2016-08-24-neural-network-overengineering/</link>
+      <link>http://3inar.github.io/blog/2016-08-24-neural-network-overengineering/</link>
       <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2016-08-24-neural-network-overengineering/</guid>
+      <guid>http://3inar.github.io/blog/2016-08-24-neural-network-overengineering/</guid>
       <description>In my idle hours (ie when I should have been writing a paper), I came across this blog post where the author trained a neural netwok in the fine art of wine tasting. I am basically deep down a very lazy person, and from what little I understand of NNs, there are quite a few knobs to fiddle with, which really who has the time with all this untasted wine floating about?</description>
     </item>
     
