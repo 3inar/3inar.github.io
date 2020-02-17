@@ -92,12 +92,12 @@ interest in numbers, so I’m going to have a look at these statistics.</p>
 good enough to help me with the SSB API, most of the below is adapted from his
 code. You can skip this if you’re not too excited about tidying data sets.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.2.1       ✔ purrr   0.3.0  
 ## ✔ tibble  2.1.3       ✔ dplyr   0.8.0.1
 ## ✔ tidyr   0.8.2       ✔ stringr 1.4.0  
 ## ✔ readr   1.3.1       ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(stringr)
@@ -144,32 +144,43 @@ violence14 &lt;- crimes %&gt;% filter(tid==&quot;2014&quot;, lovbruddstype==&quo
 <h3>What do these statistics look like</h3>
 <p>Let’s look at the ten most violent towns and the ten least violent towns:</p>
 <pre class="r"><code>top_n(violence14, n=10, anmeldelser_pk) # top 10 violence</code></pre>
-<pre><code>##                               sted anmeldelser anmeldelser_pk personer
-## 1                           Hasvik          21           20.3     1037
-## 2       Guovdageaidnu - Kautokeino          38           13.0     2931
-## 3  Porsanger - Porsángu - Porsanki          51           12.9     3963
-## 4                            Vadsø          80           12.9     6223
-## 5                            Vardø          26           12.3     2119
-## 6                     Sør-Varanger         121           12.0    10090
-## 7                         Hemsedal          27           11.8     2295
-## 8                          Seljord          35           11.7     2989
-## 9                       Hammerfest         118           11.5    10287
-## 10                           Vefsn         145           10.9    13286</code></pre>
+<pre><code>##                                       sted anmeldelser anmeldelser_pk
+## 1                           Hasvik (-2019)          21           20.3
+## 2       Guovdageaidnu - Kautokeino (-2019)          38           13.0
+## 3  Porsanger - Porsángu - Porsanki (-2019)          51           12.9
+## 4                            Vadsø (-2019)          80           12.9
+## 5                            Vardø (-2019)          26           12.3
+## 6                     Sør-Varanger (-2019)         121           12.0
+## 7                         Hemsedal (-2019)          27           11.8
+## 8                          Seljord (-2019)          35           11.7
+## 9                   Hammerfest (1992-2019)         118           11.5
+## 10                                   Vefsn         145           10.9
+##    personer
+## 1      1037
+## 2      2931
+## 3      3963
+## 4      6223
+## 5      2119
+## 6     10090
+## 7      2295
+## 8      2989
+## 9     10287
+## 10    13286</code></pre>
 <pre class="r"><code>top_n(violence14, n=-10, anmeldelser_pk) # 10 least violent</code></pre>
 <pre><code>##                 sted anmeldelser anmeldelser_pk personer
-## 1          Ballangen           6            2.3     2591
+## 1  Ballangen (-2019)           6            2.3     2591
 ## 2            Gjemnes           6            2.3     2565
-## 3               Hole          15            2.3     6595
+## 3   Hole (1977-2019)          15            2.3     6595
 ## 4              Smøla           5            2.3     2166
 ## 5     Verran (-2017)           6            2.3     2562
-## 6          Austevoll          11            2.2     4924
+## 6  Austevoll (-2019)          11            2.2     4924
 ## 7           Surnadal          13            2.2     5954
-## 8               Vågå           8            2.2     3686
-## 9            Gausdal          13            2.1     6237
+## 8       Vågå (-2019)           8            2.2     3686
+## 9    Gausdal (-2019)          13            2.1     6237
 ## 10 Overhalla (-2017)           8            2.1     3732
-## 11            Sigdal           7            2.0     3509
+## 11    Sigdal (-2019)           7            2.0     3509
 ## 12   Leksvik (-2017)           5            1.4     3555
-## 13                Ål           6            1.3     4713</code></pre>
+## 13        Ål (-2019)           6            1.3     4713</code></pre>
 <p>There’s a clear overrepresentation of Finnmark in the violence top ten; if you
 live in one of the -dals you’re presumably going to have a much calmer time of
 it. Vadsø is sadly only the eight most violent. Common to both lists is that
