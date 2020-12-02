@@ -140,8 +140,8 @@ single ducat; tails nothing happens. With no insurance my expected utility is
 $$.01\log(1 - .99) + .99\log(1) \approx -.05.$$ 
 The expected payout is $.01*.99 + .99*0 \approx .01$, so if I pay exactly this
 premium (and the insurer earns nothing on average), my expected utility is
-$.01\log(1 - .01) + .99\log(1-.01) = log(1-.01) \approx -.01$, which is
-better for me than not having insurance.
+$$.01\log(1 - .01) + .99\log(1-.01) = \log(1-.01) \approx -.01,$$
+which is better for me than not having insurance.
 
 [^1]: Another answer, left as an exercise to the reader, has to do with variance. This argument may also apply to flipping coins with linear utility.
 
