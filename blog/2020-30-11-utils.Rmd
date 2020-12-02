@@ -2,7 +2,7 @@
 title: "A fistful of ducats"
 author: "Einar"
 date: 2020-11-30
-description: "Some notes on utility and incurance"
+description: "Some notes on utility and insurance"
 #categories: ["R"]
 tags: ["visualization", "utility", "insurance", "ducats"]
 math: true
