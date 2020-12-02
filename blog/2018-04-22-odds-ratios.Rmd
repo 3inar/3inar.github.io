@@ -3,7 +3,8 @@ title: "Comparing a relative risk to an odds ratio"
 author: "Einar"
 date: 2018-04-22
 description: "When is an odds ratio similar to a relative risk?"
-tags: ["probability", "odds", "odds ratio", "relative risk"]
+tags: ["probability", "odds", "odds_ratio", "relative_risk"]
+math: true
 ---
 
 ```{r setup, include=FALSE}

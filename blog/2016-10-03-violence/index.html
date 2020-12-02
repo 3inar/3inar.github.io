@@ -1,480 +1,230 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-us">
+
 <head>
+  <title>Most violent show on earth | Academic website of Dr. Einar Holsbø</title>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<meta name="description" content="Academic web page">
-<meta name="keywords" content="statistics,machine learning,research,computer science">
-
-<base href="http://3inar.github.io/">
-
-<title>Einar Holsbø</title>
-
-<meta name="generator" content="Hugo 0.55.5" />
-
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-<link rel="stylesheet" href="http://3inar.github.io/css/main.css">
-
-
-
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="theme-color" content="#ffffff">
-
-</head>
-<body lang="en-US">
-<div class="container">
-
-
-<script type="text/javascript"
-   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-
-<header class="row text-left title">
-  <h1 class="title">Most violent show on earth</h1>
-</header>
-<section id="category-pane" class="row meta">
   
-  <div class="col-md-12">
-    <h6 class="text-left meta">
-        PUBLISHED ON OCT 3, 2016 
-      
-    </h6>
-  </div>
   
-</section>
-<section id="content-pane" class="row">
-  <div class="col-md-12 text-left content">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Most violent show on earth" />
+  <meta name="twitter:description" content=""/>
+  <meta name="twitter:site" content="https://twitter.com/0xeinar" />
+  <meta name="twitter:creator" content="https://twitter.com/0xeinar" />
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+
+  
+
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.b60e0932fe1c50c3d7c5b4f83ee9e4592363654d0f2abf05bbd0678d5b8a214c.css" integrity="sha256-tg4JMv4cUMPXxbT4PunkWSNjZU0PKr8Fu9BnjVuKIUw="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+
+  
+   
     
 
-
-<p><strong>Warning from January, 2018: The statistics provided by SSB have changed a little since I made this post, for unknown reasons. Hence the text below might not be 100% accurate in terms of what the text says and what the data show. I have tried to tidy it up but I make no guarantees.</strong></p>
-<p>So I’m currently at a ten month reserach stay in Paris. I’m reluctant in the
-face of change, so I often think of home while I’m in my small apartment in a
-building with a slight mouse problem, or in my larger office with,
-astonishingly, also a slight mouse problem (unconfirmed).</p>
-<p>I come from a small town called Vadsø in the Norwegian county of Finnmark. It’s
-a small town of some 6000 people; it’s nice and quiet. <strong>Or is it??</strong> For some
-years we’ve had the honor of being the most violent town in Norway, if you
-count the number of police reports for violence per 1000 citizens. These are numbers from
-<a href="https://www.ssb.no/en/">Statistics Norway (SSB)</a>, which the papers usually
-pick up every year, like in
-<a href="http://www.dagbladet.no/2015/09/13/nyheter/innenriks/kriminalitet/vold/finnmark/40801169/">this 2015 article from the tabloid Dagbladet</a>.
-It’s always the violent crimes statistic they’re interested in.</p>
-<p>The most recent numbers are from 2014. It’s the same ones discussed in that
-article. The numbers show Vadsø falling several ranks, with Hasvik (also in
-Finnmark) taking a marked lead in the old ultraviolence. In fact Finmark has a
-surprisingly strong precense in the top ten considering that it’s the most
-sparsely populated county in Norway. People must be traveling for hours to find
-a good fight! Sadly I didn’t go to journalist school, but I do have a slight
-interest in numbers, so I’m going to have a look at these statistics.</p>
-<div id="fetching-tidying-ssb-data" class="section level3">
-<h3>Fetching + tidying SSB data</h3>
-<p>My office wife through many years, <a href="http://fjukstad.github.io/">Bjørn</a>, has been
-good enough to help me with the SSB API, most of the below is adapted from his
-code. You can skip this if you’re not too excited about tidying data sets.</p>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 3.2.1       ✔ purrr   0.3.0  
-## ✔ tibble  2.1.3       ✔ dplyr   0.8.0.1
-## ✔ tidyr   0.8.2       ✔ stringr 1.4.0  
-## ✔ readr   1.3.1       ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(stringr)
-library(rjstat)
-
-violence_url &lt;-&quot;http://data.ssb.no/api/v0/dataset/81194.json?lang=no&quot;
-population_url &lt;- &quot;http://data.ssb.no/api/v0/dataset/26975.json?lang=no&quot;
+<script type="application/ld+json">
   
-# fetch crime reports
-v &lt;- violence_url %&gt;% fromJSONstat %&gt;% as.data.frame
-
-# colnames have the format [long table name].variable, extract the last bit
-colnames(v) &lt;- gsub(&quot;^(.*[.])&quot;, &quot;&quot;, colnames(v))
-colnames(v)[3] &lt;- &quot;tid&quot;
-
-# n.o. reports and n.o. reports per 1000 citizens in same column, separate them
-# with tidyr, rename new columns. the year column contains ranges like
-# 2007-2008, which we&#39;ll translate to a single year
-tid_new &lt;- v$tid %&gt;% str_split(&quot;-&quot;)
-v &lt;- spread(v, statistikkvariabel, value) %&gt;% 
-     mutate(tid=str_split(tid, pattern=&quot;-&quot;, simplify=T)[, 2])
-colnames(v)[c(1,4,5)] = c(&quot;sted&quot;, &quot;anmeldelser&quot;, &quot;anmeldelser_pk&quot;)
-
-# fetch population numbers
-p &lt;- population_url %&gt;% fromJSONstat %&gt;% as.data.frame
-colnames(p) &lt;- gsub(&quot;^(.*[.])&quot;, &quot;&quot;, colnames(p))
-p &lt;- spread(p, statistikkvariabel, value)
-
-# change names so that we ca join the two tables on &quot;sted&quot; and &quot;tid&quot;
-colnames(p) &lt;- c(&quot;sted&quot;, &quot;tid&quot;, &quot;personer&quot;)
-
-crimes &lt;- left_join(v, p)</code></pre>
-<pre><code>## Joining, by = c(&quot;sted&quot;, &quot;tid&quot;)</code></pre>
-<pre class="r"><code># filter out anything that isn&#39;t violence in 2014. Additionally, some of the
-# entries have population 0, so let&#39;s remove them. Order by crimes/1000,
-# descending
-violence14 &lt;- crimes %&gt;% filter(tid==&quot;2014&quot;, lovbruddstype==&quot;¬ Vold og mishandling&quot;) %&gt;%
-              filter(sted != &quot;Alle kommuner&quot;, personer &gt; 0) %&gt;%
-              select(-lovbruddstype, -tid) %&gt;% 
-              na.omit %&gt;% 
-              arrange(desc(anmeldelser_pk))</code></pre>
-</div>
-<div id="what-do-these-statistics-look-like" class="section level3">
-<h3>What do these statistics look like</h3>
-<p>Let’s look at the ten most violent towns and the ten least violent towns:</p>
-<pre class="r"><code>top_n(violence14, n=10, anmeldelser_pk) # top 10 violence</code></pre>
-<pre><code>##                                       sted anmeldelser anmeldelser_pk
-## 1                           Hasvik (-2019)          21           20.3
-## 2       Guovdageaidnu - Kautokeino (-2019)          38           13.0
-## 3  Porsanger - Porsángu - Porsanki (-2019)          51           12.9
-## 4                            Vadsø (-2019)          80           12.9
-## 5                            Vardø (-2019)          26           12.3
-## 6                     Sør-Varanger (-2019)         121           12.0
-## 7                         Hemsedal (-2019)          27           11.8
-## 8                          Seljord (-2019)          35           11.7
-## 9                   Hammerfest (1992-2019)         118           11.5
-## 10                                   Vefsn         145           10.9
-##    personer
-## 1      1037
-## 2      2931
-## 3      3963
-## 4      6223
-## 5      2119
-## 6     10090
-## 7      2295
-## 8      2989
-## 9     10287
-## 10    13286</code></pre>
-<pre class="r"><code>top_n(violence14, n=-10, anmeldelser_pk) # 10 least violent</code></pre>
-<pre><code>##                 sted anmeldelser anmeldelser_pk personer
-## 1  Ballangen (-2019)           6            2.3     2591
-## 2            Gjemnes           6            2.3     2565
-## 3   Hole (1977-2019)          15            2.3     6595
-## 4              Smøla           5            2.3     2166
-## 5     Verran (-2017)           6            2.3     2562
-## 6  Austevoll (-2019)          11            2.2     4924
-## 7           Surnadal          13            2.2     5954
-## 8       Vågå (-2019)           8            2.2     3686
-## 9    Gausdal (-2019)          13            2.1     6237
-## 10 Overhalla (-2017)           8            2.1     3732
-## 11    Sigdal (-2019)           7            2.0     3509
-## 12   Leksvik (-2017)           5            1.4     3555
-## 13        Ål (-2019)           6            1.3     4713</code></pre>
-<p>There’s a clear overrepresentation of Finnmark in the violence top ten; if you
-live in one of the -dals you’re presumably going to have a much calmer time of
-it. Vadsø is sadly only the eight most violent. Common to both lists is that
-it’s all small towns. The biggest ones have a population of about 10,000. The
-below plot shows the violent crime rate as a function of population size. The
-red line is at the mean.</p>
-<pre class="r"><code>with(violence14, {
-  plot(personer/1000, anmeldelser_pk,
-       xlab=&quot;population (in thousands)&quot;, ylab=&quot;violence rate&quot;, pch=20, 
-       col=colors[4], main=&quot;crime rate as a f&#39;n of population&quot;, bty=&quot;n&quot;)
-  abline(h=mean(anmeldelser_pk), col=colors[5], lwd=1.5)
-})</code></pre>
-<p><img src="/blog/2016-10-03-violence_files/figure-html/rate_vs_pop-1.png" width="672" /></p>
-<p>Hasvik s really sticking out there at the top left! The high-leverage point all
-the way to the right is Oslo. If you feel that there is a lot more going on for
-better or worse in the smaller towns you might be right: Notice the slight
-funnel shape toward the mean as population increases. In a town of two people
-the population is 0.002 thousand people. If one person does violence to the
-other, the violence rate goes up by 1/0.002 = 500. This is the smallest
-possible jump in crime rate in a town of two people, and the crime rate can only
-be multiples of 500 there, assuming there are no semi-reported crimes. If the
-same thing were to happen in Oslo, with a 2014 population (in thousands) of
-about 634, we’d get a modest bump of 1/634 ≈ 0.002: the smallest possible crime
-rate jump in a town of 634 thousand people. Clearly there will be more variance
-in crime rate (or any sort of count per population) in small towns, which means
-that small towns will be overrepresented in both extremes, both most violent and
-least violent.</p>
-<p>An intro to stats course will probably teach you that the standard error of the
-mean is <span class="math inline">\(\sigma_{\bar x} = \sigma/\sqrt{n},\)</span> with <span class="math inline">\(n\)</span> the number of
-samples you’re taking the mean of. Howard Wainer calls this De Moivre’s
-equation, and also calls it
-<a href="http://press.princeton.edu/chapters/s8863.pdf">the most dangerous equation in the world</a>.
-You should read that <code>.pdf</code>, it’s really good. I’ll wait.</p>
-</div>
-<div id="baseball-and-violent-crime-basically-the-same-thing" class="section level3">
-<h3>Baseball and violent crime: basically the same thing?</h3>
-<p>Perhaps when looking at numbers like these it’s a good idea to be honest about
-uncertainty, if only to avoid a smaller schools-type debacle as discussed in the
-Wainer <code>.pdf</code>. I recently saw this interesting blog post from David Robinson
-about
-<a href="http://varianceexplained.org/r/empirical_bayes_baseball/">using empirical Bayes to shrink batting averages</a>.<br />
-It’s kind of a similar problem: some players have few chances at batting,
-and the guy who only got two chances but hit them both will have a perfect hit
-rate of 1, while she who tried hundreds of times is very likely to have a couple of
-misses no matter her skill level. When viewed in extremes like this
-it’s kind of obvious that the one statistic is more reliable than the other.</p>
-<p>You can model batting averages as Bernoulli trials: you get <span class="math inline">\(n\)</span> chances and
-will hit or miss with probability <span class="math inline">\(p\)</span> or <span class="math inline">\(1-p\)</span>, respectively. Estimate
-<span class="math inline">\(p\)</span> as number of hits over number of chances. Our crime rates aren’t like
-this; none of them are between zero and one to start with. Let’s do some
-sweeping generalizations, though: Let’s say that in a given year a person only
-reports either one or zero violent crimes, and that each person has the same
-probability of being involved in violent crime as the next, independent of each
-other. We could recalculate the crime rates as number of crime reports per
-person (cpp) instead of crime reports per thousands of people. The two
-quantities are proportional, so the ranking will stay the same, and it will
-enable us to model crime reports as Bernoulli trials, and crime rate, <span class="math inline">\(p\)</span>,
-as Beta-distributed. It wouldn’t be strictly speaking true, but it might be
-useful.</p>
-</div>
-<div id="shrinking-our-estimates" class="section level3">
-<h3>Shrinking our estimates</h3>
-<p>Bayesian statistics are all about having some first guess about (actually prior
-distribution over) what a parameter such as our crime rate, <span class="math inline">\(p\)</span>, is, and
-adjusting this guess (to get a posterior distribution) as data becomes
-available. This is empirical Bayes because we will use the observed crime rates
-in all of Norway as a prior distribution. A purist would decide on a prior based
-on gut-feel and know-how.</p>
-<p>We’ll
-<a href="http://stats.stackexchange.com/questions/12232/calculating-the-parameters-of-a-beta-distribution-using-the-mean-and-variance">fit a Beta distribution</a>
-as prior because it is a handy distribution for probabilities
-(it is restricted to [0,1]), and because it is
-<a href="https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions">a conjugate prior to the binomial likelihood</a>,
-which means we can model a person’s reporting a violent crime as a bernoulli
-trial and get an exact posterior in the shape of a shifted, scaled beta. We
-won’t even have to mess about with the usual Bayesian sampling procedures. In
-other words, we start with an initial-guess beta distribution over crime rates
-and use our observed rate in a given town to shift and adjust the prior into
-another beta: the posterior.</p>
-<pre class="r"><code># calculate cpp
-violence14 &lt;- mutate(violence14, cpp=anmeldelser/personer)
-
-# fit beta prior to cpp by method of moments
-mu &lt;- mean(violence14$cpp)
-ssq &lt;- var(violence14$cpp)
-alpha_p &lt;- ((1 - mu) / ssq - 1 / mu) * mu ^ 2
-beta_p &lt;- alpha_p * (1 / mu - 1)
-
-# check the fit
-hist(violence14$cpp, col=colors[4], border=F, nclass=25, prob=T, main=&quot;per capita violence&quot;)
-curve(dbeta(x, alpha_p, beta_p), add=T, col=colors[5], lwd=1.5)</code></pre>
-<p><img src="/blog/2016-10-03-violence_files/figure-html/fit_prior-1.png" width="672" /></p>
-<p>The histogram is our observed crime rates in a big pile, the red curve is our
-empirical prior based on these data. I think it looks fine. To gloss over some
-details: the Wikipedia link to conjugate priors and the David Robinson post
-above will tell you that the posterior mean for a given town, which is sensible
-prediction from the posterior, is <span class="math inline">\(\frac{r + \alpha_0}{N + \alpha_0 + \beta_0}\)</span>, where <span class="math inline">\(r\)</span> is the observed number of violent crime reports,
-<span class="math inline">\(N\)</span> is the population, and <span class="math inline">\(\alpha_0, \beta_0\)</span> are the parameters of the
-prior. These are our new estimates.</p>
-<pre class="r"><code>violence14 &lt;- mutate(violence14, posterior_cpp=(anmeldelser+alpha_p)/(personer+alpha_p+beta_p))</code></pre>
-<p>Let’s compare the observed and posterior rates in a plot. The upper points
-in the plot represent posterior estimates, while the lower points are the
-observed rates. Corresponding estimates are connected by a line.</p>
-<pre class="r"><code>op &lt;- par(mar = c(4,5,2,2) + 0.1)
-plot(c(range(select(violence14, cpp, posterior_cpp))), c(0,1), type=&quot;n&quot;, 
-     ylab=&quot;&quot;, xlab=&quot;estimate&quot;, bty=&quot;n&quot;, yaxt=&quot;n&quot;)
-axis(2, at=0:1, labels=c(&quot;observed&quot;, &quot;adjusted&quot;), las=1, tick=F)
-
-post &lt;- cbind(violence14$posterior_cpp, rep(1, nrow(violence14)))
-raw &lt;- cbind(violence14$cpp, rep(0, nrow(violence14)))
-points(raw, pch=20, col=colors[4])
-points(post, pch=20, col=colors[4])
-
-plyr::a_ply(violence14, 1, function(x) {
-  lines(c(x$posterior_cpp, x$cpp), c(1,0), col=colors[4])
-})</code></pre>
-<p><img src="/blog/2016-10-03-violence_files/figure-html/compare_adjustment-1.png" width="672" /></p>
-<p>This plot shows the effect of shrinking the observed crime rates toward the prior
-distribution. We see that the more extreme estimates have been shrunk toward the
-center because our prior distribution says that there shouldn’t be that much
-happening toward the tails. The crossing lines indicate towns that have been
-shifted to a new position in the violence ranking. Hasvik is still reigning
-champion.</p>
-</div>
-<div id="a-more-honest-top-ten" class="section level3">
-<h3>A more honest top ten</h3>
-<p>Since the posterior is just a shifted and scaled beta distribution, for which we
-can easily calculate the parameters, we can compute credible intervals for these
-new estimates. Credible intervals is the nicer sibling of confidence intervals,
-what I show below are .99 credible intervals, which can be interpreted as
-“based on this analysis I belive the parameter falls within this interval with
-99% probability.”</p>
-<p>Oslo is, according to about 634 thousand people, the only city in Norway. It’s
-clarly something to compare to when you’re one of the <em>provinciaux</em>. Below are the
-posterior point estimates and credible intervals for the top ten most violent
-cities, plus the same for Oslo in the bottom, eleventh row.
-The yellow points are the observed rates before adjustment. The posterior
-estimate for Oslo is also marked with a vertical line to compare with.</p>
-<pre class="r"><code># calculate the parameters of the posterior, get the .99 credible interval
-violence14 &lt;- mutate(violence14, alpha=alpha_p+anmeldelser) %&gt;% 
-              mutate(beta=beta_p+personer-anmeldelser) %&gt;%
-              mutate(lc=qbeta(0.005, alpha, beta)) %&gt;%
-              mutate(uc=qbeta(0.995, alpha, beta)) %&gt;%
-              select(-alpha, -beta)
-
-# make top 10, plot it
-post_oslo &lt;- violence14[violence14$sted==&quot;Oslo kommune&quot;, &quot;posterior_cpp&quot;]
-top10 &lt;- top_n(violence14, 10, posterior_cpp) %&gt;% 
-         #rbind(filter(violence14, sted==&quot;Oslo kommune&quot;)) %&gt;% 
-         arrange(posterior_cpp)
-
-op &lt;- par(mar = c(4,14,2,2) + 0.1)
-n_c &lt;- nrow(top10)
-plot(c(range(select(top10, cpp, posterior_cpp, lc, uc))), c(0, n_c+1), type=&quot;n&quot;, 
-     yaxt=&quot;n&quot;, bty=&quot;n&quot;, ylab=&quot;&quot;, xlab=&quot;&quot;, main=&quot;ten most violent towns + Oslo&quot;)
-axis(2, at=1:n_c, labels=top10$sted, las=1, tick=F)
-abline(v=post_oslo, col=colors[3])
-points(top10$posterior_cpp, 1:n_c, pch=20, col=colors[4])
-points(top10$lc, 1:n_c, pch=&quot;|&quot;, cex = 0.5, col=colors[4])
-points(top10$uc, 1:n_c, pch=&quot;|&quot;, cex = 0.5, col=colors[4])
-
-plyr::a_ply(1:n_c, 1, function(i) {
-  obs &lt;- top10[i, ]
-  lines(c(obs$uc, obs$lc), c(i,i), col=colors[4], lwd=1.5)
-})
-points(top10$cpp, 1:n_c, pch=20, col=colors[1])</code></pre>
-<p><img src="/blog/2016-10-03-violence_files/figure-html/now_top_ten-1.png" width="672" /></p>
-<p>We can see that the violence rates in the top ten mostly have very wide credible
-intervals because they were mostly estimated in smaller towns. The posterior
-estimate for Oslo is inside all the intervals. We can also see that the
-estimates for the larger towns, Tønsberg, Ullensaker, and Oslo, didn’t move much
-or at all, while the one for tiny Hasvik of about one thousand people had a
-large adjustment. It’s hard for me to argue that Hasvik deserves to be called
-most violent in Norway based on this; it really could have ended up anywhere in
-the top ten or even outside of the top ten from natural variability. Really I
-wouldn’t stick my hand in the fire for this exact top ten at all, apart from
-maybe Tønsberg and Ullensaker, which are larger towns where the violence rate
-can be estimated more exactly. What’s their deal anyway.</p>
-<p>Meanwhile Oslo is pretty violent, and we can say so with reasonable accuracy. In
-the adjusted rankings it’s placed 7th out of 348, so it’s not as though it’s a
-very ambitious goal to be less violent than Oslo.</p>
-<pre class="r"><code>violence14 %&gt;% arrange(desc(posterior_cpp)) %&gt;% 
-               select(sted) %&gt;%  `==`(&quot;Oslo kommune&quot;) %&gt;% which</code></pre>
-<pre><code>## [1] 7</code></pre>
-<pre class="r"><code>nrow(violence14)</code></pre>
-<pre><code>## [1] 365</code></pre>
-</div>
-<div id="brum-a-new-hope" class="section level3">
-<h3>Bærum: a new hope</h3>
-<p>Below I show a random subset of 100 from the posterior ranking, I’ve left out
-the names to avoid overplotting. I also only show the posterior estimates. At
-the very top, in red, I’ve shown the point estimate and .99 credible interval
-from the prior distribution. This is what our best guess would be if we knew
-nothing at all about a town.</p>
-<pre class="r"><code>set.seed(67890)
-violent_subset &lt;- violence14 %&gt;% sample_n(100) %&gt;% arrange(posterior_cpp)
-n_c &lt;- nrow(violent_subset)
-padding=3
-plot(c(range(select(violent_subset, cpp, posterior_cpp, lc, uc))), c(0, n_c+padding), type=&quot;n&quot;, 
-     yaxt=&quot;n&quot;, bty=&quot;n&quot;, ylab=&quot;&quot;, xlab=&quot;&quot;, main=&quot;violence across the board&quot;)
-
-lines(qbeta(c(0.005, 0.995), alpha_p, beta_p), c(n_c+padding,n_c+padding), col=colors[5])
-points(alpha_p/(alpha_p+beta_p), n_c+padding, pch=20, col=colors[5])
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/3inar.github.io\/"
+      },
+      "articleSection" : "blog",
+      "name" : "Most violent show on earth",
+      "headline" : "Most violent show on earth",
+      "description" : "",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2016",
+      "datePublished": "2016-10-03 00:00:00 \u002b0000 UTC",
+      "dateModified" : "2016-10-03 00:00:00 \u002b0000 UTC",
+      "url" : "https:\/\/3inar.github.io\/blog\/2016-10-03-violence\/",
+      "wordCount" : "47",
+      "keywords" : ["Blog"]
+    }
   
-plyr::a_ply(1:n_c, 1, function(i) {
-  obs &lt;- violent_subset[i, ]
-  lines(c(obs$uc, obs$lc), c(i,i), col=colors[4])
-})
-points(violent_subset$posterior_cpp, 1:n_c, pch=20, col=colors[2])</code></pre>
-<p><img src="/blog/2016-10-03-violence_files/figure-html/random_subset-1.png" width="672" /></p>
-<p>All in all I’d hold off on moving away from Vadsø or
-Hasvik based on the number of violent crime reports in 2014. Unless you choose
-to <a href="https://archive.li/faHW">believe in the law of small numbers</a>.</p>
-</div>
+  </script>
+</head>
 
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
   </div>
-</section>
-<section id="tag-pane" class="row meta">
-  
-  <div class="col-md-12">
-    <h6 class="text-right meta">
-      
-      
-      
-      TAGS:
-      
-      
-      <a class="meta" href="/tags/bayes">BAYES</a>, 
-      
-      <a class="meta" href="/tags/empirical-bayes">EMPIRICAL BAYES</a>, 
-      
-      <a class="meta" href="/tags/official-statistics">OFFICIAL STATISTICS</a>, 
-      
-      <a class="meta" href="/tags/shrinkage">SHRINKAGE</a>
-      
-      
-      
-    </h6>
-  </div>
-  
-</section>
-
-
-
-
-
-
-
-
-<section id="menu-pane" class="row menu text-center">
-  
-  
-  <span><a class="menu-item" href="http://3inar.github.io/blog/2016-08-24-neural-network-overengineering/">&lt; prev | </a></span>
-  
-  
-  <span><a class="menu-item" href="/blog">blog</a></span>
-  
-  
-  <span><a class="menu-item" href="http://3inar.github.io/blog/2017-04-09-undersampling/"> | next &gt;</a></span>
-  
-  
-  <h4 class="text-center"><a class="menu-item" href="http://3inar.github.io/">home</a></h4>
-</section>
-
-
-
-<footer class="row text-center footer">
-  <hr />
-  
-  <h6 class="text-center copyright"></h6>
-  
-  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
-  
-  
-</footer>
-
 </div>
 
 
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/blog">blog</a>
+      </li>
+    
+      <li>
+        <a  href="/research/">research</a>
+      </li>
+    
+      <li>
+        <a  href="/talks/">talks</a>
+      </li>
+    
+  </ul>
+</nav>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Most violent show on earth</h1>
+            <time datetime="2016-10-03 00:00:00 &#43;0000 UTC" class="post__date">Oct 3, 2016</time> 
+          </header>
+          <article class="post__content">
+              
+
+
+
+<p><strong>Update December, 2020: This post was too much hassle to maintain: its build would break every now and again with updates from the Central Bureau of Statistics. If you want this analysis I point you to the <a href="https://arxiv.org/abs/1810.07654">article I wrote with Vittorio Perduca</a> and its <a href="https://github.com/3inar/crime_rates">GitHub repo</a></strong></p>
+
+
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="https://3inar.github.io/tags/shrinkage/">shrinkage</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://3inar.github.io/tags/official_statistics/">official_statistics</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://3inar.github.io/tags/bayes/">bayes</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://3inar.github.io/tags/empirical_bayes/">empirical_bayes</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="https://3inar.github.io/blog/2016-08-24-neural-network-overengineering/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Neural network overengineering</span>
+    </a>
   
 
-<script type="text/javascript">
-hljs.initHighlightingOnLoad();
-</script>
+  
+    <a class="pagination__item" href="https://3inar.github.io/blog/2017-04-09-undersampling/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Understanding undersampling</span>
+    </a>
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
 
 
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Twitter"
+         href="https://twitter.com/0xeinar"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://3inar.github.io/svg/twitter.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/3inar"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://3inar.github.io/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="stackexchange"
+         href="https://stats.stackexchange.com/users/43625/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://3inar.github.io/svg/stackexchange.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2020</p>
+          </footer>
+          </div>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
 </body>
+
 </html>
-
-

@@ -1,14 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Einar Holsbø</title>
-    <link>http://3inar.github.io/categories/</link>
-    <description>Recent content in Categories on Einar Holsbø</description>
+    <title>Categories on Academic website of Dr. Einar Holsbø</title>
+    <link>https://3inar.github.io/categories/</link>
+    <description>Recent content in Categories on Academic website of Dr. Einar Holsbø</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    
-	<atom:link href="http://3inar.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language>
+    <copyright>© {year}</copyright><atom:link href="https://3inar.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

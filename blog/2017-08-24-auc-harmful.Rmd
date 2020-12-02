@@ -2,7 +2,8 @@
 title: "AUC and accuracy considered harmful to model selection"
 author: "Einar"
 date: 2017-08-24
-tags: ["auc", "model selection", "prediction", "logistic regression", "simulation", "brier score"]
+tags: ["auc", "model_selection", "prediction", "logistic_regression", "simulation", "brier score"]
+math: true
 ---
 
 ```{r setup, include=FALSE}

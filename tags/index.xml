@@ -1,265 +1,298 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Einar Holsbø</title>
-    <link>http://3inar.github.io/tags/</link>
-    <description>Recent content in Tags on Einar Holsbø</description>
+    <title>Tags on Academic website of Dr. Einar Holsbø</title>
+    <link>https://3inar.github.io/tags/</link>
+    <description>Recent content in Tags on Academic website of Dr. Einar Holsbø</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <lastBuildDate>Sun, 22 Apr 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="http://3inar.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Mon, 30 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://3inar.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>odds</title>
-      <link>http://3inar.github.io/tags/odds/</link>
-      <pubDate>Sun, 22 Apr 2018 00:00:00 +0000</pubDate>
+      <title>ducats</title>
+      <link>https://3inar.github.io/tags/ducats/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/odds/</guid>
+      <guid>https://3inar.github.io/tags/ducats/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>odds ratio</title>
-      <link>http://3inar.github.io/tags/odds-ratio/</link>
+      <title>insurance</title>
+      <link>https://3inar.github.io/tags/insurance/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://3inar.github.io/tags/insurance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>utility</title>
+      <link>https://3inar.github.io/tags/utility/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://3inar.github.io/tags/utility/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>visualization</title>
+      <link>https://3inar.github.io/tags/visualization/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://3inar.github.io/tags/visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>odds</title>
+      <link>https://3inar.github.io/tags/odds/</link>
       <pubDate>Sun, 22 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/odds-ratio/</guid>
+      <guid>https://3inar.github.io/tags/odds/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>odds_ratio</title>
+      <link>https://3inar.github.io/tags/odds_ratio/</link>
+      <pubDate>Sun, 22 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://3inar.github.io/tags/odds_ratio/</guid>
       <description></description>
     </item>
     
     <item>
       <title>probability</title>
-      <link>http://3inar.github.io/tags/probability/</link>
+      <link>https://3inar.github.io/tags/probability/</link>
       <pubDate>Sun, 22 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/probability/</guid>
+      <guid>https://3inar.github.io/tags/probability/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>relative risk</title>
-      <link>http://3inar.github.io/tags/relative-risk/</link>
+      <title>relative_risk</title>
+      <link>https://3inar.github.io/tags/relative_risk/</link>
       <pubDate>Sun, 22 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/relative-risk/</guid>
+      <guid>https://3inar.github.io/tags/relative_risk/</guid>
       <description></description>
     </item>
     
     <item>
       <title>golang</title>
-      <link>http://3inar.github.io/tags/golang/</link>
+      <link>https://3inar.github.io/tags/golang/</link>
       <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/golang/</guid>
+      <guid>https://3inar.github.io/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>housekeeping</title>
-      <link>http://3inar.github.io/tags/housekeeping/</link>
+      <link>https://3inar.github.io/tags/housekeeping/</link>
       <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/housekeeping/</guid>
+      <guid>https://3inar.github.io/tags/housekeeping/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>http://3inar.github.io/tags/hugo/</link>
+      <link>https://3inar.github.io/tags/hugo/</link>
       <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/hugo/</guid>
+      <guid>https://3inar.github.io/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jekyll</title>
-      <link>http://3inar.github.io/tags/jekyll/</link>
+      <link>https://3inar.github.io/tags/jekyll/</link>
       <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/jekyll/</guid>
+      <guid>https://3inar.github.io/tags/jekyll/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ruby</title>
-      <link>http://3inar.github.io/tags/ruby/</link>
+      <link>https://3inar.github.io/tags/ruby/</link>
       <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/ruby/</guid>
+      <guid>https://3inar.github.io/tags/ruby/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>handwritten digits</title>
-      <link>http://3inar.github.io/tags/handwritten-digits/</link>
+      <title>handwritten_digits</title>
+      <link>https://3inar.github.io/tags/handwritten_digits/</link>
       <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/handwritten-digits/</guid>
+      <guid>https://3inar.github.io/tags/handwritten_digits/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>image segmentation</title>
-      <link>http://3inar.github.io/tags/image-segmentation/</link>
+      <title>image_segmentation</title>
+      <link>https://3inar.github.io/tags/image_segmentation/</link>
       <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/image-segmentation/</guid>
+      <guid>https://3inar.github.io/tags/image_segmentation/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>mixture models</title>
-      <link>http://3inar.github.io/tags/mixture-models/</link>
+      <title>mixture_models</title>
+      <link>https://3inar.github.io/tags/mixture_models/</link>
       <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/mixture-models/</guid>
+      <guid>https://3inar.github.io/tags/mixture_models/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ocr</title>
-      <link>http://3inar.github.io/tags/ocr/</link>
+      <link>https://3inar.github.io/tags/ocr/</link>
       <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/ocr/</guid>
+      <guid>https://3inar.github.io/tags/ocr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>auc</title>
-      <link>http://3inar.github.io/tags/auc/</link>
+      <link>https://3inar.github.io/tags/auc/</link>
       <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/auc/</guid>
+      <guid>https://3inar.github.io/tags/auc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>brier score</title>
-      <link>http://3inar.github.io/tags/brier-score/</link>
+      <link>https://3inar.github.io/tags/brier-score/</link>
       <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/brier-score/</guid>
+      <guid>https://3inar.github.io/tags/brier-score/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>logistic regression</title>
-      <link>http://3inar.github.io/tags/logistic-regression/</link>
+      <title>logistic_regression</title>
+      <link>https://3inar.github.io/tags/logistic_regression/</link>
       <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/logistic-regression/</guid>
+      <guid>https://3inar.github.io/tags/logistic_regression/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>model selection</title>
-      <link>http://3inar.github.io/tags/model-selection/</link>
+      <title>model_selection</title>
+      <link>https://3inar.github.io/tags/model_selection/</link>
       <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/model-selection/</guid>
+      <guid>https://3inar.github.io/tags/model_selection/</guid>
       <description></description>
     </item>
     
     <item>
       <title>prediction</title>
-      <link>http://3inar.github.io/tags/prediction/</link>
+      <link>https://3inar.github.io/tags/prediction/</link>
       <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/prediction/</guid>
+      <guid>https://3inar.github.io/tags/prediction/</guid>
       <description></description>
     </item>
     
     <item>
       <title>simulation</title>
-      <link>http://3inar.github.io/tags/simulation/</link>
+      <link>https://3inar.github.io/tags/simulation/</link>
       <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/simulation/</guid>
+      <guid>https://3inar.github.io/tags/simulation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>classification</title>
-      <link>http://3inar.github.io/tags/classification/</link>
+      <link>https://3inar.github.io/tags/classification/</link>
       <pubDate>Sun, 09 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/classification/</guid>
+      <guid>https://3inar.github.io/tags/classification/</guid>
       <description></description>
     </item>
     
     <item>
       <title>undersampling</title>
-      <link>http://3inar.github.io/tags/undersampling/</link>
+      <link>https://3inar.github.io/tags/undersampling/</link>
       <pubDate>Sun, 09 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/undersampling/</guid>
+      <guid>https://3inar.github.io/tags/undersampling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bayes</title>
-      <link>http://3inar.github.io/tags/bayes/</link>
+      <link>https://3inar.github.io/tags/bayes/</link>
       <pubDate>Mon, 03 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/bayes/</guid>
+      <guid>https://3inar.github.io/tags/bayes/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>empirical bayes</title>
-      <link>http://3inar.github.io/tags/empirical-bayes/</link>
+      <title>empirical_bayes</title>
+      <link>https://3inar.github.io/tags/empirical_bayes/</link>
       <pubDate>Mon, 03 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/empirical-bayes/</guid>
+      <guid>https://3inar.github.io/tags/empirical_bayes/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>official statistics</title>
-      <link>http://3inar.github.io/tags/official-statistics/</link>
+      <title>official_statistics</title>
+      <link>https://3inar.github.io/tags/official_statistics/</link>
       <pubDate>Mon, 03 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/official-statistics/</guid>
+      <guid>https://3inar.github.io/tags/official_statistics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shrinkage</title>
-      <link>http://3inar.github.io/tags/shrinkage/</link>
+      <link>https://3inar.github.io/tags/shrinkage/</link>
       <pubDate>Mon, 03 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/shrinkage/</guid>
+      <guid>https://3inar.github.io/tags/shrinkage/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>naive bayes</title>
-      <link>http://3inar.github.io/tags/naive-bayes/</link>
+      <title>naive_bayes</title>
+      <link>https://3inar.github.io/tags/naive_bayes/</link>
       <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/naive-bayes/</guid>
+      <guid>https://3inar.github.io/tags/naive_bayes/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>neural networks</title>
-      <link>http://3inar.github.io/tags/neural-networks/</link>
+      <title>neural_networks</title>
+      <link>https://3inar.github.io/tags/neural_networks/</link>
       <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/neural-networks/</guid>
+      <guid>https://3inar.github.io/tags/neural_networks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>wine</title>
-      <link>http://3inar.github.io/tags/wine/</link>
+      <link>https://3inar.github.io/tags/wine/</link>
       <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/tags/wine/</guid>
+      <guid>https://3inar.github.io/tags/wine/</guid>
       <description></description>
     </item>
     

@@ -1,24 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bayes on Einar Holsbø</title>
-    <link>http://3inar.github.io/tags/bayes/</link>
-    <description>Recent content in bayes on Einar Holsbø</description>
+    <title>bayes on Academic website of Dr. Einar Holsbø</title>
+    <link>https://3inar.github.io/tags/bayes/</link>
+    <description>Recent content in bayes on Academic website of Dr. Einar Holsbø</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <lastBuildDate>Mon, 03 Oct 2016 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="http://3inar.github.io/tags/bayes/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Mon, 03 Oct 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://3inar.github.io/tags/bayes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Most violent show on earth</title>
-      <link>http://3inar.github.io/blog/2016-10-03-violence/</link>
+      <link>https://3inar.github.io/blog/2016-10-03-violence/</link>
       <pubDate>Mon, 03 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://3inar.github.io/blog/2016-10-03-violence/</guid>
-      <description>Warning from January, 2018: The statistics provided by SSB have changed a little since I made this post, for unknown reasons. Hence the text below might not be 100% accurate in terms of what the text says and what the data show. I have tried to tidy it up but I make no guarantees.
-So I’m currently at a ten month reserach stay in Paris. I’m reluctant in the face of change, so I often think of home while I’m in my small apartment in a building with a slight mouse problem, or in my larger office with, astonishingly, also a slight mouse problem (unconfirmed).</description>
+      <guid>https://3inar.github.io/blog/2016-10-03-violence/</guid>
+      <description>Update December, 2020: This post was too much hassle to maintain: its build would break every now and again with updates from the Central Bureau of Statistics. If you want this analysis I point you to the article I wrote with Vittorio Perduca and its GitHub repo</description>
     </item>
     
   </channel>

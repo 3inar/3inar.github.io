@@ -3,7 +3,8 @@ title: "Understanding undersampling"
 author: "Einar"
 date: 2017-04-09
 #categories: ["R"]
-tags: ["undersampling", "classification", "prediction", "logistic regression", "simulation"]
+tags: ["undersampling", "classification", "prediction", "logistic_regression", "simulation"]
+math: true
 ---
 
 ```{r setup, include=FALSE}

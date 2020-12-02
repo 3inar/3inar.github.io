@@ -2,7 +2,7 @@
 title: "Quick-and-dirty image segmentation"
 author: "Einar"
 date: 2018-01-15
-tags: ["image segmentation", "mixture models", "ocr", "handwritten digits"]
+tags: ["image_segmentation", "mixture_models", "ocr", "handwritten_digits"]
 description: "Splitting images of three-digit handwritten numbers into the three separate digits using R."
 ---
 
