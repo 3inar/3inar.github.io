@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>visualization on Academic website of Dr. Einar Holsbø</title>
+    <link>https://3inar.github.io/tags/visualization/</link>
+    <description>Recent content in visualization on Academic website of Dr. Einar Holsbø</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Mon, 30 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://3inar.github.io/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A fistful of ducats</title>
+      <link>https://3inar.github.io/blog/2020-30-11-utils/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://3inar.github.io/blog/2020-30-11-utils/</guid>
+      <description>Some notes on utility and insurance. The below is apropos of ET Jaynes’ Probability Theory, Chapter 13. It’s a useful and interesting book, but Jaynes was apparently no great believer in graphical illustrations.
+Utility functions Daniel Bernoulli, one of the many Bernoullis, conceived a utility function \(u(x) \propto log(x)\) in contrast to the linear \(u(x) \propto x\), usual at the time. Naturally \(x\) denotes money: Gambling was the principal object of probability arguments in the mid-1700s.</description>
+    </item>
+    
+  </channel>
+</rss>

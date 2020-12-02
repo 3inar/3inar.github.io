@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>A fistful of ducats | Academic website of Dr. Einar Holsbø</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="Some notes on utility and incurance">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A fistful of ducats" />
+  <meta name="twitter:description" content="Some notes on utility and incurance"/>
+  <meta name="twitter:site" content="https://twitter.com/0xeinar" />
+  <meta name="twitter:creator" content="https://twitter.com/0xeinar" />
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+
+  
+
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.b60e0932fe1c50c3d7c5b4f83ee9e4592363654d0f2abf05bbd0678d5b8a214c.css" integrity="sha256-tg4JMv4cUMPXxbT4PunkWSNjZU0PKr8Fu9BnjVuKIUw="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+
+  
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/3inar.github.io\/"
+      },
+      "articleSection" : "blog",
+      "name" : "A fistful of ducats",
+      "headline" : "A fistful of ducats",
+      "description" : "Some notes on utility and incurance",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-11-30 00:00:00 \u002b0000 UTC",
+      "dateModified" : "2020-11-30 00:00:00 \u002b0000 UTC",
+      "url" : "https:\/\/3inar.github.io\/blog\/2020-30-11-utils\/",
+      "wordCount" : "1160",
+      "keywords" : ["Blog"]
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/blog">blog</a>
+      </li>
+    
+      <li>
+        <a  href="/research/">research</a>
+      </li>
+    
+      <li>
+        <a  href="/talks/">talks</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">A fistful of ducats</h1>
+            <time datetime="2020-11-30 00:00:00 &#43;0000 UTC" class="post__date">Nov 30, 2020</time> 
+          </header>
+          <article class="post__content">
+              
+
+
+
+<p>Some notes on utility and insurance. The below is apropos of ET Jaynes’
+<em>Probability Theory</em>, Chapter 13. It’s a useful and interesting book, but Jaynes
+was apparently no great believer in graphical illustrations.</p>
+<div id="utility-functions" class="section level2">
+<h2>Utility functions</h2>
+<p>Daniel Bernoulli, one of the many Bernoullis, conceived a utility function
+<span class="math inline">\(u(x) \propto log(x)\)</span> in contrast to the linear <span class="math inline">\(u(x) \propto x\)</span>, usual at the time.
+Naturally <span class="math inline">\(x\)</span> denotes money: Gambling was the principal object of probability
+arguments in the mid-1700s. Utility is hazy, but let us say that it measures the
+usefulness of <a href="https://en.wikipedia.org/wiki/Ducat">a ducat</a> in the unit
+<em>utils</em>. Daniel called it the “moral value” of money. Linear utility
+tells us that earning another ducat is always useful and never gets less useful
+no matter how many you have. The Scrooge McDuck idea of money. Daniel’s
+logarithmic utility encodes the common sense that someone with 1000 ducats has
+less use for another ducat than someone with only five ducats.</p>
+<p>If you gamble to maximize expected profit as per linear utility you may end up
+with some
+<a href="https://en.wikipedia.org/wiki/St._Petersburg_paradox">nonsense betting strategies</a>.
+Suppose your fortune is <span class="math inline">\(M\)</span> ducats. One month’s salary, let’s say. You are to
+bet <span class="math inline">\(m \leq M\)</span> ducats on the flip of a coin, with a payout of <span class="math inline">\(2m\)</span> if you win.
+How much should you bet if you are pretty sure there is a <span class="math inline">\(.51\)</span> probability of
+heads? Your expected fortune after playing this game is
+<span class="math display">\[\mathbb E(\mathrm{fortune}) = .51(M + m) + .49(M - m) = M + .02m.\]</span>
+To maximize this simply take <span class="math inline">\(m\)</span> as large as possible. Ask your mum for a loan.</p>
+<p>Despite this compelling evidence I’m not sure I would bother betting any
+ducats on this game. Perhaps my utility is logarithmic? If so it grows quickly
+in the beginning and more slowly later on. This implies that the losing of a
+ducat causes me more pain (measured by lost utils) than the winning of a ducat
+gives me pleasure. Especially at the lower end of
+the scale where there is larger curvature. An example (plot below): If I own a
+single ducat, the “moral value” of my fortune is <span class="math inline">\(\log(1) = 0\)</span> utils. If
+I lose half a ducat it will cost me about <span class="math inline">\(.7\)</span> utils. But if I win half a ducat
+it will gain me only <span class="math inline">\(.4\)</span> utils!</p>
+<p><img src="/blog/2020-30-11-utils_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>These numbers have no direct interpretation as far as I know, but we can see some interesting relations: Logarithmic utils are proportional to the number of digits of your fortune. And since <span class="math inline">\(\log(ax) = \log(a) + \log(x)\)</span> we can say that my loss of a half-ducat pains me as much as she who has ten ducats and loses five. She counts single ducats in the same way that I count tenths-of-ducats. We are the same but for order of magnitude.</p>
+<p>With logarithmic utility I might still be willing to bet some amount, <span class="math inline">\(m\)</span>, on the <span class="math inline">\(.51\)</span> chance of heads. Per the proportionality argument above my fortune of a single ducat, <span class="math inline">\(M=1\)</span>, can be interpreted as “your entire fortune whatever it is,” and you can simply multiply it up. Maybe still a month’s salary. Now <span class="math inline">\(m\)</span> is the <em>proportion</em> of your fortune you’d be willing to bet. We want to maximize expected utility
+<span class="math display">\[\mathbb E(\mathrm{utility}) = .51\log(1 + m) + .49\log(1 - m).\]</span>
+This is maximum at roughly <span class="math inline">\(m=.02\)</span>, shown below, but the difference in utility between this and simply not betting is negligible. Going by the monthly salary of the average Norwegian this bet could buy you a mid-range bottle of whisky (Norwegian prices, probably several bottles in another country). I’d rather just take the bottle. We can also see by the increasing steepness of this curve that I’d be an idiot to bet my entire ducat. Unless the thrill of betting is in itself <em>very</em> valuable to me.</p>
+<p><img src="/blog/2020-30-11-utils_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>What if we sweeten the pot by increasing the probability of heads to <span class="math inline">\(.7\)</span>? Now my expected utility (see below) is clearly increased if I bet something. It is maximized somewhere around <span class="math inline">\(.4\)</span>. The function has an interesting feature in that I should feel the same about betting nothing at all and betting something like <span class="math inline">\(.7\)</span>. Does this correspond to common sense? It’s not entirely far-fetched to me. At such good odds I would feel uncomfortable betting nothing; but I would also feel uncomfortable betting the larger part of my fortune. Less than half feels OK.
+<img src="/blog/2020-30-11-utils_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="why-do-i-buy-insurance" class="section level2">
+<h2>Why do I buy insurance?</h2>
+<p>Insurance is a racket if you have linear utility. The insurance sellers must
+necessarily demand premiums that are larger than the expected payouts. How could
+they not? They’d be giving ducats away for free. At the same time why should I
+pay more than my expected payout? I’d be giving ducats away for free.</p>
+<p>One answer<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> lies in the difference between my utility and that of the
+insurance seller. Under logarithmic utility the insurance seller
+and I operate on very different scales. The loss of a half-ducat is pretty bad
+to me, but the insurance seller who has, say, 1000 ducats, will not notice such
+a loss. In fact, on the scale of half-ducats, the insurance seller has more or
+less linear utility:
+<img src="/blog/2020-30-11-utils_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>This is basic calculus: if you zoom in far enough on a curve it’s going to look
+straight. Imagine I will have an unlikely but expensive mishap at the
+flip of a coin. Heads, with <span class="math inline">\(.01\)</span> probability, I will need to pay <span class="math inline">\(.99\)</span> of my
+single ducat; tails nothing happens. With no insurance my expected utility is
+<span class="math display">\[.01\log(1 - .99) + .99\log(1) \approx -.05.\]</span>
+The expected payout is <span class="math inline">\(.01*.99 + .99*0 \approx .01\)</span>, so if I pay exactly this
+premium (and the insurer earns nothing on average), my expected utility is
+<span class="math inline">\(.01\log(1 - .01) + .99\log(1-.01) = log(1-.01) \approx -.01\)</span>, which is
+better for me than not having insurance.</p>
+<p>The break-even point, where insurance isn’t worth it for me in terms of utility,
+is the premium <span class="math inline">\(P\)</span> where <span class="math inline">\(\log(1-P) = -.05\)</span>. For small <span class="math inline">\(P\)</span> we have
+<span class="math inline">\(\log(1-P) \approx -P\)</span>, so the break-even point is around <span class="math inline">\(.05\)</span>. In principle the
+insurance seller and I can both be happy if the premium is somewhere in
+<span class="math inline">\([ .01, .05 ]\)</span>.</p>
+</div>
+<div id="all-models-are-wrong" class="section level2">
+<h2>All models are wrong</h2>
+<p>You can get nonsense strategies by adhering to logarithmic utility, too. The
+“moral value” of money might not be a simple mathematical function and it might
+be different for different people. Personally, I think there is some threshold
+above which I would lose all interest in gaining ducats. Jordan Ellenberg, in
+his book <em>How Not to be Wrong,</em> describes a real-life example of such a bounded
+utility function: Writer Fran Lebowitz would, in her youth, start the month
+driving a cab until she had made enough money to cover rent and food. After this
+she would stop driving the cab and spend the rest of the month writing.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Another answer, left as an exercise to the reader, has to do with variance. This argument may also apply to flipping coins with linear utility.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="https://3inar.github.io/tags/visualization/">visualization</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://3inar.github.io/tags/utility/">utility</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://3inar.github.io/tags/insurance/">insurance</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://3inar.github.io/tags/ducats/">ducats</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="https://3inar.github.io/blog/2018-04-22-odds-ratios/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Comparing a relative risk to an odds ratio</span>
+    </a>
+  
+
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Twitter"
+         href="https://twitter.com/0xeinar"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://3inar.github.io/svg/twitter.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/3inar"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://3inar.github.io/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="stackexchange"
+         href="https://stats.stackexchange.com/users/43625/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://3inar.github.io/svg/stackexchange.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2020</p>
+          </footer>
+          </div>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+
+
+</body>
+
+</html>

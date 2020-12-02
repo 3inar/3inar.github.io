@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>odds_ratio on Academic website of Dr. Einar Holsbø</title>
+    <link>https://3inar.github.io/tags/odds_ratio/</link>
+    <description>Recent content in odds_ratio on Academic website of Dr. Einar Holsbø</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Sun, 22 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://3inar.github.io/tags/odds_ratio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comparing a relative risk to an odds ratio</title>
+      <link>https://3inar.github.io/blog/2018-04-22-odds-ratios/</link>
+      <pubDate>Sun, 22 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://3inar.github.io/blog/2018-04-22-odds-ratios/</guid>
+      <description>In connection with a meta analysis I helped with recently we wanted to compare some relative risk results from another analysis with the odds ratios that came from ours. This made me wonder to what extent the two measurements are comparable. The short story is that they aren’t generally comparable, but when dealing with small probabilities they are quite similar. The long story follows below.
+Definitions Suppose we are comparing the probability of falling ill between two groups.</description>
+    </item>
+    
+  </channel>
+</rss>
