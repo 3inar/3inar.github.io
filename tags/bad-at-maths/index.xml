@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bad at maths on Just data things</title>
+    <link>https://3inar.github.io/tags/bad-at-maths/</link>
+    <description>Recent content in bad at maths on Just data things</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://3inar.github.io/tags/bad-at-maths/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stirglin&#39;s approximation [sic]</title>
+      <link>https://3inar.github.io/blog/2021-05-13-stirglin/</link>
+      <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://3inar.github.io/blog/2021-05-13-stirglin/</guid>
+      <description>If you have read any introductory probability material, which I have lately, you have seen Stirling’s approximation to the factorial \[n! = n\cdot(n-1)\cdot(n-2)\cdot\ldots\cdot2\cdot1.\] It seems to be standard material and looks like \[ n! \approx n^ne^{-n}\sqrt{2\pi n} = \hat n!. \]
+I introduce the probably nonstandard \(\hat n!\) as a shorthand for this approximation. At the intro to probability level \(\hat n!\) is usually presented without comment. There are various proofs/derivations that show that for large \(n\) the ratio \(\frac{\hat n!</description>
+    </item>
+    
+  </channel>
+</rss>

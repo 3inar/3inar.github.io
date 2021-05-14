@@ -1,0 +1,208 @@
+---
+title: "Stirglin's approximation [sic]"
+author: "Einar"
+date: 2021-05-13
+#categories: ["R"]
+tags: ["Stirling's approximation", "bad at maths"]
+math: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, dev.args=list(bg="transparent"))
+knitr::opts_knit$set(global.par=TRUE)
+```
+
+```{r, echo=F}
+# Do this once for all plots
+par(cex.lab=1.25, cex.axis=1.25, cex.main=1.25, cex.sub=1.25, cex= 1.3, 
+    lwd=2, pch=20, bty="n")
+```
+
+If you have read any introductory probability material, which I have lately, you have seen Stirling's approximation to the factorial 
+$$n! = n\cdot(n-1)\cdot(n-2)\cdot\ldots\cdot2\cdot1.$$ 
+It seems to be standard material and looks like 
+$$
+n! \approx n^ne^{-n}\sqrt{2\pi n} = \hat n!.
+$$
+
+I introduce the probably nonstandard $\hat n!$ as a shorthand for this approximation. At the intro to probability level $\hat n!$ is usually presented without comment. There are various proofs/derivations that show that for large $n$ the ratio $\frac{\hat n!}{n!}$ tends to unity, but they mostly look pretty tricky to me.
+
+I saw a somewhat informal derivation in _The Art of Doing Science and Engineering_ by Richard Hamming, which was quite understandable as far as it went. It went as far as
+$$
+n! \approx Cn^ne^{-n}\sqrt n,
+$$
+and then moved on, stating simply that $C=\sqrt{2\pi}$ is the approximation error as $n\to\infty$.
+
+The past few days I have been wondering whether I, an idiot by most accounts, could
+have derived Stirling's approximation (I couldn't). And if not (see previous), how close could I get?
+
+## Stirglin's approximation
+The basic steps aren't too bad. Usually when we have a huge product of things that
+we would rather break up into smaller, possibly more tractable things, we take $\log$s:
+$$
+\log(n!) = \sum_{x=1}^n \log x.
+$$
+Fine. Knowing that a sum is basically a bumpy integral I suppose it could make sense to say that
+$$
+\sum_{x=1}^n \log x \approx \int_1^n \log x~\mathrm dx.
+$$
+This is, after all, the Riemann sum of that integral with unit-size steps. The integral comes out as
+$$
+\left. \int_1^n \log x~\mathrm dx = x\log x - x \right\rvert_1^n = n\log n -n + 1.
+$$
+So that's the approximation sorted. Simply undo the $\log$s by taking the exponential and arrive at my latest invention, __Stirglin's approximation__:[^1] 
+$$
+n! \stackrel{?}{\approx} n^n e^{-n}e = {{\hat n??}}.
+$$
+Here I have expanded the standard notation for the factorial to include [chess annotation](https://en.wikipedia.org/wiki/Chess_annotation_symbols). At this point it's usual to present a table of values for the factorial and the approximation. I'll instead show a plot of $\frac{\hat{n}!}{n!}$ and
+$\frac{\hat n??}{n!}$ for various $n$. The horizontal line is $1 = \frac{n!}{n!}$, the perfect approximation.
+```{r}
+stirling <- function(n) {
+  (n^n)*exp(-n)*sqrt(2*pi*n)
+}
+
+stirglin <- function(n) {
+  (n^n)*exp(1-n)
+}
+```
+```{r, echo=F}
+pts = 1:30
+plot(range(pts), 0:1, bty="n", type="n", ylab="approximation/true", xlab="n",
+     main="Stirglin's approx. undershoots slightly")
+abline(h=1, col="lightgrey")
+points(pts, stirglin(pts)/factorial(pts), pch=20)
+points(pts, stirling(pts)/factorial(pts), pch=20, col="darkgrey")
+text(12.5, .9, "Stirling", col="darkgrey")
+text(12.5, .2, "Stirglin", col="black")
+```
+
+Although $\hat n ??$ is exact for $n=1$ it seems less useful for larger $n$. What do we do?
+
+[^1]: I was thinking about doing a whole bit about Stirling's less talented brother Stirglin, his manuscripts recently discovered in some attic, but it would have made this text insufferable.
+
+
+## Stirglin's approximation of order II
+We already know what's wrong by inspecting $\hat n!$. Thanks for the help Stirling; shoulders of giants and all that. The factor $\sqrt{2\pi}$ is not that important, it's roughly the same as our factor $e$: What's crucially missing is the factor $\sqrt n$.
+
+Where does it come from though? Hamming observes in his derivation that the 
+trapezoidal rule approximation to an integral, which is more accurate than the Riemann sum, is
+$$
+\begin{align}
+\frac{1}{2} \log 1 + \sum_{x=2}^{n-1} \log x + \frac{1}{2}\log n &\approx \int_1^n \log x~\mathrm dx \\&= n\log n -n + 1.
+\end{align}
+$$
+Notice that $\log 1 = 0,$ so its coefficient doesn't matter. Notice also that we're missing half a $\log n$ to make up the sum we want; if we add this on both sides of the equation we get
+$$
+\sum_{x=1}^n \log x \approx n \log n - n + 1 + \frac{1}{2}\log n.
+$$
+This is the missing $\sqrt n$. But I could not have known this beforehand, so let's pretend we don't. 
+I suppose I would have known about the existence of the trapezoid rule but I would not have thought about using it. I would have thought about doing computations and plots. 
+
+I don't know much about Stirling but probably he did not have a 2018 MacBook Pro. 
+With this device it is not much work to multiply or sum a bunch of numbers, or even take $\log$s. What opulence. It certainly isn't hard for me to compare $\sum_{x=1}^n \log x$ with $\log \hat n?? = n\log n -n + 1$ up to a very large $n$ indeed.
+
+
+```{r echo=F}
+Ns = 1:1000000
+strg = Ns*log(Ns) - Ns + 1
+tru = cumsum(log(Ns))
+ratio = strg-tru
+plot(Ns, ratio, type="l", xlab="n", ylab="log(stirglin) - log(factorial)", main="Stirglin's error up to n=1M")
+
+```
+
+Above I show the $\log$ error in $\hat n??$ all the way up to $n=10^6$. The number $10^6!$ has _at the very least_ four and a half millions digits.[^2] You'd never
+want to look at that number itself, but you may want to use $n!$ or an easier-to-deal-with approximation
+to derive other quantities (such as probabilities) supposing $n$ quite large.
+
+What we're looking for is a function of $n$ that we can multiply with $\hat n??$
+so that $\frac{f(n)\hat n??}{n!} \approx 1$ as $n$ increases.[^4] Or, equivalently, we're looking for a function that that we can subtract on the $\log$ scale to make the error zero. Then it's just a matter of fitting the curve above. 
+
+[^4]: No point focussing on getting a good approximation for small $n$, there we can just use $n!$ directly.
+
+It's clear from the figure that the error is a non-linear function of $n$. It would be nicest for the look of our approximation if the function could be made very simple. It would not be very satisfying with, say, a neural network function approximation.
+
+In _Exploratory Data Analysis_, Tukey advocates trying a simple [ladder of transformations](https://onlinestatbook.com/2/transformations/tukey.html), fitting curves of the form $y = \beta_0 + \beta_1 f(x)$ with $f(x)$ climbing the ladder
+$$
+\frac{1}{x^2}, \frac{1}{x}, \frac{1}{\sqrt{x}}, \log x, \sqrt x, x, x^2.
+$$
+Our suspect is in this lineup, but we're pretending to be me so we don't know that. But we know that the curve is _bendy downard_, as they say in the 
+technical language, and so the rungs below $x$ are the transformations
+likely to make the relationship less bendy. They all stretch out smaller numbers and pack larger numbers closer together, if you think about it.
+
+```{r, echo=F, fig.height=3, fig.width=9}
+oldp = par(mfrow=c(1,3), cex.lab=1.25, cex.axis=1.25, cex.main=1.25, cex.sub=1.25, cex= 1.3, lwd=2, pch=20, bty="n")
+plot(Ns, ratio, type="l", xlab="n", ylab="", xaxt="n", yaxt="n")
+plot(sqrt(Ns), ratio, type="l", xlab="sqrt(n)", ylab="", xaxt="n", yaxt="n")
+plot(log(Ns), ratio, type="l", xlab="log(n)", ylab="", xaxt="n", yaxt="n")
+mtext("Descending the transformation ladder", cex=1.75, side = 3, line= -2, outer = TRUE, font=2)
+par(oldp)
+```
+
+Look at that straight $\log n$ line. Majestic! If we fit this straight line so that we have $\mathrm{error} \approx \beta_0 + \beta_1\log n$ 
+we can simply subtract it to get an error $\approx$ zero.
+
+```{r}
+lm_fit = lm(ratio~log(Ns))
+coef(lm_fit)
+```
+
+So we reckon $\mathrm{error} \approx 0.08 - 0.5\log n$ and are in a position to
+formulate __Stirglin's approximation of order II__:
+$$
+\begin{align}
+\log n! &\approx \log \hat n!? \\
+ &= \log \hat n?? - (0.08 - 0.5\log n) \\
+ &= n\log n - n + 0.92 + 0.5\log n,\\
+ \mathrm{and\ so,}\\
+ \hat n!? &= n^ne^{-n}e^{0.92}\sqrt n
+\end{align}
+$$
+
+Notice that we also got slightly closer to the $\sqrt{2\pi}$ factor going from
+$e$ to $e^{0.92}$ The new comparison plot looks as follows:
+```{r}
+stirglin_2 <- function(n) {
+  (n^n)*exp(.92-n)*sqrt(n)
+}
+```
+```{r, echo=F}
+par(cex.lab=1.25, cex.axis=1.25, cex.main=1.25, cex.sub=1.25, cex= 1.3, 
+    lwd=2, pch=20, bty="n")
+pts = 1:30
+plot(range(pts), c(.85, 1), bty="n", type="n", ylab="approximation/true", xlab="n",
+     main="Stirglin's approx. II is decent")
+abline(h=1, col="lightgrey")
+points(pts, stirling(pts)/factorial(pts), pch=19, col="darkgrey")
+points(pts, stirglin_2(pts)/factorial(pts), pch=20)
+#text(12.5, 1.1, "Stirling", col="darkgrey")
+#text(12.5, .2, "Stirglin II", col="black")
+```
+
+The slightly larger grey points show Stirling's approximation for comparison.
+We are very close! As with Stirling, Stirglin II looks good even for quite small 
+$n$. Let's look at the error for large $n$. I will go from $n=100\,000$ to $n=5\,000\,000$. 
+
+```{r echo=F}
+Ns = 1:5000000
+strg = Ns*log(Ns) - Ns + 0.92 + 0.5*log(Ns)
+tru = cumsum(log(Ns))
+ratio = strg-tru
+subsample = c(sort(sample(100000:5000000, 5000)))
+plot(log10(Ns[subsample]), exp(ratio[subsample]), type="l", xlab="log10(n)", ylab="(stirglin II)/(factorial)", main="Stirglin II error up to n=5M")
+
+```
+
+We very slightly overestimate. For my money that's as good as very slightly underestimating. I believe the jigglyness toward the higher $n$s has to do with rounding error in floating point operations. 
+
+So empirically we get roughly what the theory dictates, which is always reassuring, but we're pretending to not have the theory and to be too bad at maths to derive it. Stirglin's second-order approximation gives us a decent approximation for quite large $n$. If we need to know its error for an even larger but still reasonable $n$ we can always check. What we don't get is guarantees about its behavior as $n\to\infty$.[^3] In other words it's quite accurate for applied work, but you can't use it for proofs.
+
+
+[^3]: Because I don't know how. But I can offer a consolation prize type guarantee: If you know that for some $n - 1$ the error is $\mathrm{err}(n-1) = C - 0.5\log (n-1)$ you can show by some algebra tricks (nothing crazy but tedious to type out in full) that the error for $n$ is $$C - 0.5\log(n) - 1 + (n - 0.5)\log\frac{n}{n-1} \\ = \mathrm{err}(n) - 1 + (n - 0.5)\log\frac{n}{n-1}.$$ This last term goes toward unity quite quickly and it is the case that $\lim_{n\to\infty} (n - 0.5)\log\frac{n}{n-1} = 1,$ according to [SymPy](https://live.sympy.org/), which I used to check that limit. It's not an ironbound proof or anything, but it's promising.
+
+
+[^2]: Take everything above $100\,000$ as $100\,000$ exactly and drop what's below for a smaller but easier-to-deal-with number. This will have $\log_{10} 100\,000^{900\,000} = 900\,000\cdot5 = 4\,500\,000$ digits.
+
+

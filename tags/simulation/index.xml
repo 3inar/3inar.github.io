@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>simulation on Academic website of Dr. Einar Holsbø</title>
+    <title>simulation on Just data things</title>
     <link>https://3inar.github.io/tags/simulation/</link>
-    <description>Recent content in simulation on Academic website of Dr. Einar Holsbø</description>
+    <description>Recent content in simulation on Just data things</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
@@ -14,7 +14,7 @@
       <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://3inar.github.io/blog/2017-08-24-auc-harmful/</guid>
-      <description>It’s pretty hard to build a predictive model, let’s be honest. My previous post was about the strange practice of under-/oversampling. We impose this on ourselves because we want to do yes/no classification instead of predicting probability. This post is on the same theme. It has a very clear message: if we use accuracy-like model performance measures (looking at you, AUC, F1, etc.) we reduce our ability to select the best model.</description>
+      <description>This post had bugs that messed with my build process and I can’t be bothered fixing it.</description>
     </item>
     
     <item>
