@@ -5,6 +5,7 @@ date: 2021-06-01
 description: "A note in re Section 2.2 in Brad Efron's _Large-Scale Inference_"
 tags: ["large-scale inference", "efron", "notes", "fdr", "bayes"]
 math: true
+draft: true
 editor_options: 
   chunk_output_type: console
 ---
