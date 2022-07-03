@@ -1,0 +1,65 @@
+---
+title: "Note: Bayes false discovery rate"
+author: "Einar"
+date: 2021-06-01
+description: "A note in re Section 2.2 in Brad Efron's _Large-Scale Inference_"
+tags: ["large-scale inference", "efron", "notes", "fdr", "bayes"]
+math: true
+editor_options: 
+  chunk_output_type: console
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, dev.args=list(bg="transparent"))
+knitr::opts_knit$set(global.par=TRUE)
+```
+
+```{r, echo=F}
+# Do this once for all plots
+par(cex.lab=1.25, cex.axis=1.25, cex.main=1.25, cex.sub=1.25, cex= 1.3, 
+    lwd=2, pch=20, bty="n")
+```
+
+This is a note to section 2.2 in Brad Efron's book _Large-Scale Inference_, which I am very slowly working my way through.
+
+In a large-scale -omic experiment we're calculating thousands of $Z_i = \frac{\mu_i}{\sigma_i/\sqrt{N}},$[^1] where the number of observations, $N,$ is likely below 100. Let's say we're working with gene expression: we use these statistics to evaluate the hypothesis that gene $i$ is differentially expressed between two groups of interest. In the nature of things you would not expect true differential expression of too many genes. But you should expect some number of false positives, viz, $\alpha$ of the genes that are not truly differentially expressed. Arguably this setting is mostly exploratory.
+
+[^1]: Or anyway we can transform any statistic to an equivalent $Z_i$ by the inverse distribution function.
+
+# A 
+
+In a microarray (or more recently RNA-Seq) experiment you measure the expression levels of tousands of genes for each a handful of people (or bacteria or what have you). Last I checked the sample sizes comprise mostly fewer than 100 observations in the large repositories for such data.
+
+Whatever way you look at it, a full transcriptomic analysis has a substantial exploratory element. You don't have a specific hypothesis for each of 20000 genes; what you probably have is the idea that for a given outcome a small fraction of genes will be differentially expressed between group A and group B.
+
+[^1]: Though I am no biologist
+
+
+```{r}
+### unrelated, RE large-scale inference
+F_0 <- function(x) {pnorm(x)}
+F_1 <- function(x) { pnorm(x, sd=3) }
+pi0 <- 0.90
+F_f <- function(x) {pi0*F_0(x) + (1-pi0)*F_1(x)}
+
+curve(F_f(x), from=-4, to=4)
+curve(pi0*F_0(x), add=T)
+curve(F_1(x), add=T)
+sq = seq(-5,-3.5, length.out = 500)
+y = pi0*F_0(sq)
+x = F_f(sq)
+plot(x, y, type="l", xlab="F(Z)", ylab="pi0*F0(Z)"); abline(0,1)
+
+pt = c(F_f(-3.8), pi0*F_0(-3.8))
+points(pt[1], pt[2], pch=20)
+```
+
+
+```{r}
+N = 1000
+tv <- rt(N, 1)
+pis <- sort(pnorm(tv))
+plot(pis, type="l")
+q <- 0.1
+tst <- q*(1:N)/N
+lines(tst)
+```

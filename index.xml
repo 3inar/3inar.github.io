@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://3inar.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://3inar.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Note: Bayes false discovery rate</title>
+      <link>https://3inar.github.io/blog/2021-06-01-bayes_fdr/</link>
+      <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://3inar.github.io/blog/2021-06-01-bayes_fdr/</guid>
+      <description>This is a note to section 2.2 in Brad Efron’s book Large-Scale Inference, which I am very slowly working my way through.
+In a large-scale -omic experiment we’re calculating thousands of \(Z_i = \frac{\mu_i}{\sigma_i/\sqrt{N}},\)1 where the number of observations, \(N,\) is likely below 100. Let’s say we’re working with gene expression: we use these statistics to evaluate the hypothesis that gene \(i\) is differentially expressed between two groups of interest.</description>
+    </item>
+    
     <item>
       <title>Stirglin&#39;s approximation [sic]</title>
       <link>https://3inar.github.io/blog/2021-05-13-stirglin/</link>
@@ -109,8 +119,8 @@ Possibly a motivation So the argument for balancing unbalanced classes seems to 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://3inar.github.io/research/</guid>
-      <description>This is a list of my academic work. For talks and similar, visit the talks page. I defended my Ph. D. in February, 2019. My dissertation is called Small data: practical modeling issues in human-model -omic data. [archived version ]
-Papers  Holsbø E, Olsen KS. Metastatic Breast Cancer and Pre-Diagnostic Blood Gene Expression Profiles—The Norwegian Women and Cancer (NOWAC) Post-Genome Cohort. Frontiers in oncology. 2020 Oct 15;10:2277. Holsbø, E., Perduca, V.</description>
+      <description>This is a list of my academic work. For talks and similar, visit the talks page. I defended my Ph. D. in February, 2019. My dissertation is called Small data: practical modeling issues in human-model -omic data. [archived version]
+Papers, etc. Pedersen BR, Holsbø E, Andersen T, Shvetsov N, Ravn J, Sommerseth HL, Bongo LA. Lessons Learned Developing and Using a Machine Learning Model to Automatically Transcribe 2.3 Million Handwritten Occupation Codes.</description>
     </item>
     
     <item>
@@ -120,7 +130,7 @@ Papers  Holsbø E, Olsen KS. Metastatic Breast Cancer and Pre-Diagnostic Blood G
       
       <guid>https://3inar.github.io/talks/</guid>
       <description>These are talks that I&amp;rsquo;ve held on various occasions.
- Version control, &amp;amp;c. A small workshop on version control for the Dep&amp;rsquo;t of Community Medicine, UiT. November 25th, 2020. [slides ] One weird trick to quantify uncertainty One hour workshop teaching the bootstrap to our lab. [slides ] [rstudio.cloud project ] Scientific cartography A talk about causal DAGs for Norwegian Women and Cancer&amp;rsquo;s systems epidemiology. Given by me and Karina Standahl Olsen in November, 2019.</description>
+Introdution to Bayesian Inference. Guest lecture given to the advanced epidemiology course, Dep&amp;rsquo;t of Community Medicine, UiT. October, 2021. [slides] Version control, &amp;amp;c. A small workshop on version control for the Dep&amp;rsquo;t of Community Medicine, UiT. November 25th, 2020. [slides] Opposing forces in big data. Presentet at the HDL lab meeting, UiT. October, 2020. [slides] One weird trick to quantify uncertainty One hour workshop teaching the bootstrap to our lab.</description>
     </item>
     
   </channel>

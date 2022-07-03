@@ -1,267 +1,176 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://3inar.github.io/</loc>
-    <lastmod>2021-05-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://3inar.github.io/tags/bayes/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://3inar.github.io/blog/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://3inar.github.io/tags/efron/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://3inar.github.io/tags/fdr/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://3inar.github.io/tags/large-scale-inference/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://3inar.github.io/blog/2021-06-01-bayes_fdr/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://3inar.github.io/tags/notes/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://3inar.github.io/tags/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://3inar.github.io/tags/bad-at-maths/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://3inar.github.io/blog/</loc>
-    <lastmod>2021-05-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/blog/2021-05-13-stirglin/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/stirlings-approximation/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://3inar.github.io/tags/</loc>
-    <lastmod>2021-05-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/book_review/</loc>
     <lastmod>2020-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/lindley/</loc>
     <lastmod>2020-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/taleb/</loc>
     <lastmod>2020-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/blog/2020-12-11-lindley-book-rview/</loc>
     <lastmod>2020-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/blog/2020-30-11-utils/</loc>
     <lastmod>2020-11-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/ducats/</loc>
     <lastmod>2020-11-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/insurance/</loc>
     <lastmod>2020-11-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/utility/</loc>
     <lastmod>2020-11-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/visualization/</loc>
     <lastmod>2020-11-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/blog/2018-04-22-odds-ratios/</loc>
     <lastmod>2018-04-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/odds/</loc>
     <lastmod>2018-04-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/odds_ratio/</loc>
     <lastmod>2018-04-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/probability/</loc>
     <lastmod>2018-04-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/relative_risk/</loc>
     <lastmod>2018-04-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/blog/2018-01-24-hugo/</loc>
     <lastmod>2018-01-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/golang/</loc>
     <lastmod>2018-01-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/housekeeping/</loc>
     <lastmod>2018-01-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/hugo/</loc>
     <lastmod>2018-01-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/jekyll/</loc>
     <lastmod>2018-01-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/ruby/</loc>
     <lastmod>2018-01-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/handwritten_digits/</loc>
     <lastmod>2018-01-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/image_segmentation/</loc>
     <lastmod>2018-01-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/mixture_models/</loc>
     <lastmod>2018-01-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/ocr/</loc>
     <lastmod>2018-01-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/blog/2018-01-15-segmentation/</loc>
     <lastmod>2018-01-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/auc/</loc>
     <lastmod>2017-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/blog/2017-08-24-auc-harmful/</loc>
     <lastmod>2017-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/brier-score/</loc>
     <lastmod>2017-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/logistic_regression/</loc>
     <lastmod>2017-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/model_selection/</loc>
     <lastmod>2017-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/prediction/</loc>
     <lastmod>2017-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/simulation/</loc>
     <lastmod>2017-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/classification/</loc>
     <lastmod>2017-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/undersampling/</loc>
     <lastmod>2017-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/blog/2017-04-09-undersampling/</loc>
     <lastmod>2017-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://3inar.github.io/tags/bayes/</loc>
-    <lastmod>2016-10-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/empirical_bayes/</loc>
     <lastmod>2016-10-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/blog/2016-10-03-violence/</loc>
     <lastmod>2016-10-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/official_statistics/</loc>
     <lastmod>2016-10-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/shrinkage/</loc>
     <lastmod>2016-10-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/naive_bayes/</loc>
     <lastmod>2016-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/blog/2016-08-24-neural-network-overengineering/</loc>
     <lastmod>2016-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/neural_networks/</loc>
     <lastmod>2016-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/tags/wine/</loc>
     <lastmod>2016-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/research/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://3inar.github.io/talks/</loc>
   </url>
-  
 </urlset>
