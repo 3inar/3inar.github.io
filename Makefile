@@ -16,16 +16,17 @@ all: $(HTML_FILES)
 %.html: %.md
 	@# Preprocess the .md file to replace [[yyyymmddHHMM]] with a Markdown link
 	@sed 's/\[\[\([0-9]\{12\}\)\]\]/[\1](\/notes\/\1.html)/g' $< > $@.tmp.md
-	@# Get the last modification date of the .md file and append it to the temporary file
-	@echo "\n\n##### current document last modified: $$(stat -f '%Sm' -t '%Y%m%d%H%M' $<)" >> $@.tmp.md
 	@# Convert the temporary preprocessed file to .html
 	@pandoc --mathml $@.tmp.md -o $@.tmp.html
-	@# Concatenate header, generated HTML content, and footer into the final HTML file
-	@cat _header.html $@.tmp.html _footer.html > $@
+	@# Create a temporary footer with the last modification date
+	@echo "<h5>current document last modified $$(stat -f '%Sm' -t '%Y%m%d%H%M' $<)</h5>" > $@.tmp.footer.html
+	@cat _footer.html >> $@.tmp.footer.html
+	@# Concatenate header, generated HTML content, and temporary footer into the final HTML file
+	@cat _header.html $@.tmp.html $@.tmp.footer.html > $@
 	@# Remove the temporary files
-	@rm -f $@.tmp.md $@.tmp.html
+	@rm -f $@.tmp.md $@.tmp.html $@.tmp.footer.html
 
-# Clean target to remove all generated .html files
+# Clean target to remove all generated .html files except those starting with an underscore
 clean:
 	find $(SRC_DIR) -name '*.html' ! -name '_*.html' -exec rm {} +
 
