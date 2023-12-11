@@ -11,15 +11,3 @@
     onload="document.addEventListener('DOMContentLoaded', function() { renderMathInElement(document.body); });"></script>
 </head>
 <body>
-<h1 id="header1">header1</h1>
-<h2 id="header2">header2</h2>
-<h3 id="header3">header3</h3>
-<h4 id="header4">header4</h4>
-<h5 id="header5">header5</h5>
-<p>Paragraph with <strong>bold</strong>, <em>italic</em>,
-<code>code</code>, <a href="meta/">internal link</a>, <a
-href="github.com">external link</a>.</p>
-<h5 id="current-document-last-modified-202312111719">current document
-last modified: 202312111719</h5>
-</body>
-</html>
