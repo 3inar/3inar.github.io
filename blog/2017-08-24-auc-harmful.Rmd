@@ -1,9 +1,0 @@
----
-title: "AUC and accuracy considered harmful to model selection"
-author: "Einar"
-date: 2017-08-24
-tags: ["auc", "model_selection", "prediction", "logistic_regression", "simulation", "brier score"]
-math: true
----
-
-This post had bugs that messed with my build process and I can't be bothered fixing it.
