@@ -21,12 +21,12 @@ all: $(HTML_FILES)
 	@# Convert the temporary preprocessed file to .html
 	@pandoc --mathml $@.tmp.md -o $@.tmp.html
 	@# Concatenate header, generated HTML content, and footer into the final HTML file
-	@cat _header.txt $@.tmp.html _footer.txt > $@
+	@cat _header.html $@.tmp.html _footer.html > $@
 	@# Remove the temporary files
 	@rm -f $@.tmp.md $@.tmp.html
 
 # Clean target to remove all generated .html files
 clean:
-	find $(SRC_DIR) -name '*.html' -exec rm {} +
+	find $(SRC_DIR) -name '*.html' ! -name '_*.html' -exec rm {} +
 
 .PHONY: all clean
