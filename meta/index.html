@@ -11,14 +11,53 @@
     onload="document.addEventListener('DOMContentLoaded', function() { renderMathInElement(document.body); });"></script>
 </head>
 <body>
+<p>
+<table>
+  <tr>
+    <td><a href="/meta/">meta</a></td>
+    <td></td>
+  </tr>
+</table>
+</p>
+
 <h1 id="header1">header1</h1>
 <h2 id="header2">header2</h2>
 <h3 id="header3">header3</h3>
 <h4 id="header4">header4</h4>
 <h5 id="header5">header5</h5>
+<h6 id="header6">header6</h6>
 <p>Paragraph with <strong>bold</strong>, <em>italic</em>,
 <code>code</code>, <a href="meta/">internal link</a>, <a
 href="github.com">external link</a>.</p>
-<h5>current document last modified 202312111719</h5>
+<p>Here we refer to the important book <span class="citation"
+data-cites="Axler_2015">Axler (2015)</span></p>
+<h2 id="math">math</h2>
+<p>This is a sentence containing some inline math,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mfrac><mi>π</mi><mi>β</mi></mfrac></msqrt><annotation encoding="application/x-tex">\sqrt{\frac{\pi}{\beta}}</annotation></semantics></math>,
+I will follow it with a block of math below:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>A</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mi>π</mi><msup><mi>r</mi><mn>2</mn></msup></mrow><mn>2</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>π</mi><msup><mi>r</mi><mn>2</mn></msup></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{align}
+A &amp; = \frac{\pi r^2}{2} \\
+ &amp; = \frac{1}{2} \pi r^2
+\end{align}
+</annotation></semantics></math></p>
+<h2 id="code-again">code again</h2>
+<p>R code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>func <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">runif</span>(<span class="dv">100</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>julia code</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">LinearAlgebra</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="fl">1</span> <span class="fl">2</span>; <span class="fl">3</span> <span class="fl">4</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">svd</span>(a)</span></code></pre></div>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-Axler_2015" class="csl-entry" role="listitem">
+Axler, Sheldon. 2015. <em>Linear Algebra Done Right</em>. 3rd ed.
+Undergraduate Texts in Mathematics. Springer Cham.
+</div>
+</div>
+<h6>current document last modified 202312112248</h6>
 </body>
 </html>
