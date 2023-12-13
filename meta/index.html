@@ -3,19 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz0rhdJt1lFmjgVhZ9GHQr8K5En6qDm9j+uXcdfp4/0mpz4jTUe65vz1dMf3" crossorigin="anonymous">
-  <!-- The loading of KaTeX is deferred to speed up page rendering -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-0tL72Uq5a5P4SXGHtEWtxedMmOz6OCTuTq8FVNOF9D5G1o2K2nCRP5Jue9J8J8jT" crossorigin="anonymous"></script>
-  <!-- To automatically render math in text elements, include the auto-render extension: -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOo9A9z0IiJ77/6CR4/OaX5cIzN6lXaHxGzLcp9L0ovpUJy8f3I5dvJbFf" crossorigin="anonymous"
-    onload="document.addEventListener('DOMContentLoaded', function() { renderMathInElement(document.body); });"></script>
+
+
+  <!-- > KaTex stuff</!-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+          });
+      });
+  </script>
+
+  <link rel="stylesheet" href="/meta/main.css" />
+  <link rel="stylesheet" href="/meta/syntax.css" />
 </head>
 <body>
 <p>
 <table>
+  <tr><a href="/">about isomorfis.me</a></tr>
   <tr>
-    <td><a href="/meta/">meta</a></td>
-    <td></td>
+    <ul>
+      <li><a href="/research/">research</a></li>
+      <li><a href="/talks/">talks</a></li>
+      <li><a href="/meta/"><em>meta</em></a></li>
+    </ul>
   </tr>
 </table>
 </p>
@@ -26,21 +49,50 @@
 <h4 id="header4">header4</h4>
 <h5 id="header5">header5</h5>
 <h6 id="header6">header6</h6>
+<h2 id="lorem-ipsum">Lorem Ipsum</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+mollit anim id est laborum</p>
+<h2 id="various-elements">various elements</h2>
 <p>Paragraph with <strong>bold</strong>, <em>italic</em>,
-<code>code</code>, <a href="meta/">internal link</a>, <a
-href="github.com">external link</a>.</p>
+<code>code</code>, <a href="/meta/">internal link</a>, <a
+href="https://github.com">external link</a>.</p>
 <p>Here we refer to the important book <span class="citation"
 data-cites="Axler_2015">Axler (2015)</span></p>
+<blockquote>
+<p>This is a block quote with <strong>bold</strong>, <em>italic</em>,
+<code>code</code>, <a href="/meta/">internal link</a>, <a
+href="https://github.com">external link</a>.</p>
+</blockquote>
+<p>Here is a list containing</p>
+<ul>
+<li>Some <strong>bold</strong></li>
+<li>Some <em>italic</em></li>
+<li>Some <code>code</code></li>
+<li>Some <span class="math inline">\(A\mathbf x = \mathbf
+y\)</span></li>
+<li>A nested
+<ul>
+<li>list with <strong>bold</strong></li>
+<li>list with <em>italic</em>, <code>code</code>, <a
+href="meta/">internal link</a>, <a href="github.com">external
+link</a>.</li>
+</ul></li>
+</ul>
 <h2 id="math">math</h2>
-<p>This is a sentence containing some inline math,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mfrac><mi>π</mi><mi>β</mi></mfrac></msqrt><annotation encoding="application/x-tex">\sqrt{\frac{\pi}{\beta}}</annotation></semantics></math>,
-I will follow it with a block of math below:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>A</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mi>π</mi><msup><mi>r</mi><mn>2</mn></msup></mrow><mn>2</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>π</mi><msup><mi>r</mi><mn>2</mn></msup></mtd></mtr></mtable><annotation encoding="application/x-tex">
-\begin{align}
+<p>This is a sentence containing some inline math, <span
+class="math inline">\(\sqrt{\frac{\pi}{\beta}}\)</span>, I will follow
+it with a block of math below:</p>
+<p><span class="math display">\[
+\begin{align*}
 A &amp; = \frac{\pi r^2}{2} \\
- &amp; = \frac{1}{2} \pi r^2
-\end{align}
-</annotation></semantics></math></p>
+&amp; = \frac{1}{2} \pi r^2
+\end{align*}
+\]</span></p>
 <h2 id="code-again">code again</h2>
 <p>R code:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>func <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
@@ -51,6 +103,12 @@ A &amp; = \frac{\pi r^2}{2} \\
 class="sourceCode julia"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">LinearAlgebra</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="fl">1</span> <span class="fl">2</span>; <span class="fl">3</span> <span class="fl">4</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">svd</span>(a)</span></code></pre></div>
+<h2 id="a-small-and-a-large-image">A small and a large image</h2>
+<p>From <a
+href="https://commons.wikimedia.org/wiki/File:NickCaveCroydon040921_%282_of_41%29_%2851427855295%29.jpg">wikimedia
+commons</a></p>
+<p><img src="test_small.jpg" /></p>
+<p><img src="test.jpg" /></p>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
 <div id="ref-Axler_2015" class="csl-entry" role="listitem">
@@ -58,6 +116,6 @@ Axler, Sheldon. 2015. <em>Linear Algebra Done Right</em>. 3rd ed.
 Undergraduate Texts in Mathematics. Springer Cham.
 </div>
 </div>
-<h6>current document last modified 202312112248</h6>
+<small>current document last modified 2023.12.12</small>
 </body>
 </html>

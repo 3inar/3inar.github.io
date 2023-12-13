@@ -3,31 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz0rhdJt1lFmjgVhZ9GHQr8K5En6qDm9j+uXcdfp4/0mpz4jTUe65vz1dMf3" crossorigin="anonymous">
-  <!-- The loading of KaTeX is deferred to speed up page rendering -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-0tL72Uq5a5P4SXGHtEWtxedMmOz6OCTuTq8FVNOF9D5G1o2K2nCRP5Jue9J8J8jT" crossorigin="anonymous"></script>
-  <!-- To automatically render math in text elements, include the auto-render extension: -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOo9A9z0IiJ77/6CR4/OaX5cIzN6lXaHxGzLcp9L0ovpUJy8f3I5dvJbFf" crossorigin="anonymous"
-    onload="document.addEventListener('DOMContentLoaded', function() { renderMathInElement(document.body); });"></script>
+
+
+  <!-- > KaTex stuff</!-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+          });
+      });
+  </script>
+
+  <link rel="stylesheet" href="/meta/main.css" />
+  <link rel="stylesheet" href="/meta/syntax.css" />
 </head>
 <body>
 <p>
 <table>
+  <tr><a href="/">about isomorfis.me</a></tr>
   <tr>
-    <td><a href="/meta/">meta</a></td>
-    <td></td>
+    <ul>
+      <li><a href="/research/">research</a></li>
+      <li><a href="/talks/">talks</a></li>
+      <li><a href="/meta/"><em>meta</em></a></li>
+    </ul>
   </tr>
 </table>
 </p>
 
 <h1 id="hello-world">Hello, world</h1>
 <p>This is the website of Einar Holsbø, PhD.</p>
-<p>Currently I am an Associate Professor at the University of Tromsø. I
-trained as a computer scientist; today I am mainly interested in data
-analysis, including statistics and statistical learning.</p>
+<p>Currently I am an Associate Professor at the University of Tromsø,
+affiliated with <a href="">CANS</a> and <a href="">HDL</a>. I trained as
+a computer scientist; today I am mainly interested in data analysis,
+including statistics and statistical learning.</p>
 <h1 id="highlights">Highlights</h1>
 <p>Some of my content that you might find interesting:</p>
 <p>NULL</p>
-<h6>current document last modified 202312111728</h6>
+<small>current document last modified 2023.12.12</small>
 </body>
 </html>
