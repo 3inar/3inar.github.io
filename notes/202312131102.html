@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+
+  <!-- > KaTex stuff</!-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+          });
+      });
+  </script>
+
+  <link rel="stylesheet" href="/meta/main.css" />
+  <link rel="stylesheet" href="/meta/syntax.css" />
+</head>
+<body>
+<p>
+<table>
+  <tr><a href="/">about isomorfis.me</a></tr>
+  <tr>
+    <ul>
+      <li><a href="/research/">research</a></li>
+      <li><a href="/talks/">talks</a></li>
+      <li><a href="/meta/"><em>meta</em></a></li>
+    </ul>
+  </tr>
+</table>
+</p>
+
+<h1 id="rebuilding-from-scratch">Rebuilding from scratch</h1>
+<p>This is the third iteration of my website. In the first one I used
+Jekyll and GitHub pages, with some hack-y way of doing an blog based on
+R markdown documents. I moved from there to using Hugo and blogdown,
+which streamlined the R markdown blog aspect a lot. However that whole
+process of having an RStudio project for the site and having to launch
+RStudio, etc., etc., to make even the slightest change to the site made
+me not want to do updates.</p>
+<h2 id="going-web-1.0">Going web 1.0</h2>
+<p>I decided to rebuild the site as simply as possible, wanting to go
+back to how it used to be when the internet wasn’t shit and I had a
+GeoCities website.</p>
+<p>The <a href="https:://https://github.com/3inar/3inar.github.io">new
+web 1.0 iteration</a> is designed to have minimal bloat. It’s all
+markdown that I edit within my existing <a
+href="https://github.com/3inar/zett.vim">vim workflow</a>. The site is
+built entirely as static <code>.html</code> using <code>make</code>,
+which mostly just runs pandoc on any markdown file it comes across,
+adding some header and footer info. The style sheet makes only small
+adjustments to raw, unstyled <code>.html</code>. You can see it’s effect
+on various elements on the <a href="/meta/">meta page</a>.</p>
+<p>The most complicated thing on this site is that I import <a
+href="https://katex.org/">KaTex</a> to render math. I only do this
+because some of the shittier browsers don’t support <a
+href="https://www.w3.org/Math/">MathML</a>.</p>
+<h2 id="why">Why?</h2>
+<p>My blog was inactive for very long periods of time because I felt
+that I should make substantive posts. What I want instead is to have a
+little <a href="https://maggieappleton.com/garden">digital garden</a>
+with a lower threshold for publishing. As the link previous says:</p>
+<blockquote>
+<p>A collection of essays, notes, and half-baked explorations I’m always
+tending to.</p>
+</blockquote>
+<p>The biggest drawback right now is that there is no system in place
+for an R markdown-based posts. This isn’t because it’s hard to
+implement, it’s more about the aesthetics of the build process/workflow.
+It just doesn’t feel <a href="https://www.tadiweb.com/">slippy</a>. This
+means that (for now) I will not bring back any R-markdown-based posts
+from the old blog, and that any similar content under the current system
+will be more of a hand crafted, locally sourced thing.</p>
+<small>current document last modified 2023.12.13</small>
+</body>
+</html>

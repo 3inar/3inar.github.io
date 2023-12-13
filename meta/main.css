@@ -1,0 +1,63 @@
+/* A nice serifed font wiht slightly old-style numbers */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
+
+body {
+    background-color: #f8f8f8; /* Light grey background */
+    font-family: 'EB Garamond', serif;
+    font-feature-settings: 'onum';
+    color: #000000; /* Black text color */
+    line-height: 1.5;
+    padding: 20px;
+        
+    max-width: 80ch; /* Set the width to half the page width */
+    margin-left: 12.5%;
+    text-align: left; /* Align text to the left (ragged right) */
+}
+
+.katex {
+    font-size: 1em; /* Adjust this value to match your body text size */
+}
+/* Adjust the size of inline math */
+.katex .katex-inline {
+    font-size: 1em;
+}
+
+/* Adjust the size of display (block) math */
+.katex .katex-display {
+    font-size: 1em;
+}
+
+
+/* Style headers to stand out and include ≅ characters */
+h1, h2, h3, h4, h5 {
+    position: relative; /* Needed to position the ::before pseudo-element absolutely */
+    padding-left: .25em; /* Adjust as needed to make room for the symbol */
+}
+
+h1::before, h2::before, h3::before, h4::before, h5::before {
+    content: "≅";
+    color: #000000; /* Black color for consistency */
+    position: absolute;
+    left: 0; /* Align the symbol to the left edge of the heading */
+    top: 0; /* Align the symbol to the top edge of the heading */
+    transform: translateX(-150%); /* Move the symbol to the left of the heading */
+}
+
+/* Style links to be bold and black with no underline */
+a {
+    color: #800020; /* Bourgogne */
+    font-weight: 600; /* Bold weight for links, assuming 600 is available */
+    text-decoration: none; /* No underline on links */
+}
+
+/* Style links on hover to show some interaction */
+a:hover {
+    text-decoration: underline; /* Underline on hover for user feedback */
+}
+
+img {
+    display: block; /* Images are inline by default, change to block to allow centering with margin */
+    max-width: 75vw; /* Limit the image width to 75% of the viewport width */
+
+    height: auto; /* Maintain the aspect ratio of the image */
+}
