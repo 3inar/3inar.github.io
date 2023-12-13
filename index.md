@@ -7,10 +7,12 @@ of mathematics, computer science, etc.
 
 Note however that this is not strictly a professional site.
 
-# Writing
-I like to write. For technical reasons many of the links internally in this
-site are only timestamps to when the document was first created, but I
-helpfully provide a description next to the link itself.
+## Writing
+Here I highlight some things I wrote (but there isn't so much content yet). For
+technical reasons many of the links internally on this site are only timestamps
+to when the document was first created, but I helpfully provide a description
+next to the link itself.
 
-* [[202312131102]] On rebuilding this site from scratch to be more "web 1.0".
+* [[202312132213]] Books I read.
+* [[202312131102]] On rebuilding this site from scratch to be more `web 1.0`.
 
