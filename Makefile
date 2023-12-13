@@ -20,7 +20,7 @@ all: $(HTML_FILES)
 # Rule to convert a .md file to .html
 %.html: %.md $(META_FILES)
 	@# Preprocess the .md file to replace [[yyyymmddHHMM]] with a Markdown link
-	@sed 's/\[\[\([0-9]\{12\}\)\]\]/[\1](\/notes\/\1.html)/g' $< > $@.tmp.md
+	@sed 's/\[\[\([0-9]\{12\}\)\]\]/[(\1)](\/notes\/\1.html)/g' $< > $@.tmp.md
 	@# Convert the temporary preprocessed file to .html
 	@pandoc  --mathjax --citeproc --bibliography $(BIB_FILE) $@.tmp.md -o $@.tmp.html
 	@# Create a temporary footer with the last modification date
@@ -37,6 +37,6 @@ clean:
 
 serve: all
 	@echo "Starting Python HTTP server..."
-	@python3 -m http.server &
+	@python3 -m http.server 
 
 .PHONY: all clean serve
