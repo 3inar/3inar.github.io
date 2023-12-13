@@ -11,7 +11,7 @@ HTML_FILES := $(MD_FILES:.md=.html)
 
 META_FILES := meta/_header.html meta/_footer.html \
 							meta/_menu.html meta/main.css meta/syntax.css
-BIB_FILE := ~/Dropbox/knowledge/bibliography/references.bib
+BIB_FILE := ../bibliography/references.bib
 
 
 # Default target
