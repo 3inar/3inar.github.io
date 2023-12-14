@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>≅ isomorfisme</title>
+
+  <meta name="description" content="Various writing, etc.">
+  <meta name="author" content="Einar Holsbø">
+
+
+  <!-- > KaTex stuff</!-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+          });
+      });
+  </script>
+
+  <link rel="stylesheet" href="/meta/main.css" />
+  <link rel="stylesheet" href="/meta/syntax.css" />
+</head>
+<body>
+<p>
+  <a href="/">about</a></tr>
+ — 
+  <a href="/research/">research</a></li>
+ — 
+  <a href="/talks/">talks</a></li>
+ — 
+  <a href="/notes/">pseudo-blog</a></li>
+ — 
+  <a href="/meta/"><em>meta</em></a></li>
+</p>
+
+<h1
+id="puzzle-length-of-a-line-between-two-random-points-on-the-rim-of-a-square">Puzzle:
+Length of a line between two random points on the rim of a square</h1>
+<p>A probability puzzle I saw online somewhere and solved on a plane
+ride: choose two random points along the rim of an <span
+class="math inline">\(l\times l\)</span> square. What is the probability
+that the line connecting them is longer than <span
+class="math inline">\(l\)</span>?</p>
+<h2 id="a-solution">A solution</h2>
+<p>Since a square’s edge is identical to the three others we can (wlog)
+suppose that the first point is on the leftmost edge. As a further
+simplification we can (wlog) scale all lengths by 1/<span
+class="math inline">\(l\)</span> and just focus on the unit square.
+There are three cases I want to condition on for the second point: i) it
+lands on the same edge; ii) it lands on an adjacent edge; and iii) it
+lands on an opposite edge.</p>
+<p><img src="img/20231214_boxes.png" style="width:100.0%" /></p>
+<p>There is one opposite edge and two adjacent edges, so we have <span
+class="math inline">\(P(\mathrm{opposite}) = P(\mathrm{same}) =
+1/4,\)</span> and <span class="math inline">\(P(\mathrm{adjacent}) =
+1/2.\)</span></p>
+<p>When both points lie on the same edge there is no probability for the
+line between them to be longer than 1. On the other hand if the points
+are on opposite edges there is no probability that the line between them
+is <em>shorter</em> than 1. This leaves the adjacent case as the only
+interesting one.</p>
+<p>For the two adjacent cases we again have a symmetry so that we can
+assume (wlog) that it’s the bottom edge that our second point lands on.
+We adopt a coordinate system so that the lower left corner is the origin
+and the situation looks like the figure below.</p>
+<p><img src="img/20231214_triangle.png" style="width:100.0%" /></p>
+<p>We’re looking for the length, <span class="math inline">\(x\)</span>,
+of the hypotenuse of a right triangle with sides of length <span
+class="math inline">\(p_1\)</span> and <span
+class="math inline">\(p_2\)</span>. These are chosen uniformly at random
+in <span class="math inline">\([0,1]\)</span>. We’re looking for</p>
+<p><span class="math display">\[
+\begin{align*}
+    P(x &gt; 1) &amp;= P(\sqrt{p_1^2 + p_2^2)} &gt; 1) \\
+             &amp;= P(p_1^2 + p_2^2 &gt; 1) \\
+             &amp;= 1 - P(p_1^2 + p_2^2 \leq 1).
+\end{align*}
+\]</span></p>
+<p>This describes a very pretty geometrical situation. If we look at the
+unit square comprising all possible pairs, <span
+class="math inline">\((p_1, p_2)\)</span>, the cases where <span
+class="math inline">\(p_1^2 + p_2^2 \leq 1\)</span> are exactly those
+inside of the quarter unit circle contained in our unit square:</p>
+<p><img src="img/20231214_circlesquare.png" style="width:100.0%" /></p>
+<p>In other words <span class="math inline">\(1 - P(p_1^2 + p_2^2 \leq
+1) = 1 - \pi/4.\)</span> So finally, if <span
+class="math inline">\(L\)</span> is the event that the line connecting
+our two points is longer than 1 we have</p>
+<p><span class="math display">\[
+\begin{align*}
+P(L)    &amp;= \frac{1}{4}P(L | \mathrm{same})
+    + \frac{1}{4}P(L | \mathrm{opposite})
+    + \frac{1}{2}P(L | \mathrm{adjacent}) \\
+        &amp;= \frac{1}{4} + \frac{1}{2}(1 - \pi/4) \\
+        &amp;= \frac{1}{8}(6 - \pi) \\
+        &amp;\approx 0.357.
+\end{align*}
+\]</span></p>
+<small>current document last modified 2023.12.14</small>
+</body>
+</html>
