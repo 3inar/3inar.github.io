@@ -3,7 +3,7 @@ These are talks that I've held on various occasions.
 * __Introdution to Bayesian Inference.__ Guest lecture given to the advanced epidemiology course, Dep't of Community Medicine, UiT. October, 2021. \[[slides](/pdfs/2021_intro_bayes.pdf)\]
 * __Version control, &c.__
 A small workshop on version control for the Dep't of Community Medicine, UiT. November 25th, 2020. \[[slides](/pdfs/251120_version_control.pdf)\]
-* __Opposing forces in big data.__ Presentet at the HDL lab meeting, UiT. October, 2020. \[[slides](/pdfs/2020_opposing_forces_big_data.pdf)\]
+* __Opposing forces in big data.__ On expectation propagation. Presented at the HDL lab meeting, UiT. October, 2020. \[[slides](/pdfs/2020_opposing_forces_big_data.pdf)\]
 * __One weird trick to quantify uncertainty__
 One hour workshop teaching the bootstrap to our lab. \[[slides](/pdfs/weird_trick.pdf)\] \[[rstudio.cloud project](https://rstudio.cloud/project/922006)\]
 * __Scientific cartography__

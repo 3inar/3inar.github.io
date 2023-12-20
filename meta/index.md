@@ -1,7 +1,7 @@
 # Meta page
 This is a page about my website. Mostly it is a testing ground for stylesheets.
 To read a little bit about why my page is the way it is, check out [this
-post](http://localhost:8000/notes/202312131102.html).
+post](notes/202312131102.html).
 
 Below follows many different elements that may occur on a website, so see how
 they look on my site specifically. 
