@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>≅ isomorfisme</title>
+
+  <meta name="description" content="Various writing, etc.">
+  <meta name="author" content="Einar Holsbø">
+
+
+  <!-- > KaTex stuff</!-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+          });
+      });
+  </script>
+
+  <link rel="stylesheet" href="/meta/main.css" />
+  <link rel="stylesheet" href="/meta/syntax.css" />
+</head>
+<body>
+<p>
+  <a href="/">about</a>
+ — 
+  <a href="/research/">research</a>
+ — 
+  <a href="/talks/">talks</a>
+ — 
+  <a href="/notes/">pseudo-blog</a>
+ — 
+  <a href="/meta/"><em>meta</em></a>
+</p>
+
+<h1 id="to-read-list">To-read list</h1>
+<ul>
+<li><strong>Babel-17</strong>, Samuel R. Delany</li>
+<li><strong>On Growth and Form</strong>, D’Arcy Wentworth Thompson</li>
+<li><strong>Dancing at the Edge of the World</strong>, Ursula K. Le
+Guin</li>
+<li><strong>How Infrastructure Works</strong>, Deb Chachra</li>
+<li><strong>The City &amp; the City</strong>, China Miéville</li>
+<li><strong>The Machine Stops</strong>, E.M. Forster</li>
+<li><strong>How Forests Think</strong>, Eduardo Kohn</li>
+<li><strong>A People’s History of the United States</strong>, Howard
+Zinn</li>
+<li><strong>Team of Rivals</strong>, Doris Kearns Goodwin</li>
+<li><strong>Endurance: Shackleton’s Incredible Voyage</strong>, Alfred
+Lansing</li>
+<li><strong>Mischief Acts</strong>, Zoe Gilbert</li>
+<li><strong>Operation Mincemeat</strong>, Ben Macintyre</li>
+<li><strong>The Art Thief</strong>, Michael Finkel</li>
+<li><strong>Strandloper</strong>, Alan Garner</li>
+<li><strong>The Soul of an Octopus</strong>, Sy Montgomery</li>
+<li><strong>Color: A Natural History of the Palette</strong>, Victoria
+Finlay</li>
+<li><strong>The World Beyond Your Head</strong>, Matthew B.
+Crawford</li>
+<li><strong>Shop Class as Soulcraft</strong>, Matthew B. Crawford</li>
+<li><strong>The Netanyahus</strong>, Joshua Cohen</li>
+<li><strong>A Fisherman of the Inland Sea</strong>, Ursula K. Le
+Guin</li>
+<li><strong>Anathem</strong>, Neal Stephenson</li>
+<li><strong>Tigana</strong>, Guy Gavriel Kay</li>
+<li><strong>The Telling</strong>, Ursula K. Le Guin</li>
+<li><strong>Geometry Revisited</strong>, H.S.M. Coxeter</li>
+<li><strong>The Evolution Man: Or, How I Ate My Father</strong>, Roy
+Lewis</li>
+<li><strong>Absalom, Absalom!</strong>, William Faulkner</li>
+<li><strong>Scattered All Over the Earth</strong>, Yōko Tawada</li>
+<li><strong>Lovers of Philosophy</strong>, Warren Ward</li>
+<li><strong>Wittgenstein’s Antiphilosophy</strong>, Alain Badiou</li>
+<li><strong>Topology</strong>, James R. Munkres</li>
+<li><strong>The Hamlet</strong>, William Faulkner</li>
+<li><strong>The Invisible Life of Addie LaRue</strong>, V.E. Schwab</li>
+<li><strong>Origametry: Mathematical Methods in Paper Folding</strong>,
+Thomas Hull</li>
+<li><strong>The Influencing Machine: James Tilly Matthews and the Air
+Loom</strong>, Mike Jay</li>
+<li><strong>In the Eye of the Wild</strong>, Nastassja Martin</li>
+<li><strong>She Who Became the Sun</strong>, Shelley Parker-Chan</li>
+<li><strong>Introduction to Topology: Second Edition</strong>, Theodore
+W. Gamelin</li>
+<li><strong>Interaction of Color</strong>, Josef Albers</li>
+<li><strong>Fate Is the Hunter</strong>, Ernest K. Gann</li>
+<li><strong>Model Theory</strong>, Wilfrid Hodges</li>
+<li><strong>Flatland: A Romance of Many Dimensions</strong>, Edwin A.
+Abbott</li>
+<li><strong>Calculated Values</strong>, William Deringer</li>
+<li><strong>Peach Blossom Spring</strong>, Melissa Fu</li>
+<li><strong>Small Things Like These</strong>, Claire Keegan</li>
+<li><strong>The Social Instinct: How Cooperation Shaped the
+World</strong>, Nichola Raihani</li>
+<li><strong>Endless Forms: The Secret World of Wasps</strong>, Seirian
+Sumner</li>
+<li><strong>Transformer: The Deep Chemistry of Life and Death</strong>,
+Nick Lane</li>
+<li><strong>The Art Spirit</strong>, Robert Henri</li>
+<li><strong>A Life on Our Planet</strong>, David Attenborough</li>
+<li><strong>The Book Thief</strong>, Markus Zusak</li>
+<li><strong>Several Short Sentences About Writing</strong>, Verlyn
+Klinkenborg</li>
+<li><strong>Man and His Symbols</strong>, C.G. Jung</li>
+<li><strong>Gödel, Escher, Bach: an Eternal Golden Braid</strong>,
+Douglas R. Hofstadter</li>
+<li><strong>Behave: The Biology of Humans at Our Best and
+Worst</strong>, Robert M. Sapolsky</li>
+<li><strong>Metamorphoses</strong>, Ovid</li>
+<li><strong>Marlowe’s Faustus/Goethe’s Faust</strong>, Christopher
+Marlowe</li>
+<li><strong>White Fang</strong>, Jack London</li>
+<li><strong>The Night Watchman</strong>, Louise Erdrich</li>
+<li><strong>The Brothers Karamazov</strong>, Fyodor Dostoevsky</li>
+<li><strong>Beyond the Hallowed Sky</strong>, Ken MacLeod</li>
+<li><strong>On Writing: A Memoir of the Craft</strong>, Stephen
+King</li>
+<li><strong>Once There Were Wolves</strong>, Charlotte McConaghy</li>
+<li><strong>No Time To Spare: Thinking About What Matters</strong>,
+Ursula K. Le Guin</li>
+<li><strong>Anatomy: A Love Story</strong>, Dana Schwartz</li>
+<li><strong>An Unquiet Mind: A Memoir of Moods and Madness</strong>, Kay
+Redfield Jamison</li>
+<li><strong>Baron Wenckheim’s Homecoming</strong>, László
+Krasznahorkai</li>
+<li><strong>Så den store fuglen ikke tar deg</strong>, Hiromi
+Kawakami</li>
+<li><strong>Q</strong>, Luther Blissett</li>
+<li><strong>Baudolino</strong>, Umberto Eco</li>
+<li><strong>Jonathan Strange &amp; Mr Norrell</strong>, Susanna
+Clarke</li>
+<li><strong>Manalive</strong>, G.K. Chesterton</li>
+<li><strong>The Napoleon of Notting Hill</strong>, G.K. Chesterton</li>
+<li><strong>The Omnivore’s Dilemma: A Natural History of Four
+Meals</strong>, Michael Pollan</li>
+<li><strong>We Who Are About To…</strong>, Joanna Russ</li>
+<li><strong>Manufacturing Consent</strong>, Edward S. Herman</li>
+<li><strong>Longitude</strong>, Dava Sobel</li>
+<li><strong>A Gentleman in Moscow</strong>, Amor Towles</li>
+<li><strong>The Famished Road</strong>, Ben Okri</li>
+<li><strong>The Art of Rest</strong>, Claudia Hammond</li>
+<li><strong>Time of the Magicians</strong>, Wolfram Eilenberger</li>
+<li><strong>It Keeps Me Seeking: The Invitation from Science, Philosophy
+and Religion</strong>, Andrew Briggs</li>
+<li><strong>The Gene: An Intimate History</strong>, Siddhartha
+Mukherjee</li>
+<li><strong>Free Play: Improvisation in Life and Art</strong>, Stephen
+Nachmanovitch</li>
+<li><strong>The Merchant of Prato: Daily Life in a Medieval Italian
+City</strong>, Iris Origo</li>
+<li><strong>Problem-Solving Through Problems</strong>, Loren C.
+Larson</li>
+<li><strong>Germ Theory: Medical Pioneers in Infectious
+Diseases</strong>, Robert Gaynes</li>
+<li><strong>Missing Microbes: How the Overuse of Antibiotics Is Fueling
+Our Modern Plagues</strong>, Martin J. Blaser</li>
+<li><strong>Microcosm: E. coli and the New Science of Life</strong>,
+Carl Zimmer</li>
+<li><strong>The Soul of a New Machine</strong>, Tracy Kidder</li>
+<li><strong>Concepts of Modern Mathematics</strong>, Ian Stewart</li>
+<li><strong>The Sailor Who Fell from Grace with the Sea</strong>, Yukio
+Mishima</li>
+<li><strong>Fried Green Tomatoes at the Whistle Stop Cafe</strong>,
+Fannie Flagg</li>
+<li><strong>The Alienist</strong>, Caleb Carr</li>
+<li><strong>The Shadow of the Wind</strong>, Carlos Ruiz Zafón</li>
+<li><strong>The Color Purple</strong>, Alice Walker</li>
+<li><strong>Klara and the Sun</strong>, Kazuo Ishiguro</li>
+<li><strong>Rosalind Franklin: The Dark Lady of DNA</strong>, Brenda
+Maddox</li>
+<li><strong>Elements of Point-Set Topology</strong>, John D. Baum</li>
+<li><strong>Merchants of Doubt: How a Handful of Scientists Obscured the
+Truth on Issues from Tobacco Smoke to Global Warming</strong>, Naomi
+Oreskes</li>
+<li><strong>Gratitude</strong>, Oliver Sacks</li>
+<li><strong>Everything in Its Place: First Loves and Last
+Tales</strong>, Oliver Sacks</li>
+<li><strong>Asylums: Essays on the Social Situation of Mental Patients
+and Other Inmates</strong>, Erving Goffman</li>
+<li><strong>Vesper Flights</strong>, Helen Macdonald</li>
+<li><strong>Entangled Life: How Fungi Make Our Worlds…</strong>, Merlin
+Sheldrake</li>
+<li><strong>Code Name Hélène</strong>, Ariel Lawhon</li>
+<li><strong>Brain on Fire: My Month of Madness</strong>, Susannah
+Cahalan</li>
+<li><strong>The Immortal Life of Henrietta Lacks</strong>, Rebecca
+Skloot</li>
+<li><strong>House of Leaves</strong>, Mark Z. Danielewski</li>
+<li><strong>The Turn of the Screw</strong>, Henry James</li>
+<li><strong>Collective Gravities</strong>, Chloe N. Clark</li>
+<li><strong>The Bell in the Lake</strong>, Lars Mytting</li>
+<li><strong>Phantoms in the Brain</strong>, V.S. Ramachandran</li>
+<li><strong>Trees, maps, and theorems</strong>, Jean-luc Doumont</li>
+<li><strong>Illness as Metaphor</strong>, Susan Sontag</li>
+</ul>
+<small>current document last modified 2023.12.21</small>
+</body>
+</html>
