@@ -1,5 +1,7 @@
 These are talks that I've held on various occasions.
 
+* __Microbiome data: what's in the bag?__ When you do a typical microbiome study you get measurements constrained to sum to a certain number (called compositional data). Is this useful? Can we cheat our way toward non-compositional measurements? Presented at CANS day, 2023. \[[slides](/pdfs/2023_CANS_microbiome.pdf)\]
+* __DAGs: tools for reasoning about causes.__ A guest lecture I've given about once a semester for a couple of years on the ue of DAGs in causal inference. Most recently for the Department of Community Medicine, UiT, October, 2023. \[[slides](/pdfs/2023_dags_lecture.pdf)\]
 * __Introdution to Bayesian Inference.__ Guest lecture given to the advanced epidemiology course, Dep't of Community Medicine, UiT. October, 2021. \[[slides](/pdfs/2021_intro_bayes.pdf)\]
 * __Version control, &c.__
 A small workshop on version control for the Dep't of Community Medicine, UiT. November 25th, 2020. \[[slides](/pdfs/251120_version_control.pdf)\]
