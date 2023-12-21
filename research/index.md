@@ -1,7 +1,8 @@
 This is a list of my academic work. For talks and similar, visit the
-[talks](/talks/) page. I defended my Ph. D. in February, 2019. My dissertation
-is called _Small data: practical modeling issues in human-model -omic data_.
-\[[archived version](https://hdl.handle.net/10037/14660)\]
+[talks](/talks/) page. 
+
+I defended my Ph. D. in February, 2019. My dissertation is called 
+[Small data: practical modeling issues in human-model -omic data](https://hdl.handle.net/10037/14660).
 
 ## Papers, etc.
 * Pedersen BR, __Holsbø E__, Andersen T, Shvetsov N, Ravn J, Sommerseth HL, Bongo LA. _Lessons Learned Developing and Using a Machine Learning Model to Automatically Transcribe 2.3 Million Handwritten Occupation Codes._ (data) Historical Life Course Studies 2022; Volum 11. ISSN 2352-6343.s 1 - 17.s
@@ -34,11 +35,19 @@ _Stress related to a suspicious mammogram - potential transcriptomic effects._ A
 The 7th Conference on Epidemiology and Registry-Based Health Research - NordicEpi 2015
 
 ## As adviser
-* Elias
-* Erling
-* __Tengel Skar__. _Scalable exploration of population-scale drug consumption data._ Master thesis, Department of Computer Science, Univeristy of Tromsø. June 2019.
-* __Mike Voets__. _Deep Learning: From Data Extraction to Large-Scale Analysis._ Master thesis. Department of Computer Science, 
-University of Tromsø. May 2018.
-* __Morten Grønnesby__. _Automated Lung Sound Analysis._ Master thesis. Department of Computer Science, 
-University of Tromsø. June 2016.
+* **Elias E.G. Riise**,
+  [Improving automated underwater ship hull inspection through incremental learning & uncertainty quantification in deep learning models](https://munin.uit.no/handle/10037/29562). 
+  Master thesis, 2023.
+* **Erling Devold**,
+  [Through Space and Time](https://munin.uit.no/handle/10037/29564). 
+  Master thesis, 2023
+* **Tengel Skar**,
+  [Scalable exploration of population-scale drug consumption data](https://munin.uit.no/handle/10037/15776). 
+  Master thesis, 2019.
+* **Mike Voets**,
+  [Deep Learning: From Data Extraction to Large-Scale Analysis](https://munin.uit.no/handle/10037/12808).
+  Master thesis, 2018. 
+* **Morten Grønnesby**, 
+  [Automated Lung Sound Analysis](https://munin.uit.no/handle/10037/11260).
+  Master thesis, 2016.
 
