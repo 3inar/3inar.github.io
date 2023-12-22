@@ -12,22 +12,19 @@ FOOTER_FILE = "meta/_footer.html"
 MENU_FILE = "meta/_menu.html"
 
 
+# convenience function. guess what it does
+def read_file(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return file.read()
 
 def convert_md_to_html(md_file_info):
-    # Construct the full path for the output HTML file
     html_file_path = md_file_info['path'].with_suffix('.html')
     
-    # Read the header and footer HTML content
-    with open(HEADER_FILE, 'r', encoding='utf-8') as file:
-        header_html = file.read()
-    with open(MENU_FILE, 'r', encoding='utf-8') as file:
-        menu_html = file.read()
-    with open(FOOTER_FILE, 'r', encoding='utf-8') as file:
-        footer_html = file.read()
+    header_html = read_file(HEADER_FILE)
+    menu_html = read_file(MENU_FILE)
+    footer_html = read_file(FOOTER_FILE)
     
-    # Prepare the full HTML content with header, Markdown content, and footer
-    
-    # Use Pandoc to convert the Markdown content to HTML
+    # Build body from markdown w/ pandoc
     pandoc_process = subprocess.run(
         ['pandoc', '-f', 'markdown', '-t', 'html', '--mathjax', '--citeproc', '--bibliography', BIB_FILE],
         input=md_file_info['contents_updated'],
@@ -35,18 +32,17 @@ def convert_md_to_html(md_file_info):
         capture_output=True
     )
 
-    html_content = pandoc_process.stdout
+    body_html = pandoc_process.stdout
 
-    full_html_content = header_html + "\n\n" + menu_html + "\n\n" + html_content + "\n\n" + footer_html
+    # append header/footer
+    full_html = "\n\n".join([header_html, menu_html,  body_html, footer_html])
 
     # Write the Pandoc output to the HTML file
     with open(html_file_path, 'w', encoding='utf-8') as file:
-        file.write(full_html_content)
+        file.write(full_html)
 
-def read_file_content(file_path):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        return file.read()
 
+# finds the first header of some markdown 
 def extract_title(content):
     header_pattern = re.compile(r'^#+\s+(.*)', re.MULTILINE)
     match = header_pattern.search(content)
@@ -55,6 +51,7 @@ def extract_title(content):
         return match.group(1).strip() 
     return None 
 
+# only certain files are eligible for backlinks
 def backlink_valid(path):
     return NOTES_DIR in path.parts and re.match(r'^\d{12}\.md$', path.name)
 
@@ -63,6 +60,7 @@ def placeholder_to_link(content):
     link_pattern = re.compile(r'\[\[(\d{12})\]\]')
     return link_pattern.sub(r'[(\1)](/notes/\1.html)', content)
 
+# information not really used but I might want to make an RSS feed at some point
 def extract_first_paragraph(content):
     # This pattern looks for any text that follows the first header and ends before the next header
     # or two consecutive newlines, which typically denote the end of a paragraph.
@@ -74,17 +72,16 @@ def extract_first_paragraph(content):
 
 
 def main():
-
+    # find all .md files in this dir and subdirs
     current_folder = Path('.')
-
     raw_md_files = list(current_folder.rglob('*.md'))
     
     md_files = []
-
     identifier_to_title = {}
 
+    # find all relevant information from .md files
     for md_file in raw_md_files:
-        content = read_file_content(md_file)
+        content = read_file(md_file)
         title = extract_title(content)
         first_paragraph = extract_first_paragraph(content)
         
@@ -103,8 +100,15 @@ def main():
         identifier = md_file.stem
         identifier_to_title[identifier] = title
 
+    # process .md files: 
+    # * add backlinks 
+    # * translate placeholder links to real links
+    # * add a line about last modification
+    # * build static .html
     for md_file in md_files:
         md_file['contents_updated'] = md_file['contents']
+
+        # add backlinks
         if backlink_valid(md_file['path']):
             backlinks = []
             # Search for backlinks in all valid files
@@ -119,15 +123,15 @@ def main():
                 md_file['contents_updated'] = md_file['contents_updated'] + \
                                                 "\n\n**Backlinks:**\n\n" + "\n".join(backlinks)
 
-            # Print the updated contents with backlinks (or you can write it to a file)
-        
+        # translate placeholder links to real links
         md_file['contents_updated'] = placeholder_to_link(md_file['contents_updated'])
-        md_file['contents_updated'] += f"\n\n<small>this file last touched {time.strftime('%Y/%m/%d', time.localtime(md_file['modified']))}</small>"
+
+        # last modified
+        modified = time.strftime('%Y.%m.%d', time.localtime(md_file['modified']))
+        md_file['contents_updated'] += \
+            f"\n\n<small>this file last touched { modified }</small>"
+
         convert_md_to_html(md_file)
-
-
-
-
 
 if __name__ == '__main__':
     main()
