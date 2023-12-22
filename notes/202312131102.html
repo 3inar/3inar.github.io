@@ -33,6 +33,8 @@
   <link rel="stylesheet" href="/meta/syntax.css" />
 </head>
 <body>
+
+
 <p>
   <a href="/">about</a>
  — 
@@ -40,10 +42,12 @@
  — 
   <a href="/talks/">talks</a>
  — 
-  <a href="/notes/">pseudo-blog</a>
+  <a href="/notes/">"blog"</a>
  — 
   <a href="/meta/"><em>meta</em></a>
 </p>
+
+
 
 <h1 id="rebuilding-from-scratch">Rebuilding from scratch</h1>
 <p>This is the third iteration of my website. In the first one I used
@@ -57,16 +61,20 @@ want to do updates.</p>
 <p>I decided to rebuild the site as simply as possible, wanting to go
 back to how it used to be when the internet wasn’t shit and I had a
 GeoCities website.</p>
-<p>The <a
-href="https://github.com/3inar/3inar.github.io/blob/master/Makefile">web
-1.0</a> version is designed to have minimal bloat. It’s all markdown
-that I edit within my existing <a
-href="https://github.com/3inar/zett.vim">vim workflow</a>. The site is
-built entirely as static <code>.html</code> using <code>make</code>,
-which mostly just runs pandoc on any markdown file it comes across,
-adding some header and footer info. The style sheet makes only small
-adjustments to raw, unstyled <code>.html</code>. You can see it’s effect
-on various elements on the <a href="/meta/">meta page</a>.</p>
+<p>The <a href="https://github.com/3inar/3inar.github.io/">web 1.0</a>
+version is designed to have minimal bloat. It’s all markdown that I edit
+within my existing <a href="https://github.com/3inar/zett.vim">vim
+workflow</a>. The site is built entirely as static <code>.html</code>
+using <a
+href="https://github.com/3inar/3inar.github.io/blob/master/build.py">a
+python script</a> that does some light preprocessing before running <a
+href="https://pandoc.org/">pandoc</a>, the greatest tool known to man.
+The pandoc output is then glued together with the header, menu, and
+footer <code>.html</code>, these parts being the same for all pages.
+adding some header and footer info. This page should work fine in raw,
+unstyled <code>.html</code>; the style sheet makes only small
+adjustments. You can see it’s effect on various elements on the <a
+href="/meta/">meta page</a>.</p>
 <p>The most complicated thing on this site is that I import <a
 href="https://katex.org/">KaTex</a> to render math. I only do this
 because some of the shittier browsers don’t support <a
@@ -89,6 +97,8 @@ bring back any R-markdown-based posts from the old blog, unless I
 suddenly feel like I’m missing one. Any similar long-form content under
 the current system will be more of a hand-crafted, locally sourced
 thing.</p>
-<small>current document last modified 2023.12.14</small>
+<p><small>this file last touched 2023.12.22</small></p>
+
+
 </body>
 </html>
