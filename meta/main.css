@@ -1,5 +1,17 @@
-/* A nice serifed font wiht slightly old-style numbers */
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
+@font-face {
+    font-family: 'EB Garamond';
+    src: local('EB Garamond Regular'), local('EBGaramond-Regular'),
+         url('/meta/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: local('EB Garamond Italic'), local('EBGaramond-Italic'),
+         url('/meta/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 400 800; 
+    font-style: italic;
+}
 
 body {
     background-color: #f8f8f8; /* Light grey background */
