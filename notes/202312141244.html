@@ -62,8 +62,8 @@ class="math inline">\(l\)</span>?</p>
 <h2 id="a-solution">A solution</h2>
 <p>Since a square’s edge is identical to the three others we can (wlog)
 suppose that the first point is on the leftmost edge. As a further
-simplification we can (wlog) scale all lengths by 1/<span
-class="math inline">\(l\)</span> and just focus on the unit square.
+simplification we can (wlog) scale all lengths by <span
+class="math inline">\(1/l\)</span> and just focus on the unit square.
 There are three cases I want to condition on for the second point: i) it
 lands on the same edge; ii) it lands on an adjacent edge; and iii) it
 lands on an opposite edge.</p>
@@ -73,10 +73,11 @@ class="math inline">\(P(\mathrm{opposite}) = P(\mathrm{same}) =
 1/4,\)</span> and <span class="math inline">\(P(\mathrm{adjacent}) =
 1/2.\)</span></p>
 <p>When both points lie on the same edge there is no probability for the
-line between them to be longer than 1. On the other hand if the points
-are on opposite edges there is no probability that the line between them
-is <em>shorter</em> than 1. This leaves the adjacent case as the only
-interesting one.</p>
+line between them to be longer than <span
+class="math inline">\(1\)</span>. On the other hand if the points are on
+opposite edges there is no probability that the line between them is
+<em>shorter</em> than <span class="math inline">\(1\)</span>. This
+leaves the adjacent case as the only interesting one.</p>
 <p>For the two adjacent cases we again have a symmetry so that we can
 assume (wlog) that it’s the bottom edge that our second point lands on.
 We adopt a coordinate system so that the lower left corner is the origin
@@ -114,7 +115,7 @@ P(L)    &amp;= \frac{1}{4}P(L | \mathrm{same})
         &amp;\approx 0.357.
 \end{align*}
 \]</span></p>
-<p><small>this file last touched 2023.12.21</small></p>
+<p><small>this file last touched 2023.12.23</small></p>
 
 
 </body>
