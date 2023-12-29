@@ -39,9 +39,13 @@ h1::before, h2::before, h3::before, h4::before, h5::before, h6::before{
     transform: translateX(-150%); /* Move the symbol to the left of the heading */
 }
 
+a::before {
+    content: ":"
+}
+
 a {
-    color: #800020; /* Bourgogne */
-    font-weight: 600; /* Bold weight for links, assuming 600 is available */
+    color: #000000; /* black */
+    font-weight: 600;
     text-decoration: none; /* No underline on links */
 }
 
