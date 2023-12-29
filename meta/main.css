@@ -1,27 +1,11 @@
-@font-face {
-    font-family: 'EB Garamond';
-    src: local('EB Garamond Regular'), local('EBGaramond-Regular'),
-         url('/meta/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'EB Garamond';
-    src: local('EB Garamond Italic'), local('EBGaramond-Italic'),
-         url('/meta/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
-    font-weight: 400 800; 
-    font-style: italic;
-}
-
 body {
-    background-color: #f8f8f8; /* Light grey background */
-    font-family: 'EB Garamond', serif;
-    font-feature-settings: 'onum';
-    color: #000000; /* Black text color */
+    background-color: #ffffff; 
+    font-family: serif;
+    color: #222222; 
     line-height: 1.5;
     padding: 20px;
         
-    max-width: 80ch; /* Set the width to half the page width */
+    max-width: 80ch; 
     margin-left: 12.5%;
     text-align: left; /* Align text to the left (ragged right) */
 }
@@ -29,6 +13,7 @@ body {
 .katex {
     font-size: 1em; /* Adjust this value to match your body text size */
 }
+
 /* Adjust the size of inline math */
 .katex .katex-inline {
     font-size: 1em;
@@ -41,21 +26,19 @@ body {
 
 
 /* Style headers to stand out and include ≅ characters */
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6{
     position: relative; /* Needed to position the ::before pseudo-element absolutely */
     padding-left: .25em; /* Adjust as needed to make room for the symbol */
 }
 
-h1::before, h2::before, h3::before, h4::before, h5::before {
-    content: "≅";
-    color: #000000; /* Black color for consistency */
+h1::before, h2::before, h3::before, h4::before, h5::before, h6::before{
+    content: "⍫";
     position: absolute;
     left: 0; /* Align the symbol to the left edge of the heading */
     top: 0; /* Align the symbol to the top edge of the heading */
     transform: translateX(-150%); /* Move the symbol to the left of the heading */
 }
 
-/* Style links to be bold and black with no underline */
 a {
     color: #800020; /* Bourgogne */
     font-weight: 600; /* Bold weight for links, assuming 600 is available */
@@ -68,8 +51,7 @@ a:hover {
 }
 
 img {
-    display: block; /* Images are inline by default, change to block to allow centering with margin */
+    display: block; /* Images are inline by default */
     max-width: 75vw; /* Limit the image width to 75% of the viewport width */
-
     height: auto; /* Maintain the aspect ratio of the image */
 }
