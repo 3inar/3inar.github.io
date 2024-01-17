@@ -51,26 +51,33 @@
 
 
 
-<h2 id="pseudo-blog">Pseudo-blog</h2>
-<p>Listing the contents of my pseudo-blog. Ordered feed style from
-newest to oldest.</p>
-<ul>
-<li><a href="/notes/202401121254.html">(202401121254)</a> Variance along
-a vector.</li>
-<li><a href="/notes/202312211057.html">(202312211057)</a> The Hallmarks
-of ChatGPT.</li>
-<li><a href="/notes/202312202201.html">(202312202201)</a> List of books
-I may read.</li>
-<li><a href="/notes/202312171034.html">(202312171034)</a> LLM as web
-search.</li>
-<li><a href="/notes/202312141244.html">(202312141244)</a> Probability
-puzzle: “chord” in a square.</li>
-<li><a href="/notes/202312132213.html">(202312132213)</a> List of books
-I read.</li>
-<li><a href="/notes/202312131102.html">(202312131102)</a> On rebuilding
-this site from scratch to be more “web 1.0”.</li>
-</ul>
-<p><small>this file last touched 2024.01.12</small></p>
+<h1 id="variance-in-the-direction-of-a-vector">Variance in the direction
+of a vector</h1>
+<p><strong>Status: half-baked</strong></p>
+<p>This all is true in any number of dimensions, but let’s say we
+measure two things for a bunch of people. Perhaps it is height and
+weight, who knows. A measurement is then a vector <span
+class="math inline">\(x = (h, w)\)</span>. If we have many measurements
+we can put them in a matrix <span class="math inline">\(X = (x_1 \ldots
+x_n)\)</span>.</p>
+<p>Suppose we center these data by subtracting the average vector from
+each individual vector so that <span class="math inline">\(\tilde x_i =
+x_i - m\)</span>, with <span class="math inline">\(m = \frac{1}{n} \sum
+x_i\)</span> being the average. The total variance in these data is
+<span class="math inline">\(\frac{1}{n} \sum \lVert \tilde
+x_i\rVert^2\)</span>, the average squared length of the centered
+vectors.</p>
+<p>The variance along a particular vector <span
+class="math inline">\(v\)</span> is just the average squared length of
+your centered vectors if you project them onto <span
+class="math inline">\(v\)</span>.</p>
+<p>For any orthogonal basis <span class="math inline">\(v_1,
+v_2\)</span> we can have <span class="math inline">\(\tilde x = cv_1 +
+dv_2\)</span> and because of Pythagoras we will have <span
+class="math inline">\(\lVert x \rVert^2 = \lVert cv_1 \rVert^2 + \lVert
+dv_2 \rVert^2\)</span>. This means that we can always express the total
+variance as the sum of variances in orthogonal directions.</p>
+<p><small>this file last touched 2024.01.17</small></p>
 
 
 </body>
