@@ -13,6 +13,7 @@ technical reasons many of the links internally on this site are only timestamps
 to when the document was first created, but I helpfully provide a description
 next to the link itself.
 
+* [[202401171334]] Letters from Our Lyngby Correspondent.
 * [[202312132213]] Books I read.
 * [[202312131102]] On rebuilding this site from scratch to be more `web 1.0`.
 
