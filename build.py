@@ -23,6 +23,11 @@ def convert_md_to_html(md_file_info):
     header_html = read_file(HEADER_FILE)
     menu_html = read_file(MENU_FILE)
     footer_html = read_file(FOOTER_FILE)
+
+    # last modified
+    modified = time.strftime('%Y.%m.%d', time.localtime(md_file_info['modified']))
+    footer_html = f"\n\n<small>this file last touched { modified }</small>" + \
+        footer_html
     
     # Build body from markdown w/ pandoc
     pandoc_process = subprocess.run(
@@ -126,10 +131,6 @@ def main():
         # translate placeholder links to real links
         md_file['contents_updated'] = placeholder_to_link(md_file['contents_updated'])
 
-        # last modified
-        modified = time.strftime('%Y.%m.%d', time.localtime(md_file['modified']))
-        md_file['contents_updated'] += \
-            f"\n\n<small>this file last touched { modified }</small>"
 
         convert_md_to_html(md_file)
 
