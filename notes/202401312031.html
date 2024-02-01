@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Lyngby Correspondent e03: of equal measure   ⍫ elleve</title>
+
+  <meta name="description" content="Various writing, etc.">
+  <meta name="author" content="Einar Holsbø">
+
+  <script data-goatcounter="https://elleve.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+  <!-- > KaTex stuff</!-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+          });
+      });
+  </script>
+
+  <link rel="stylesheet" href="/meta/main.css" />
+  <link rel="stylesheet" href="/meta/syntax.css" />
+</head>
+<body>
+
+
+<div class="menu">
+  <a href="/">about</a>
+  —
+  <a href="/research/">research</a>
+  —
+  <a href="/talks/">talks</a>
+  —
+  <a href="/notes/">"blog"</a>
+  —
+  <a href="/links/">links</a>
+  —
+  <a href="/meta/"><em>meta</em></a>
+</div>
+
+
+
+<h1 id="lyngby-correspondent-e03-of-equal-measure">Lyngby Correspondent
+e03: of equal measure</h1>
+<h2 id="whats-rna-seq-even-like">What’s RNA-Seq even like?</h2>
+<p>I’ve been working on patching some holes in my understanding of RNA
+sequencing. I worked with gene expression data in the last days of the
+microarray, so I (used to) have some understanding of that technology,
+but RNA-Seq is a little more mysterious to me.</p>
+<p>In a way I’m quite happy to take the more abstract “box of numbers”
+point of view and focus on the <a
+href="https://en.wikipedia.org/wiki/Singular_value_decomposition">type
+of thing you can do with a box of numbers</a> but I wanted to have an
+idea of what RNA-Seq data looks like, on average, for, say, a certain
+type of bacterium. And you don’t just download RNA-Seq data and load it
+into R. There are all kinds of mysterious steps. The box of numbers
+philosophy will only take you so far.</p>
+<h2 id="transformations">Transformations</h2>
+<p>But I am not neglecting the box of numbers. I’ve been looking at
+<span class="citation" data-cites="greenacre_2023">Greenacre et al.
+(2023)</span>, a kind of spicy preprint on transformation approaches to
+compositional data. Remember that compositions sum to some constant: we
+grabbed five marbles and three of them were blue so we know how many
+reds there are. There are two types of marble but only one degree of
+freedom: all of the data lie on the line described by <span
+class="math inline">\(\text{reds} + \text{blues} = 5\)</span> and the
+only information we can gain is relative. There are three blue marbles
+for every two red ones. How many in total? Nobody knows.</p>
+<p>A widely-used approach is to lean into this and consider logarithmic
+ratios (logratios) like <span class="math inline">\(\log
+\frac{\text{blues}}{\text{reds}}\)</span>, where this particular one is
+called an additive logratio. This puts the data in an unconstrained
+space, and considering ratios gets us out of some problems with
+coherence: If I analyze compositions of the form <span
+class="math inline">\((x, y, z)\)</span> and consider the ratio <span
+class="math inline">\(x/y\)</span> I will reach the same conclusions as
+you do if you only consider the <em>subcomposition</em> <span
+class="math inline">\((x, y)\)</span>, no matter how each of us
+normalizes the vector.</p>
+<p>But the additive logratio transformation is considered crude because
+it’s not an isometry: it doesn’t preserve distances. To not preserve
+distances is to distort the data, so you’d ideally like to have an
+isometry. An example of a linear isometry is rotation by <span
+class="math inline">\(\theta\)</span> degrees. A triangle is
+mathematically the same triangle if you turn it on its head. It isn’t if
+you stretch it.</p>
+<p><img src="img/20240201_isometry.png" style="width:95.0%" /></p>
+<p>The centered logratio transformation preserves distances. Here
+instead of dividing by a certain element of the vector you divide by the
+geometric mean of the vector. But the resulting coordinates depend on
+the entire vector so we still have to consider ratios of the sort <span
+class="math inline">\(\frac{x/gm(x,y)}{y/gm(x,y)} = \frac{x}{y}\)</span>
+to get the subcompositional coherence we had earlier. So various other,
+more complicated transformations were conceived, and since they are more
+complicated their interpretation is more subtle.</p>
+<p><strong>Getting to the point (if any):</strong> <span
+class="citation" data-cites="greenacre_2023">Greenacre et al.
+(2023)</span> is a spicy paper because they argue that in high
+dimensions there are many transformations that are near-isometries. This
+means we could just use the additive log ratio for its simplicity and
+wouldn’t be sacrificing much in terms of geometry.</p>
+<p>But even better: since dividing by zero or taking the logarithm of
+zero are undefined, all logratio transformations have a zeros problem.
+The mathematicians are happy to just define this problem away, saying
+that this whole theory of logratios, etc., is for strictly positive
+data. But that doesn’t help the data analyst. Zeros are pretty common in
+real data! Various hacky solutions exist (like adding a small arbitrary
+constant); <span class="citation" data-cites="greenacre_2023">Greenacre
+et al. (2023)</span> opens the door for something like <a
+href="https://en.wikipedia.org/wiki/Power_transform#Box%E2%80%93Cox_transformation">Box–Cox</a>,
+which tolerates zeros and has the logarithm as a limiting case.</p>
+<h2 id="bike-news">Bike news</h2>
+<p>The weather in Denmark is 5 degrees C, partially cloudy. Like a good
+summer day back home, really. Conditions are now such that I can take an
+alternate bike route through the forests, etc. It’s pretty good, pretty
+scenic at times, but I did end up with water up past my ankles at one
+point.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><p><a href="https://hbiostat.org/bbr/hdata">For high-dimensional
+data there is a certain sample size below which there is no correlation
+between true and estimated odds ratio.</a></p></li>
+<li><p><a href="https://docs.ropensci.org/openalexR/">openalexR</a> is
+an R package to interface with <a href="">https://openalex.org</a>. See
+also</p></li>
+<li><p><a href="https://lrhodes.net/ways/ways.html">The Ways
+folder</a>:</p>
+<blockquote>
+<p>Putting information that you’ve found useful on a simple web page
+with no ads, no scripts, no ulterior motives—this is a valuable online
+service.</p>
+</blockquote></li>
+<li><p><a
+href="https://mathoverflow.net/questions/462766/is-there-a-fast-way-to-check-if-a-matrix-has-any-small-eigenvalues">Mathoverflow
+Q</a>: is there a fast way to check if [millions of matrices have] any
+small eigenvalues? Yes: do it on the GPU.</p></li>
+</ul>
+<p><strong>Backlinks:</strong></p>
+<ul>
+<li><a href="/notes/202401171334.html">(202401171334)</a> Letters from
+Our Lyngby Correspondent</li>
+</ul>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-greenacre_2023" class="csl-entry" role="listitem">
+Greenacre, Michael, Eric Grunsky, John Bacon-Shone, Ionas Erb, and
+Thomas Quinn. 2023. <span>“Aitchison’s Compositional Data Analysis 40
+Years on: A Reappraisal.”</span> <a
+href="https://arxiv.org/abs/2201.05197">https://arxiv.org/abs/2201.05197</a>.
+</div>
+</div>
+
+
+
+
+<small>this file last touched 2024.02.01</small></body>
+</html>
