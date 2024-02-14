@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Lyngby Correspondent e04: gotta go fast   ⍫ elleve</title>
+
+  <meta name="description" content="Various writing, etc.">
+  <meta name="author" content="Einar Holsbø">
+
+  <script data-goatcounter="https://elleve.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+  <!-- > KaTex stuff</!-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+          });
+      });
+  </script>
+
+  <link rel="stylesheet" href="/meta/main.css" />
+  <link rel="stylesheet" href="/meta/syntax.css" />
+</head>
+<body>
+
+
+<div class="menu">
+  <a href="/">about</a>
+  —
+  <a href="/research/">research</a>
+  —
+  <a href="/talks/">talks</a>
+  —
+  <a href="/notes/">"blog"</a>
+  —
+  <a href="/links/">links</a>
+  —
+  <a href="/meta/"><em>meta</em></a>
+</div>
+
+
+
+<h1 id="lyngby-correspondent-e04-gotta-go-fast">Lyngby Correspondent
+e04: gotta go fast</h1>
+<p>This weekly update covers the last two weeks as I was simply too busy
+last week. Friend of the show Kajsa was visiting our Lyngby location for
+a week of focussed writing. The idea was that we have this
+mostly-finished paper on the ranking of classifiers so let’s just sit
+down and finish it. “Mostly finished” is a vague description, and I’m
+not sure we actually made it much more finished than it was. For example
+there was this quick little simulation study I wanted to do that was
+neither quick nor little once I started looking at it.</p>
+<h2 id="auc-is-interpretable-actually">AUC is interpretable,
+actually</h2>
+<p>For this simulation—work still in progress—I need to calculate a lot
+of AUCs. The AUC (or <em>area under the receiver operating
+characteristic curve</em> for short) used to be a completely inscrutable
+statistic for me because you involve this <a
+href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic#History_2">story
+about radars</a> and moving some kind of decision threshold back and
+forth and etc., etc., etc., etc. It’s nearly impossible to give it a
+sane explanation.</p>
+<p>Or so I used to think. Some years ago I learned that the AUC
+<strong>does</strong> have a completely sane interpretation. You’ve got
+some data that can be classified as either T or F and you have a model
+that spits out a T-ness score for each data point. A higher score means
+that it’s more likely that this data point belongs to class T. Could be
+a probability, but it doesn’t have to be. <em>AUC is the probability
+that a randomly chosen T will have a higher score than a randomly chosen
+F.</em> That’s it. End of explanation. No need to invoke any curve, nor
+threshold, nor hypothetical radar.</p>
+<h2 id="how-to-calculate-auc-very-quickly">How to calculate AUC very
+quickly</h2>
+<p><img src="img/20240214_so_fast.png"
+style="width: 50%; margin: auto;" /></p>
+<p>In numerical linear algebra it’s a folk theorem that if you’re
+inverting a matrix you’re probably doing something wrong. Similarly if
+you’re calculating an AUC by first building the ROC curve and then
+integrating you’re probably doing it wrong. I figured this out last
+week; my journey was something like this:</p>
+<ol type="1">
+<li>I start out using <code>pROC::auc</code> in <code>R</code> because
+this is what I had been doing when I didn’t need actual millions of the
+things. This is very slow.</li>
+<li>A little bit of searching lead me to <a
+href="https://stackoverflow.com/questions/4903092/calculate-auc-in-r">this
+SO question</a> where <a href="https://stackoverflow.com/a/50202118">one
+of the lower-down answers</a> uses an approach from <a
+href="https://blog.mbq.me/augh-roc/">this blog post</a> that’s supposed
+to be pretty fast compared to <code>pROC::auc</code>, and indeed it
+is.</li>
+<li>But I notice that as a comment to that answer the author of the <a
+href="https://cran.r-project.org/web/packages/bigstatsr/index.html"><code>bigstatsr</code>
+package</a> says that they have another fast method, and indeed it is a
+little faster.</li>
+<li>I don’t want my son to grow up with me just staring at a progress
+bar, so I want to get it a little faster still. I do some profiling and
+I notice that the <code>bigstatsr::AUC</code> function <a
+href="https://github.com/privefl/bigstatsr/blob/f307d297570d91127f118ce3bd4557a155057e84/R/AUC.R#L65">spends
+almost half its time in sanity checks</a>. This isn’t a problem for the
+size of data that <code>bigstatsr</code> is made for: the asserts will
+proportionally take up no time. But for me it matters because I’m only
+doing like 1000 scores at a time.</li>
+<li>Luckily <code>bigstatsr::AUC</code> just calls another function
+after those asserts. This function is “not exported,” but actually
+<code>R</code> doesn’t enforce that. You just do
+<code>bigstatsr:::AUC2</code> (notice <code>:::</code> instead of
+<code>::</code>) and you access the not-exported function to skip the
+sanity checks. I think the only way to speed up my simulation now is
+parallelizing, which is easy.</li>
+</ol>
+<p>Both the <code>bigstatsr</code> approach and the one from the SO
+answer are based on the observation that, as I say, AUC is
+mathematically equivalent to a probability about ranking (see <span
+class="citation" data-cites="hanley_1982">Hanley and McNeil
+(1982)</span> for more). If you sort the scores it’s a really fast thing
+to count pairs of T, F where the score of T is greater than the score of
+F. You can do it <a
+href="https://github.com/privefl/bigstatsr/blob/f307d297570d91127f118ce3bd4557a155057e84/src/AUC.cpp#L49">in
+a single pass</a>. By the same approach you could in fact also build the
+ROC curve in a single pass, but then you’d still have to do your stupid
+little integration if AUC was what you wanted.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=8Ab3ArE8W3s">Stop writing
+dead programs</a>: an interesting strange loop talk on how perhaps it is
+time to stop pretending that we’re programming on punch cards.</li>
+<li><a href="https://www.youtube.com/watch?v=ypyAg3Zbs_8">Designer
+Dieter Rams pointing at things he doesn’t like</a>.</li>
+<li><a
+href="https://notstatschat.rbind.io/2017/02/01/when-the-bootstrap-doesnt-work/">A
+list of conditions where the bootstrap doesn’t work</a>. I came there
+from <a href="https://stats.stackexchange.com/a/639024/43625">this very
+nice answer on Cross Validated</a> that’s about a setting where the
+bootstrap may or may not work.</li>
+</ul>
+<p><strong>Backlinks:</strong></p>
+<ul>
+<li><a href="/notes/202401171334.html">(202401171334)</a> Letters from
+Our Lyngby Correspondent</li>
+</ul>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-hanley_1982" class="csl-entry" role="listitem">
+Hanley, J A, and B J McNeil. 1982. <span>“The Meaning and Use of the
+Area Under a Receiver Operating Characteristic (ROC) Curve.”</span>
+<em>Radiology</em> 143 (1): 29–36. <a
+href="https://doi.org/10.1148/radiology.143.1.7063747">https://doi.org/10.1148/radiology.143.1.7063747</a>.
+</div>
+</div>
+
+
+
+
+<small>this file last touched 2024.02.14</small></body>
+</html>
