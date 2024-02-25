@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Lyngby e05: Unstable variances   ⍫ elleve</title>
+
+  <meta name="description" content="Various writing, etc.">
+  <meta name="author" content="Einar Holsbø">
+
+  <script data-goatcounter="https://elleve.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+  <!-- > KaTex stuff</!-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+          });
+      });
+  </script>
+
+  <link rel="stylesheet" href="/meta/main.css" />
+  <link rel="stylesheet" href="/meta/syntax.css" />
+</head>
+<body>
+
+
+<div class="menu">
+  <a href="/">about</a>
+  —
+  <a href="/research/">research</a>
+  —
+  <a href="/talks/">talks</a>
+  —
+  <a href="/notes/">"blog"</a>
+  —
+  <a href="/links/">links</a>
+  —
+  <a href="/meta/"><em>meta</em></a>
+</div>
+
+
+
+<h1 id="lyngby-e05-unstable-variances">Lyngby e05: Unstable
+variances</h1>
+<p>Just some scattered notes this week! Not really sticking to my plan
+of posting on Wednesdays but I’m happy if I stick to more-or-less
+weekly.</p>
+<h2 id="notes-on-variance-stabilization">Notes on variance
+stabilization</h2>
+<p><img src="img/20240225_evil_variance.png"
+style="width: 75%; margin: auto;" /></p>
+<p>Data transformation is becoming a recurring nightmare on the blog <a
+href="/notes/202401312031.html">(202401312031)</a>. I’m looking into a
+single cell RNASeq project and trying to figure out what typical
+preprocessing looks like. Not being particularly familiar with the
+terrain I picked some random tutorial and started following the steps.
+The instructions suggest two separate transformations, both of them in
+the name of variance stabilization. It is not clear to me why I would
+want to focus on preemptive variance stabilization. Some half-baked
+thoughts/observations:</p>
+<ul>
+<li>According to the <a
+href="https://stats.stackexchange.com/questions/414180/understanding-variance-stabilization-and-its-uses">accepted
+answer to this CV Q</a>, taking the square root of Poisson data (the
+classical variance stabilizing transformation) before doing a t-test is
+kind of pointless.</li>
+<li>For a regression, if you want to rely on the usual iid normal
+assumptions, variance stabilization is necessary for more accurate
+p-values and confidence intervals.</li>
+<li>But it is possible to model unequal variances
+(<em>heteroskedasticity</em> if you have a personal speech coach)
+directly so it’s not automatically the case that any variance should be
+stabilized.</li>
+<li>Which q.v. <a
+href="https://stats.stackexchange.com/questions/46418/why-is-the-square-root-transformation-recommended-for-count-data">the
+accepted answer to this related CV Q</a>, which concludes that what kind
+of transformation you want really depends on what you want to do. “It
+depends” is a common answer to statistical questions.</li>
+<li>I often take logs of data that span several orders of magnitude to
+make more readable visualizations. But then I’m not really doing it to
+stabilize any variances.</li>
+</ul>
+<p>Naturally a tutorial is an outline of common techniques and you
+always have to think carefully about how it applies to your own
+case.</p>
+<h2 id="a-stupid-research-assistant">A stupid research assistant</h2>
+<p>Over lunch on campus we talked a bit about large language models, as
+you do. I’ve seen an observation online somewhere that ChatGPT is like
+having a very naive research assistant. This feels accurate to me: it
+just brings you whatever it has completely uncritically but it can be a
+nice starting point if you know what you’re doing.</p>
+<p>My students don’t know what they are doing, or they wouldn’t be
+taking my course. I get the feeling that to some of them, the LLM is a
+knowledgable research supervisor and not a stupid research assistant.
+This is bad for a variety of reasons, one of which is that the LLM has
+no doubt, no concept of being wrong. Probably because it was trained on
+Reddit comments.</p>
+<p><strong>Backlinks:</strong></p>
+<ul>
+<li><a href="/notes/202401171334.html">(202401171334)</a> Letters from
+Our Lyngby Correspondent</li>
+</ul>
+
+
+
+
+<small>this file last touched 2024.02.25</small></body>
+</html>
