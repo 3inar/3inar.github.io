@@ -14,6 +14,7 @@ technical reasons many of the links internally on this site timestamps to when
 the document was first created, but I helpfully provide a description next to
 the link itself.
 
+* [[202403071104]] AI-generated illustrations are bad, actually.
 * [[202401171334]] Almost-weekly blog posts from my current research stay at
   the Technical University of Denmark in Lyngby.
 * [[202312132213]] List of books I read.
