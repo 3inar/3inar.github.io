@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>PCA is OK (Davis-Kahan $\sin \theta$ theorem)   ⍫ elleve</title>
+
+  <meta name="description" content="Various writing, etc.">
+  <meta name="author" content="Einar Holsbø">
+
+  <script data-goatcounter="https://elleve.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+  <!-- > KaTex stuff</!-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+          });
+      });
+  </script>
+
+  <link rel="stylesheet" href="/meta/main.css" />
+  <link rel="stylesheet" href="/meta/syntax.css" />
+</head>
+<body>
+
+
+<div class="menu">
+  <a href="/">about</a>
+  —
+  <a href="/research/">research</a>
+  —
+  <a href="/talks/">talks</a>
+  —
+  <a href="/notes/">notes</a>
+  —
+  <a href="/links/">links</a>
+  —
+  <a href="/meta/"><em>meta</em></a>
+</div>
+
+
+
+<h1 id="pca-is-ok-davis-kahan-sin-theta-theorem">PCA is OK (Davis-Kahan
+<span class="math inline">\(\sin \theta\)</span> theorem)</h1>
+<p>Back in 22 there was a bit of a flareup on twitter over <a
+href="https://www.nature.com/articles/s41598-022-14395-4">a paper</a>
+with the <em>very</em> spicy title</p>
+<blockquote>
+<p>Principal Component Analyses (PCA)-based findings in population
+genetic studies are highly biased and must be reevaluated</p>
+</blockquote>
+<p>According to the abstract, there are tens (or even hundreds) of
+thousands of papers affected by this high bias, and</p>
+<blockquote>
+<p>PCA results may not be reliable, robust, or replicable as the field
+assumes.</p>
+</blockquote>
+<p>I would love to live in a world where you could get funding to
+re-evaluated a hundred thousand articles. Maybe if you say that you’ll
+do it by AI?</p>
+<p>I skimmed the paper then and honestly I don’t care to re-read it. I’m
+just providing some context for this theorem I know of.</p>
+<h2 id="the-davis-kahan-theorem">The Davis-Kahan theorem</h2>
+<p>It is certainly true that if you take two random samples from the
+same population and do a PCA on both of them, you’re not likely to get
+two exactly identical sets of principal component vectors. Or if you
+take a single sample from a population you’re not likely to get the
+exact true population principal components back. However there is a
+theorem that if the “eigengap” (described below) is large enough, the
+top principal components are likely to span the right space.</p>
+<p><img src="img/20240528_eigengap.png" style="width:80.0%" /></p>
+<p>PCA is an eigenvalue decomposition of a symmetric matrix (the
+covariance matrix of your data). Suppose for simplicity we’re working in
+two dimensions and let our covariance matrix <span
+class="math inline">\(A\)</span> be a symmetric matrix with the
+eigenvalues <span class="math inline">\(\lambda_1 &gt;
+\lambda_2\)</span>. In PCA terms these correspond to the “variance
+explained” values of your scree plot. The <em>eigengap</em> between
+these two eigenvalues is <span class="math inline">\(\delta = \lambda_1
+- \lambda_2\)</span>. Now let <span class="math inline">\(u_1,
+u_2\)</span> be the corresponding eigenvectors to <span
+class="math inline">\(\lambda_1\)</span> and <span
+class="math inline">\(\lambda_2\)</span>. These are the true population
+principal components.</p>
+<p>We do a random sample and get <span class="math inline">\(A +
+E\)</span>, a perturbation of <span class="math inline">\(A\)</span>
+(still symmetric), meaning it’s <span class="math inline">\(A\)</span>
+plus some noise. We don’t know how much noise is in there. Suppose <span
+class="math inline">\(v_1\)</span> and <span
+class="math inline">\(v_2\)</span> are the eigenvectors of <span
+class="math inline">\(A+E\)</span>: how reliable/robust/replicable is an
+inference based on <span class="math inline">\(v_1\)</span> in place of
+<span class="math inline">\(u_1\)</span>?</p>
+<p>The DK theorem informs us that if <span
+class="math inline">\(\theta\)</span> is the angle between <span
+class="math inline">\(u_1\)</span> and <span
+class="math inline">\(v_1\)</span> we have</p>
+<p><span class="math display">\[
+\sin \theta \leq \frac{\sqrt{2} \lVert E \rVert_F}{\delta},
+\]</span></p>
+<p>with <span class="math inline">\(\lVert \cdot \rVert_F\)</span> the
+<a
+href="https://en.wikipedia.org/wiki/Matrix_norm#Frobenius_norm">Frobenius
+norm</a>.</p>
+<p>In other words, the angle between our observed vector <span
+class="math inline">\(v_1\)</span> and the hidden true vector <span
+class="math inline">\(u_1\)</span> is smaller than the scale of the
+added noise divided by the size of the eigengap. Multiplied by an
+annoying constant. We get a vector close to (ie with small angle to) the
+truth if we have little noise or a large eigengap (or, God willing,
+both).</p>
+<p>This extends to several dimensions where instead of looking at the
+angle between two vectors we look at the angle between subspaces. The
+space spanned by the top <span class="math inline">\(k\)</span>
+principal components is robust if there is a large gap between the <span
+class="math inline">\(k\)</span>-th and the <span
+class="math inline">\(k+1\)</span>th eigenvalues.</p>
+<h2 id="bias">Bias?</h2>
+<p>I don’t believe that a hundred thousand articles are <em>biased</em>,
+in the technical sense, from use of PCA, but I 100% believe that many
+many articles have large noise and small eigengaps. But you can’t really
+blame PCA for noisy data.</p>
+<h2 id="references">References</h2>
+<p>Two nice blog posts on this sort of thing:</p>
+<ul>
+<li><a href="http://yueqicao.top/2021/01/12/Davis-Kahan-s-Theorem/"
+class="uri">http://yueqicao.top/2021/01/12/Davis-Kahan-s-Theorem/</a></li>
+<li><a
+href="http://yueqicao.top/2021/04/09/Random-Perturbation-to-Low-Rank-Matrices/"
+class="uri">http://yueqicao.top/2021/04/09/Random-Perturbation-to-Low-Rank-Matrices/</a></li>
+</ul>
+<p>Original paper of D and K (did not read):</p>
+<ul>
+<li><a href="https://epubs.siam.org/doi/pdf/10.1137/0707001"
+class="uri">https://epubs.siam.org/doi/pdf/10.1137/0707001</a></li>
+</ul>
+<p>There is a paper called <em>A useful variant of the Davis–Kahan
+theorem for statisticians</em>, which has a promising title.</p>
+<p>On measuring the angle between subspaces:</p>
+<ul>
+<li><a
+href="https://mathoverflow.net/questions/102153/angle-between-subspaces"
+class="uri">https://mathoverflow.net/questions/102153/angle-between-subspaces</a></li>
+</ul>
+
+
+
+
+<small>this file last touched 2024.05.28</small></body>
+</html>

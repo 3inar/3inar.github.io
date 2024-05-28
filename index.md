@@ -14,9 +14,9 @@ technical reasons many of the links internally on this site timestamps to when
 the document was first created, but I helpfully provide a description next to
 the link itself.
 
+* [[202405281202]] PCA is OK (or the Davis-Kahan $\sin \theta$ theorem)
 * [[202403071104]] AI-generated illustrations are bad, actually.
 * [[202401171334]] Handful of blog posts from the Technical University of Denmark.
-* [[202312202201]] List of books I may read.
 * [[202312132213]] List of books I read.
 * [[202312131102]] On rebuilding this site from scratch to be more `web 1.0`.
 
