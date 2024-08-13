@@ -2,6 +2,7 @@
 Listing the contents of my pseudo-blog. Ordered feed style from newest to
 oldest.
 
+* [[202408130936]] Approximate size of rounding errors for simple probabilities
 * [[202405281202]] PCA is OK (or the Davis-Kahan $\sin \theta$ theorem)
 * [[202403071104]] AI-generated illustrations are bad, actually.
 * [[202401171334]] Letters from Our Lyngby Correspondent.
