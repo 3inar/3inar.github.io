@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Adding Stan parsing/highlihgting/etc to nvim-treesitter   einarki</title>
+
+  <meta name="description" content="Various writing, etc.">
+  <meta name="author" content="Einar Holsbø">
+
+  <script data-goatcounter="https://elleve.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+  <!-- > KaTex stuff</!-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+          });
+      });
+  </script>
+
+  <link rel="stylesheet" href="/meta/main.css" />
+  <link rel="stylesheet" href="/meta/syntax.css" />
+</head>
+<body>
+
+
+<div class="menu">
+  <a href="/">about</a>
+  —
+  <a href="/research/">research</a>
+  —
+  <a href="/talks/">talks</a>
+  —
+  <a href="/notes/">notes</a>
+  —
+  <a href="/links/">links</a>
+  —
+  <a href="/meta/"><em>meta</em></a>
+</div>
+
+
+
+<h1 id="adding-stan-parsinghighlihgtingetc-to-nvim-treesitter">Adding
+Stan parsing/highlihgting/etc to nvim-treesitter</h1>
+<p>Since I just went on this adventure I figured I’d put it somewhere
+for the common good; writing the blog post I wish I had three days
+ago.</p>
+<p>To get <code>nvim-treesitter</code> support for Stan you need to do
+two things: i) find a <a
+href="https://github.com/WardBrian/tree-sitter-stan">parser</a> and
+configure treesitter to use it; ii) add some treesitter queries for the
+new parser. This all is described in <a
+href="https://discourse.mc-stan.org/t/treesitter-parser-in-neovim/34691/">this
+post</a> on the Stan forums but I because I’m new to treesitting I
+needed some more details, which I describe below:</p>
+<h2 id="i-get-a-parser">i) get a parser</h2>
+<p>The link above provides a Stan parser on github; you can add the repo
+itself as a source for the stan parser. You need the below incantation
+in your nvim config:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode lua"><code class="sourceCode lua"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">local</span> <span class="va">parser_config</span> <span class="op">=</span> <span class="fu">require</span><span class="op">(</span><span class="st">&#39;nvim-treesitter.parsers&#39;</span><span class="op">).</span>get_parser_configs<span class="op">()</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">parser_config</span><span class="op">.</span><span class="va">stan</span> <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="va">install_info</span> <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">url</span> <span class="op">=</span> <span class="st">&#39;https://github.com/WardBrian/tree-sitter-stan&#39;</span><span class="op">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">files</span> <span class="op">=</span> <span class="op">{</span> <span class="st">&#39;src/parser.c&#39;</span> <span class="op">},</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="va">branch</span> <span class="op">=</span> <span class="st">&#39;main&#39;</span><span class="op">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">},</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="va">vim</span><span class="op">.</span><span class="va">filetype</span><span class="op">.</span>add <span class="op">{</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="va">extension</span> <span class="op">=</span> <span class="op">{</span> <span class="va">stan</span> <span class="op">=</span> <span class="st">&#39;stan&#39;</span> <span class="op">},</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> </span></code></pre></div>
+<p>If, like me, you have your nvim config as vim script rather than lua
+you need to wrap the above incantation in another incantation that does
+inline lua from vimscript:</p>
+<pre class="vim"><code>lua &lt;&lt; EOF
+    -- lua code goes here
+EOF</code></pre>
+<p>Once this is done, reload your config and do
+<code>:TSInstall stan</code>.</p>
+<h2 id="ii-add-queries">ii) add queries</h2>
+<p>I had no idea what was meant by this, but as it turns out what you
+have to do is to copy the <a
+href="https://github.com/WardBrian/tree-sitter-stan/tree/main/queries">query
+files</a> from the WardBrian repo to a place where nvim will look for
+them. The simplest solution for me:
+<code>~/.config/nvim/queries/stan/</code>. These files are very
+important as they are what treesitter use for highlighting and such.</p>
+
+
+
+
+<small>this file last touched 2024.11.20</small></body>
+</html>
