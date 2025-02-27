@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Building a heap is O(N)   einarki</title>
+
+  <meta name="description" content="Various writing, etc.">
+  <meta name="author" content="Einar Holsbø">
+
+  <script data-goatcounter="https://elleve.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+  <!-- > KaTex stuff</!-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body, {
+            // customised options
+            // • auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // • rendering keys, e.g.:
+            throwOnError : false
+          });
+      });
+  </script>
+
+  <link rel="stylesheet" href="/meta/main.css" />
+  <link rel="stylesheet" href="/meta/syntax.css" />
+</head>
+<body>
+
+
+<div class="menu">
+  <a href="/">about</a>
+  —
+  <a href="/research/">research</a>
+  —
+  <a href="/talks/">talks</a>
+  —
+  <a href="/notes/">notes</a>
+  —
+  <a href="/links/">links</a>
+  —
+  <a href="/meta/"><em>meta</em></a>
+</div>
+
+
+
+<h1 id="building-a-heap-is-on">Building a heap is O(N)</h1>
+<p>You can build a heap efficiently by stuffing everything in an array
+and shuffling items around until the heap property (a child is always
+less than or equal to its parent) is satisfied. You do this by calling
+top-down heapify first on the leaf nodes (does nothing), then on the
+nodes one level up, etc etc. up to and including the root node.</p>
+<p>Top-down heapify assumes everything below the root is in its place
+and the root just needs to percolate down to where it belongs. A quick
+analysis tells us that there are <span class="math inline">\(N\)</span>
+items that need to be moved at most <span class="math inline">\(\log
+N\)</span> steps down so the worst-case complexity is <span
+class="math inline">\(O(N \log N)\)</span>, but this bound could be
+tighter.</p>
+<p>We can just assume that the tree is completely full since we’re doing
+a big <span class="math inline">\(O\)</span> analysis anyway, so let
+<span class="math inline">\(N = 2^{n+1} - 1\)</span> and I won’t be
+messing about with any constants, just counting the number of swaps. On
+the top or <span class="math inline">\(0\)</span>th level (IE at the
+root) there is one subtree where we need to move the root node at most
+<span class="math inline">\(n\)</span> spaces down. At the <span
+class="math inline">\(1\)</span>st level there are two subtrees where we
+must move the root at most <span class="math inline">\(n-1\)</span>
+spaces down, <span class="math inline">\(\ldots\)</span>, at the <span
+class="math inline">\(n-1\)</span>-th level there are <span
+class="math inline">\(2^{n-1}\)</span> subtrees where we need to move
+the nodes at most <span class="math inline">\(1\)</span> space down, and
+at the <span class="math inline">\(n\)</span>-th level are the leaves,
+which we don’t need to move. Summing up we need at worst to do</p>
+<p><span class="math display">\[
+\sum_{k=1}^n k2^{n-k} =
+2^n\sum_{k=1}^n k2^{-k}
+\]</span></p>
+<p>moves. The factor <span class="math inline">\(\sum_{k=1}^n
+\frac{k}{2^k}\)</span> looks tricky but in fact it is bounded by a
+constant. Since each term is positive we can safely say that <span
+class="math inline">\(\sum_{k=1}^n \frac{k}{2^k} \leq \sum_{k=1}^\infty
+\frac{k}{2^k}\)</span>, and we can apply the tools of analysis to this
+series: it converges by the ratio test. IE. if a series <span
+class="math inline">\(\sum_{n=1}^\infty a_n\)</span> is such that <span
+class="math inline">\(\lim_{n\to \infty} \left | \frac{a_{n+1}}{a_n}
+\right |  &lt; 1\)</span> the series converges absolutely (the premium
+brand convergence).</p>
+<p>We could really stop here, having established that for some constant
+<span class="math inline">\(c\)</span> it is true that <span
+class="math display">\[
+\sum_{k=1}^n k2^{n-k} =
+2^n\sum_{k=1}^n k2^{-k} \leq c2^n = O(2^{n+1} - 1 = N).
+\]</span></p>
+<p>If you really wanted to you could, having shown that the limit
+exists, do the common trickery of pulling out a factor <span
+class="math inline">\(2\)</span> from the series and getting something
+like the limit <span class="math inline">\(S = 2S + \frac{2}{3} \iff S =
+2.\)</span> But who cares about the constants?</p>
+
+
+
+
+<small>this file last touched 2025.02.27</small></body>
+</html>
