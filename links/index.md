@@ -3,6 +3,9 @@
 Just a list of web places I like. Building it over time so stop by later if
 it's short.
 
+* [My productivity app is a never-ending .txt file](https://jeffhuang.com/productivity_text_file/), Jeff Huang --- 
+  I adopted this system in 2023 and I still use it. This means it is very
+  robust and easy to follow.
 * [Earliest Uses of Some Words of Mathematics](https://mathshistory.st-andrews.ac.uk/Miller/mathword/).
 * Andrew Gelman's [statistical lexicon](https://statmodeling.stat.columbia.edu/2009/05/24/handy_statistic/).
 * Steele's rant on [advice for graduate students in statistics](http://www-stat.wharton.upenn.edu/~steele/Rants/AdviceGS.html).
