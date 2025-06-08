@@ -5,6 +5,7 @@ I defended my Ph. D. in February, 2019. My dissertation is called
 [Small data: practical modeling issues in human-model -omic data](https://hdl.handle.net/10037/14660).
 
 ## Papers, etc.
+* Theodor A. Ross, Jessin Janice, Sergio Arredondo-Alonso, Iren H. Löhr, __Einar Holsbø,__ Jukka Corander, Anna K. Pöntinen, Michael Kampffmeyer, and Kristin Hegstad. _Enterococcus lactis is ecologically and genetically distinct from the major opportunistic pathogen enterococcus faecium._ Microbial Genomics, 11(6)2025.
 * Pedersen BR, __Holsbø E__, Andersen T, Shvetsov N, Ravn J, Sommerseth HL, Bongo LA. _Lessons Learned Developing and Using a Machine Learning Model to Automatically Transcribe 2.3 Million Handwritten Occupation Codes._ (data) Historical Life Course Studies 2022; Volum 11. ISSN 2352-6343.s 1 - 17.s
 * __Holsbø E__, Olsen KS. _Metastatic Breast Cancer and Pre-Diagnostic Blood Gene Expression Profiles—The Norwegian Women and Cancer (NOWAC) Post-Genome Cohort._ Frontiers in oncology. 2020 Oct 15;10:2277.
 * __Holsbø E.__, Perduca V., Bongo L. A., Lund E., & Birmelé E. (2020). _Predicting breast cancer metastasis from whole-blood transcriptomic measurements._ BMC Research Notes, 13(1), 1-5.
@@ -34,7 +35,13 @@ Norsk informatikkonferanse NIK 2013
 _Stress related to a suspicious mammogram - potential transcriptomic effects._ Abstract.
 The 7th Conference on Epidemiology and Registry-Based Health Research - NordicEpi 2015
 
-## As adviser
+## As advisor
+### PhD students
+* **Mohsen Askar**, [Predicting Norwegian elderly hospitalizations using Machine Learning](https://munin.uit.no/handle/10037/37007). Doctoral thesis, 2025. (co-advisor)
+
+### Master's students
+* **Zin Anwar**, Insights into the Biofilm-associated Genetic Background of
+  Escherichia coli. Master thesis, 2025. (co-advisor)
 * **Elias E.G. Riise**,
   [Improving automated underwater ship hull inspection through incremental learning & uncertainty quantification in deep learning models](https://munin.uit.no/handle/10037/29562). 
   Master thesis, 2023.
@@ -43,11 +50,11 @@ The 7th Conference on Epidemiology and Registry-Based Health Research - NordicEp
   Master thesis, 2023
 * **Tengel Skar**,
   [Scalable exploration of population-scale drug consumption data](https://munin.uit.no/handle/10037/15776). 
-  Master thesis, 2019.
+  Master thesis, 2019. (co-advisor)
 * **Mike Voets**,
   [Deep Learning: From Data Extraction to Large-Scale Analysis](https://munin.uit.no/handle/10037/12808).
-  Master thesis, 2018. 
+  Master thesis, 2018. (co-advisor)
 * **Morten Grønnesby**, 
   [Automated Lung Sound Analysis](https://munin.uit.no/handle/10037/11260).
-  Master thesis, 2016.
+  Master thesis, 2016. (co-advisor)
 

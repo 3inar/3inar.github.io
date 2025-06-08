@@ -33,7 +33,7 @@ def convert_md_to_html(md_file_info):
     title_match = re.search(r'<title>(.*?)</title>', header_html)
     if title_match and md_file_info['title']:
         original_title = title_match.group(1)
-        new_title = md_file_info['title'] + " · " + original_title
+        new_title = original_title + " : " + md_file_info['title']
         header_html = header_html.replace(original_title, new_title)
     
     # Build body from markdown w/ pandoc

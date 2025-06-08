@@ -33,7 +33,7 @@ Here is a list containing
 * A nested
     * list with **bold**
     * list with _italic_, `code`, [internal link](meta/), 
-      [external link](github.com).
+      [external link](https://github.com).
 
 ## math
 This is a sentence containing some inline math, $\sqrt{\frac{\pi}{\beta}}$, I
