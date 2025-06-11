@@ -10,27 +10,6 @@
   <script data-goatcounter="https://elleve.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
-  <!-- > KaTex stuff</!-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
-  <script>
-      document.addEventListener("DOMContentLoaded", function() {
-          renderMathInElement(document.body, {
-            // customised options
-            // • auto-render specific keys, e.g.:
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\(', right: '\\)', display: false},
-                {left: '\\[', right: '\\]', display: true}
-            ],
-            // • rendering keys, e.g.:
-            throwOnError : false
-          });
-      });
-  </script>
-
   <link rel="stylesheet" href="/meta/main.css" />
   <link rel="stylesheet" href="/meta/syntax.css" />
 </head>
@@ -57,17 +36,18 @@
 in a probability computation</h1>
 <p>Status: half-baked</p>
 <p>You’re making some quick computations and you don’t want to fuss
-around with a calculator or computer. You’ve got some fraction <span
-class="math inline">\(\frac{x}{y + \epsilon}\)</span> but you’d much
-rather round it to <span class="math inline">\(\frac{x}{y}\)</span>.
-What’s the error, <span class="math inline">\(\Epsilon\)</span>?</p>
-<p><span class="math display">\[
-\Epsilon = \frac{x}{y+\epsilon} - \frac{x}{y}
+around with a calculator or computer. You’ve got some fraction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mi>x</mi><mrow><mi>y</mi><mo>+</mo><mi>ϵ</mi></mrow></mfrac><annotation encoding="application/x-tex">\frac{x}{y + \epsilon}</annotation></semantics></math>
+but you’d much rather round it to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mi>x</mi><mi>y</mi></mfrac><annotation encoding="application/x-tex">\frac{x}{y}</annotation></semantics></math>.
+What’s the error,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ε</mi><annotation encoding="application/x-tex">\Epsilon</annotation></semantics></math>?</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Ε</mi><mo>=</mo><mfrac><mi>x</mi><mrow><mi>y</mi><mo>+</mo><mi>ϵ</mi></mrow></mfrac><mo>−</mo><mfrac><mi>x</mi><mi>y</mi></mfrac><mo>=</mo><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mrow><mi>y</mi><mo>+</mo><mi>ϵ</mi></mrow></mfrac><mo>−</mo><mfrac><mn>1</mn><mi>y</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>y</mi><mrow><mi>y</mi><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>+</mo><mi>ϵ</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo>−</mo><mfrac><mrow><mi>y</mi><mo>+</mo><mi>ϵ</mi></mrow><mrow><mi>y</mi><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>+</mo><mi>ϵ</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mrow><mi>−</mi><mi>ϵ</mi></mrow><mrow><mi>y</mi><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>+</mo><mi>ϵ</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\Epsilon = \frac{x}{y+\epsilon} - \frac{x}{y} 
   = x\left (  \frac{1}{y + \epsilon} - \frac{1}{y} \right )
-  = x\left (  \frac{y}{y(y + \epsilon)} - \frac{y + \epsilon}{y(y +
-\epsilon)} \right )
+  = x\left (  \frac{y}{y(y + \epsilon)} - \frac{y + \epsilon}{y(y + \epsilon)} \right )
   = x\left (  \frac{-\epsilon}{y(y + \epsilon)} \right ).
-\]</span></p>
+</annotation></semantics></math></p>
 <p>Here I used to have a <strong>wrong</strong> approximation to the
 above. I’ll make a good one if I can be bothered.</p>
 

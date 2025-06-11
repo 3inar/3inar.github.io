@@ -10,27 +10,6 @@
   <script data-goatcounter="https://elleve.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
-  <!-- > KaTex stuff</!-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
-  <script>
-      document.addEventListener("DOMContentLoaded", function() {
-          renderMathInElement(document.body, {
-            // customised options
-            // • auto-render specific keys, e.g.:
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\(', right: '\\)', display: false},
-                {left: '\\[', right: '\\]', display: true}
-            ],
-            // • rendering keys, e.g.:
-            throwOnError : false
-          });
-      });
-  </script>
-
   <link rel="stylesheet" href="/meta/main.css" />
   <link rel="stylesheet" href="/meta/syntax.css" />
 </head>
@@ -70,9 +49,11 @@ timestamps to when the document was first created, but I helpfully
 provide a description next to the link itself.</p>
 <ul>
 <li><a href="/notes/202502271941.html">(202502271941)</a> Making a heap
-is <span class="math inline">\(O(N)\)</span>.</li>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mi>N</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math>.</li>
 <li><a href="/notes/202405281202.html">(202405281202)</a> PCA is OK (or
-the Davis-Kahan <span class="math inline">\(\sin \theta\)</span>
+the Davis-Kahan
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>sin</mi><mo>&#8289;</mo><mi>θ</mi></mrow><annotation encoding="application/x-tex">\sin \theta</annotation></semantics></math>
 theorem)</li>
 <li><a href="/notes/202403071104.html">(202403071104)</a> AI-generated
 illustrations are bad, actually.</li>

@@ -10,27 +10,6 @@
   <script data-goatcounter="https://elleve.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
-  <!-- > KaTex stuff</!-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
-  <script>
-      document.addEventListener("DOMContentLoaded", function() {
-          renderMathInElement(document.body, {
-            // customised options
-            // • auto-render specific keys, e.g.:
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\(', right: '\\)', display: false},
-                {left: '\\[', right: '\\]', display: true}
-            ],
-            // • rendering keys, e.g.:
-            throwOnError : false
-          });
-      });
-  </script>
-
   <link rel="stylesheet" href="/meta/main.css" />
   <link rel="stylesheet" href="/meta/syntax.css" />
 </head>
@@ -58,29 +37,33 @@ of a vector</h1>
 <p><strong>Status: half-baked</strong></p>
 <p>This all is true in any number of dimensions, but let’s say we
 measure two things for a bunch of people. Perhaps it is height and
-weight, who knows. A measurement is then a vector <span
-class="math inline">\(x = (h, w)\)</span>. If we have many measurements
-we can put them in a matrix <span class="math inline">\(X = (x_1 \ldots
-x_n)\)</span>.</p>
+weight, who knows. A measurement is then a vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>h</mi><mo>,</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x = (h, w)</annotation></semantics></math>.
+If we have many measurements we can put them in a matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mi>…</mi><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X = (x_1 \ldots x_n)</annotation></semantics></math>.</p>
 <p><img src="img/20240122_centering.png" style="width:90.0%" /></p>
 <p>Suppose we center these data by subtracting the average vector from
-each individual vector so that <span class="math inline">\(\tilde x_i =
-x_i - m\)</span>, with <span class="math inline">\(m = \frac{1}{n} \sum
-x_i\)</span> being the average. The total variance in these data is
-<span class="math inline">\(\frac{1}{n} \sum \lVert \tilde
-x_i\rVert^2\)</span>, the average squared length of the centered
-vectors.</p>
+each individual vector so that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>i</mi></msub><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">\tilde x_i = x_i - m</annotation></semantics></math>,
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><mo>∑</mo><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">m = \frac{1}{n} \sum x_i</annotation></semantics></math>
+being the average. The total variance in these data is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mi>n</mi></mfrac><mo>∑</mo><msup><mrow><mo stretchy="true" form="prefix">‖</mo><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mi>i</mi></msub><mo stretchy="true" form="postfix">‖</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\frac{1}{n} \sum \lVert \tilde x_i\rVert^2</annotation></semantics></math>,
+the average squared length of the centered vectors.</p>
 <p><img src="img/20240122_variance_along.png" style="width:90.0%" /></p>
-<p>The variance along a particular vector <span
-class="math inline">\(v\)</span> is just the average squared length of
-your centered vectors if you project them onto <span
-class="math inline">\(v\)</span>.</p>
-<p>For any orthogonal basis <span class="math inline">\(v_1,
-v_2\)</span> we can have <span class="math inline">\(\tilde x = cv_1 +
-dv_2\)</span> and because of Pythagoras we will have <span
-class="math inline">\(\lVert x \rVert^2 = \lVert cv_1 \rVert^2 + \lVert
-dv_2 \rVert^2\)</span>. This means that we can always express the total
-variance as the sum of variances in orthogonal directions.</p>
+<p>The variance along a particular vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>
+is just the average squared length of your centered vectors if you
+project them onto
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>.</p>
+<p>For any orthogonal basis
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mn>1</mn></msub><mo>,</mo><msub><mi>v</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">v_1, v_2</annotation></semantics></math>
+we can have
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">̃</mo></mover><mo>=</mo><mi>c</mi><msub><mi>v</mi><mn>1</mn></msub><mo>+</mo><mi>d</mi><msub><mi>v</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\tilde x = cv_1 + dv_2</annotation></semantics></math>
+and because of Pythagoras we will have
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">‖</mo><mi>x</mi><mo stretchy="true" form="postfix">‖</mo></mrow><mn>2</mn></msup><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">‖</mo><mi>c</mi><msub><mi>v</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">‖</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo stretchy="true" form="prefix">‖</mo><mi>d</mi><msub><mi>v</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">‖</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\lVert x \rVert^2 = \lVert cv_1 \rVert^2 + \lVert dv_2 \rVert^2</annotation></semantics></math>.
+This means that we can always express the total variance as the sum of
+variances in orthogonal directions.</p>
 <p><img src="img/20240122_pythagoras.png" style="width:90.0%" /></p>
 
 

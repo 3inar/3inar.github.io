@@ -17,7 +17,7 @@ META_FILES := meta/_header.html meta/_footer.html \
 all: $(HTML_FILES)
 
 # Rule to convert a .md file to .html
-%.html: %.md $(META_FILES)
+%.html: %.md $(META_FILES) build.py
 	python3 build.py
 
 # Clean target to remove all generated .html files except those starting with an underscore

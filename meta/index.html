@@ -10,27 +10,6 @@
   <script data-goatcounter="https://elleve.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
-  <!-- > KaTex stuff</!-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
-  <script>
-      document.addEventListener("DOMContentLoaded", function() {
-          renderMathInElement(document.body, {
-            // customised options
-            // • auto-render specific keys, e.g.:
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\(', right: '\\)', display: false},
-                {left: '\\[', right: '\\]', display: true}
-            ],
-            // • rendering keys, e.g.:
-            throwOnError : false
-          });
-      });
-  </script>
-
   <link rel="stylesheet" href="/meta/main.css" />
   <link rel="stylesheet" href="/meta/syntax.css" />
 </head>
@@ -89,8 +68,8 @@ href="https://github.com">external link</a>.</p>
 <li>Some <strong>bold</strong></li>
 <li>Some <em>italic</em></li>
 <li>Some <code>code</code></li>
-<li>Some <span class="math inline">\(A\mathbf x = \mathbf
-y\)</span></li>
+<li>Some
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>𝐱</mi><mo>=</mo><mi>𝐲</mi></mrow><annotation encoding="application/x-tex">A\mathbf x = \mathbf y</annotation></semantics></math></li>
 <li>A nested
 <ul>
 <li>list with <strong>bold</strong></li>
@@ -100,15 +79,15 @@ link</a>.</li>
 </ul></li>
 </ul>
 <h2 id="math">math</h2>
-<p>This is a sentence containing some inline math, <span
-class="math inline">\(\sqrt{\frac{\pi}{\beta}}\)</span>, I will follow
-it with a block of math below:</p>
-<p><span class="math display">\[
+<p>This is a sentence containing some inline math,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mfrac><mi>π</mi><mi>β</mi></mfrac></msqrt><annotation encoding="application/x-tex">\sqrt{\frac{\pi}{\beta}}</annotation></semantics></math>,
+I will follow it with a block of math below:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>A</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mfrac><mrow><mi>π</mi><msup><mi>r</mi><mn>2</mn></msup></mrow><mn>2</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>π</mi><msup><mi>r</mi><mn>2</mn></msup></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{align*}
 A &amp; = \frac{\pi r^2}{2} \\
-&amp; = \frac{1}{2} \pi r^2
+ &amp; = \frac{1}{2} \pi r^2
 \end{align*}
-\]</span></p>
+</annotation></semantics></math></p>
 <h2 id="code-again">code again</h2>
 <p>R code:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>func <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>

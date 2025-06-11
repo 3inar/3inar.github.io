@@ -11,20 +11,6 @@ body {
     text-align: left; /* Align text to the left (ragged right) */
 }
 
-.katex {
-    font-size: 1em; /* Adjust this value to match your body text size */
-}
-
-/* Adjust the size of inline math */
-.katex .katex-inline {
-    font-size: 1em;
-}
-
-/* Adjust the size of display (block) math */
-.katex .katex-display {
-    font-size: 1em;
-}
-
 
 /* Style headers to stand out and include ≅ characters */
 h1, h2, h3, h4, h5, h6{

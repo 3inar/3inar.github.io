@@ -38,7 +38,7 @@ def convert_md_to_html(md_file_info):
     
     # Build body from markdown w/ pandoc
     pandoc_process = subprocess.run(
-        ['pandoc', '-f', 'markdown', '-t', 'html', '--mathjax', '--citeproc', '--bibliography', BIB_FILE],
+        ['pandoc', '-f', 'markdown', '-t', 'html', '--mathml', '--citeproc', '--bibliography', BIB_FILE],
         input=md_file_info['contents_updated'],
         text=True,
         capture_output=True
