@@ -1,7 +1,7 @@
 body {
-    background-color: #f2f2f2; 
+    background-color: #F3E9DC; 
     font-family: serif;
-    color: #222222;
+    color: #353535;
     font-size: 1.1em;
     line-height: 1.5;
     padding: 20px;
@@ -42,12 +42,12 @@ h1::before, h2::before, h3::before, h4::before, h5::before, h6::before{
 
 
 a {
-    color: #222222; 
+    color: #BA1200; 
     text-decoration: underline; 
 }
 
 .menu a {
-    color: #222222; 
+    color: #BA1200; 
     font-weight:600;
     text-decoration: none; 
 }
