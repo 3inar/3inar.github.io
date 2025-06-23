@@ -2,6 +2,7 @@
 Listing the contents of my pseudo-blog. Ordered feed style from newest to
 oldest.
 
+* [[202506231327]] Bits of string: compositional data
 * [[202502271941]] Making a heap is $O(N)$.
 * [[202411200926]] Stan suport for `nvim-treesitter`
 * [[202405281202]] PCA is OK (or the Davis-Kahan $\sin \theta$ theorem).
