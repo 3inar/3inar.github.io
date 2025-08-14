@@ -3,6 +3,7 @@
 Just a list of web places I like. Building it over time so stop by later if
 it's short.
 
+* [Just a QR Code](https://justaqrcode.com/) --- when you just want a QR code. Runs in your browser.
 * [My productivity app is a never-ending .txt file](https://jeffhuang.com/productivity_text_file/), Jeff Huang --- 
   I adopted this system in 2023 and I still use it. This means it is very
   robust and easy to follow.
