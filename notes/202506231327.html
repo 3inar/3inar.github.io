@@ -34,14 +34,22 @@
 
 <h1 id="bits-of-string-compositional-data">Bits of string: compositional
 data</h1>
-<ul>
-<li>The article <a
+<p>The article <a
 href="https://link.springer.com/article/10.1007/s11222-024-10427-3">A
 flexible Bayesian tool for CoDa mixed models</a> <span class="citation"
 data-cites="Martinez-Minaya_2024">(Martı́nez-Minaya and Rue 2024)</span>
 looks promising; it frames compositional count data in a way so that
-it’s possible to fit by using INLA.</li>
-</ul>
+it’s possible to fit by using INLA.</p>
+<p>Dimension of of centered log ratio vectors matters. Compare
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(-1, 1, 0)</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mi>…</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(-1, 1, 0, 0, \ldots)</annotation></semantics></math>
+(a hundred zeros repeated). The former is roughly
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.09</mn><mo>,</mo><mn>0.67</mn><mo>,</mo><mn>0.24</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(0.09, 0.67, 0.24)</annotation></semantics></math>
+in the simplex, while the latter is roughly
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.004</mn><mo>,</mo><mn>0.03</mn><mo>,</mo><mn>0.01</mn><mo>,</mo><mn>0.01</mn><mo>,</mo><mi>…</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(0.004, 0.03, 0.01, 0.01, \ldots)</annotation></semantics></math>,
+which is practically uniform. The log ratios between coordinates 1 and 2
+(or 1 and 3) remain the same however.</p>
 <p><strong>Backlinks:</strong></p>
 <ul>
 <li><a href="/notes/202508181349.html">(202508181349)</a> Bits of
@@ -61,5 +69,5 @@ href="https://doi.org/10.1007/s11222-024-10427-3">https://doi.org/10.1007/s11222
 
 
 
-<small>this file last touched 2025.06.23</small></body>
+<small>this file last touched 2025.08.18</small></body>
 </html>
