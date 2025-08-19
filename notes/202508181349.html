@@ -43,9 +43,15 @@ string.</p>
 <li><a href="/notes/202506231327.html">(202506231327)</a> compositional
 data</li>
 </ul>
+<h2 id="leftover-string">Leftover string:</h2>
+<p><code>fd</code> is a more chill way of doing
+<code>find .. -exec</code>. The following incantation will find all
+files with extension <code>jpg</code> and execute the convert utility to
+convert to <code>(basename).png</code>:</p>
+<p><code>fd -e jpg -x convert {} {.}.png</code></p>
 
 
 
 
-<small>this file last touched 2025.08.18</small></body>
+<small>this file last touched 2025.08.19</small></body>
 </html>
