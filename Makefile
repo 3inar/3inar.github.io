@@ -14,11 +14,17 @@ META_FILES := meta/_header.html meta/_footer.html \
 
 
 # Default target
-all: $(HTML_FILES)
+all: garden $(HTML_FILES)
 
 # Rule to convert a .md file to .html
 %.html: %.md $(META_FILES) build.py
 	python3 build.py
+
+garden:
+	tree screenshot_garden/ -H -D -t -r -T screenshot_garden -o screenshot_garden/index.html
+	# these don't work properly
+	#cat meta/_header.html meta/_menu.html screenshot_garden/index.html meta/_footer.html > tmp.html
+	#mv tmp.html screenshot_garden/index.html
 
 # Clean target to remove all generated .html files except those starting with an underscore
 clean:
