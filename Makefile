@@ -21,7 +21,7 @@ all: garden $(HTML_FILES)
 	python3 build.py
 
 garden:
-	tree screenshot_garden/ -H -D -t -r -T screenshot_garden -o screenshot_garden/index.html
+	tree screenshot_garden/ -H -"" -D -t -r -T screenshot_garden -o screenshot_garden/index.html
 	# these don't work properly
 	#cat meta/_header.html meta/_menu.html screenshot_garden/index.html meta/_footer.html > tmp.html
 	#mv tmp.html screenshot_garden/index.html
