@@ -1,8 +1,9 @@
-## Pseudo-blog
-Listing the contents of my pseudo-blog. Ordered feed style from newest to
-oldest.
+## Notes
 
-* [[202508181349]] Bits of string
+Notes ordered feed style from newest to oldest. There is backup organizing
+system called Bits of String here: [[202508181349]]
+
+* [[202508281445]] Notes for Master students
 * [[202502271941]] Making a heap is $O(N)$.
 * [[202411200926]] Stan suport for `nvim-treesitter`
 * [[202405281202]] PCA is OK (or the Davis-Kahan $\sin \theta$ theorem).

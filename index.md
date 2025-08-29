@@ -9,10 +9,10 @@ science, mathematics, etc.
 
 ## Writing
 Apart from listing my research and similar I use this site to publish little
-notes and other writing. Here are some links to some things I wrote. For
-technical reasons many of the links internally on this site timestamps to when
-the document was first created, but I helpfully provide a description next to
-the link itself.
+notes and other writing. It's disorganized. Take a look at the [notes](notes/)
+or possibly the Bits of String [[202508181349]].
+
+Here are some perhaps more coherent things:
 
 * [[202502271941]] Making a heap is $O(N)$.
 * [[202405281202]] PCA is OK (or the Davis-Kahan $\sin \theta$ theorem)
