@@ -62,16 +62,16 @@ and the only information we can gain is relative. There are three blue
 marbles for every two red ones. How many in total? Nobody knows.</p>
 <p>A widely-used approach is to lean into this and consider logarithmic
 ratios (logratios) like
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mfrac><mtext mathvariant="normal">blues</mtext><mtext mathvariant="normal">reds</mtext></mfrac></mrow><annotation encoding="application/x-tex">\log \frac{\text{blues}}{\text{reds}}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>log</mi><mo>&#8289;</mo></mrow><mfrac><mtext mathvariant="normal">blues</mtext><mtext mathvariant="normal">reds</mtext></mfrac></mrow><annotation encoding="application/x-tex">\log \frac{\text{blues}}{\text{reds}}</annotation></semantics></math>,
 where this particular one is called an additive logratio. This puts the
 data in an unconstrained space, and considering ratios gets us out of
 some problems with coherence: If I analyze compositions of the form
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x, y, z)</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x, y, z)</annotation></semantics></math>
 and consider the ratio
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>/</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">x/y</annotation></semantics></math>
 I will reach the same conclusions as you do if you only consider the
 <em>subcomposition</em>
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x, y)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x, y)</annotation></semantics></math>,
 no matter how each of us normalizes the vector.</p>
 <p>But the additive logratio transformation is considered crude because
 it’s not an isometry: it doesn’t preserve distances. To not preserve
@@ -85,7 +85,7 @@ on its head. It isn’t if you stretch it.</p>
 instead of dividing by a certain element of the vector you divide by the
 geometric mean of the vector. But the resulting coordinates depend on
 the entire vector so we still have to consider ratios of the sort
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>x</mi><mi>/</mi><mi>g</mi><mi>m</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>y</mi><mi>/</mi><mi>g</mi><mi>m</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mo>=</mo><mfrac><mi>x</mi><mi>y</mi></mfrac></mrow><annotation encoding="application/x-tex">\frac{x/gm(x,y)}{y/gm(x,y)} = \frac{x}{y}</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>x</mi><mi>/</mi><mi>g</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>y</mi><mi>/</mi><mi>g</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo>=</mo><mfrac><mi>x</mi><mi>y</mi></mfrac></mrow><annotation encoding="application/x-tex">\frac{x/gm(x,y)}{y/gm(x,y)} = \frac{x}{y}</annotation></semantics></math>
 to get the subcompositional coherence we had earlier. So various other,
 more complicated transformations were conceived, and since they are more
 complicated their interpretation is more subtle.</p>
