@@ -45,9 +45,9 @@ and the root just needs to percolate down to where it belongs. A quick
 analysis tells us that there are
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
 items that need to be moved at most
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">log</mi><mo>&#8289;</mo></mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">\log N</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>log</mi><mo>&#8289;</mo></mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">\log N</annotation></semantics></math>
 steps down so the worst-case complexity is
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mi>N</mi><mrow><mi mathvariant="normal">log</mi><mo>&#8289;</mo></mrow><mi>N</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(N \log N)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mi>N</mi><mrow><mi>log</mi><mo>&#8289;</mo></mrow><mi>N</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(N \log N)</annotation></semantics></math>,
 but this bound could be tighter.</p>
 <p>We can just assume that the tree is completely full since we’re doing
 a big
@@ -89,7 +89,7 @@ and we can apply the tools of analysis to this series: it converges by
 the ratio test. IE. if a series
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><mi>∞</mi></msubsup><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">\sum_{n=1}^\infty a_n</annotation></semantics></math>
 is such that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>n</mi><mo>→</mo><mi>∞</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">|</mo><mfrac><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><msub><mi>a</mi><mi>n</mi></msub></mfrac><mo stretchy="true" form="postfix">|</mo></mrow><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\lim_{n\to \infty} \left | \frac{a_{n+1}}{a_n} \right |  &lt; 1</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi>lim</mi><mo>&#8289;</mo></mrow><mrow><mi>n</mi><mo>→</mo><mi>∞</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">|</mo><mfrac><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><msub><mi>a</mi><mi>n</mi></msub></mfrac><mo stretchy="true" form="postfix">|</mo></mrow><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\lim_{n\to \infty} \left | \frac{a_{n+1}}{a_n} \right |  &lt; 1</annotation></semantics></math>
 the series converges absolutely (the premium brand convergence).</p>
 <p>We could really stop here, having established that for some constant
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>
