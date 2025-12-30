@@ -3,6 +3,7 @@
 Notes ordered feed style from newest to oldest. There is backup organizing
 system called Bits of String here: [[202508181349]]
 
+* [[202512301129]] The year in reading '24 \[sic\]
 * [[202512291208]] Things that might happen
 * [[202508281445]] Notes for Master students
 * [[202502271941]] Making a heap is $O(N)$.
