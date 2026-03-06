@@ -5,7 +5,7 @@ I defended my Ph. D. in February, 2019. My dissertation is called
 [Small data: practical modeling issues in human-model -omic data](https://hdl.handle.net/10037/14660).
 
 ## Published
-* Theodor A Ross, Anna K Pöntinen, Einar Holsbø, Ørjan Samuelsen, Kristin Hegstad, Michael Kampffmeyer, Jukka Corander, and Rebecca A Gladstone. _Machine learning-based lineage prediction from antimicrobial susceptibility testing phenotypes for escherichia coli sequence type 131 clade c surveillance across infection types._ Microb Genom, 12(1)Jan 2026.
+* Theodor A Ross, Anna K Pöntinen, __Einar Holsbø__, Ørjan Samuelsen, Kristin Hegstad, Michael Kampffmeyer, Jukka Corander, and Rebecca A Gladstone. _Machine learning-based lineage prediction from antimicrobial susceptibility testing phenotypes for escherichia coli sequence type 131 clade c surveillance across infection types._ Microb Genom, 12(1)Jan 2026.
 
 * Theodor A. Ross, Jessin Janice, Sergio Arredondo-Alonso, Iren H. Löhr, __Einar Holsbø,__ Jukka Corander, Anna K. Pöntinen, Michael Kampffmeyer, and Kristin Hegstad. _Enterococcus lactis is ecologically and genetically distinct from the major opportunistic pathogen enterococcus faecium._ Microbial Genomics, 11(6)2025.
 * M. Askar, L. Småbrekke, __E. Holsbø__, L. A. Bongo, and K. Svendsen. _Using network analysis modularity to group health code systems and decrease dimensionality in machine learning models._ Exploratory Research in Clinical and Social Pharmacy, 14:100463, 2024.
