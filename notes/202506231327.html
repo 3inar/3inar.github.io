@@ -96,6 +96,52 @@ we get</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><msub><mi>n</mi><mn>1</mn></msub><msup><mi>e</mi><mrow><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn></mrow></msup><mo>=</mo><msub><mi>n</mi><mn>2</mn></msub><mo>⟹</mo><mi>σ</mi><mo>=</mo><msqrt><mrow><mn>2</mn><mrow><mi mathvariant="normal">ln</mi><mo>&#8289;</mo></mrow><mfrac><msub><mi>n</mi><mn>2</mn></msub><mrow><mn>3</mn><msub><mi>n</mi><mn>1</mn></msub></mrow></mfrac></mrow></msqrt><mi>.</mi></mrow><annotation encoding="application/x-tex">
 3n_1e^{\sigma^2/2} = n_2 \implies \sigma = \sqrt{2\ln\frac{n_2}{3n_1}}.
 </annotation></semantics></math></p>
+<p>(§) The sum-to-one constraint forces a negative correlation
+(something goes up and something else must go down) but the effect might
+be ignored in high dimension under mild assumptions. From <span
+class="citation" data-cites="townes_2019">Townes et al. (2019)</span>,
+if we assume</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∼</mo><mtext mathvariant="normal">multinomial</mtext><mo stretchy="false" form="prefix">(</mo><mi>π</mi><mo>,</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+y \sim \text{multinomial}(\pi, n)
+</annotation></semantics></math></p>
+<p>with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>y</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>y</mi><mi>k</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">y = (y_1, \ldots, y_k)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>π</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>π</mi><mi>k</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\pi = (\pi_1, \ldots, \pi_k)</annotation></semantics></math>,
+the marginals are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>i</mi></msub><mo>∼</mo><mtext mathvariant="normal">binomial</mtext><mo stretchy="false" form="prefix">(</mo><msub><mi>π</mi><mi>i</mi></msub><mo>,</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+y_i \sim \text{binomial}(\pi_i, n),
+</annotation></semantics></math></p>
+<p>with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><msub><mi>y</mi><mi>i</mi></msub><mo>=</mo><msub><mi>μ</mi><mi>i</mi></msub><mo>=</mo><mi>n</mi><msub><mi>π</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\mathbb E y_i = \mu_i = n\pi_i</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">var</mtext><mo stretchy="false" form="prefix">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>n</mi><msub><mi>π</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>π</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>μ</mi><mi>i</mi></msub><mo>−</mo><msubsup><mi>μ</mi><mi>i</mi><mn>2</mn></msubsup><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">\text{var}(y_i) = n\pi_i(1-\pi_i) = \mu_i - \mu_i^2/n</annotation></semantics></math>.
+This last identity hints at the well-known small
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+big
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+Poisson horse kick approximation to the binomial.</p>
+<p>More interesting for our purpose is the expression for the covariance
+between two compositional parts,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">cor</mtext><mo stretchy="false" form="prefix">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>,</mo><msub><mi>y</mi><mi>j</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mfrac><mrow><msub><mi>π</mi><mi>i</mi></msub><msub><mi>π</mi><mi>j</mi></msub></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>π</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>π</mi><mi>j</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></msqrt><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\text{cor}(y_i, y_j) = \sqrt{\frac{\pi_i\pi_j}{(1-\pi_i)(1-\pi_j)}},
+</annotation></semantics></math></p>
+<p>which if both
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>π</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\pi_i</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>π</mi><mi>j</mi></msub><annotation encoding="application/x-tex">\pi_j</annotation></semantics></math>
+are small is practically zero. In some settings it might be quite
+reasonable to assume that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mi>i</mi></msub><mo>≈</mo><mn>1</mn><mi>/</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">\pi_i \approx 1/k</annotation></semantics></math>,
+ie they are roughly of similar magnitude. Then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>π</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\pi_i</annotation></semantics></math>
+gets quite small as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+(the dimension) grows.</p>
+<p><strong>Note to self:</strong> But big Q what if we assume some prior
+over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math>
+and this one has a covariance also? Where does it go</p>
 <p><strong>Backlinks:</strong></p>
 <ul>
 <li><a href="/notes/202508181349.html">(202508181349)</a> Bits of
@@ -110,10 +156,17 @@ Dirichlet Covariance.”</span> <em>Statistics and Computing</em> 34 (3):
 116. <a
 href="https://doi.org/10.1007/s11222-024-10427-3">https://doi.org/10.1007/s11222-024-10427-3</a>.
 </div>
+<div id="ref-townes_2019" class="csl-entry" role="listitem">
+Townes, F. William, Stephanie C. Hicks, Martin J. Aryee, and Rafael A.
+Irizarry. 2019. <span>“Feature Selection and Dimension Reduction for
+Single-Cell RNA-Seq Based on a Multinomial Model.”</span> <em>Genome
+Biology</em> 20 (1): 295. <a
+href="https://doi.org/10.1186/s13059-019-1861-6">https://doi.org/10.1186/s13059-019-1861-6</a>.
+</div>
 </div>
 
 
 
 
-<small>this file last touched 2025.09.05</small></body>
+<small>this file last touched 2026.03.16</small></body>
 </html>
