@@ -6,7 +6,6 @@ I defended my Ph. D. in February, 2019. My dissertation is called
 
 ## Published
 * Theodor A Ross, Anna K Pöntinen, __Einar Holsbø__, Ørjan Samuelsen, Kristin Hegstad, Michael Kampffmeyer, Jukka Corander, and Rebecca A Gladstone. _Machine learning-based lineage prediction from antimicrobial susceptibility testing phenotypes for escherichia coli sequence type 131 clade c surveillance across infection types._ Microb Genom, 12(1)Jan 2026.
-
 * Theodor A. Ross, Jessin Janice, Sergio Arredondo-Alonso, Iren H. Löhr, __Einar Holsbø,__ Jukka Corander, Anna K. Pöntinen, Michael Kampffmeyer, and Kristin Hegstad. _Enterococcus lactis is ecologically and genetically distinct from the major opportunistic pathogen enterococcus faecium._ Microbial Genomics, 11(6)2025.
 * M. Askar, L. Småbrekke, __E. Holsbø__, L. A. Bongo, and K. Svendsen. _Using network analysis modularity to group health code systems and decrease dimensionality in machine learning models._ Exploratory Research in Clinical and Social Pharmacy, 14:100463, 2024.
 * B.-R. Pedersen, R. K. Johansen, __E. Holsbø__, H. L. Sommerseth, and L. A. Bongo. _More efficient manual review of automatically transcribed tabular data._ Historical Life Course Studies, 14:3-15, 2024/06/30 2024.
@@ -49,6 +48,9 @@ The 7th Conference on Epidemiology and Registry-Based Health Research - NordicEp
 * **Mohsen Askar**, [Predicting Norwegian elderly hospitalizations using Machine Learning](https://munin.uit.no/handle/10037/37007). Doctoral thesis, 2025. (co-advisor)
 
 ### Master's students
+* **Ashraf Aly**, Estimation of the causal effects of menopausal hormone therapy on BMI and breast cancer in the Norwegian Women and Cancer (NOWAC) study, 2026. (co-advisor)
+* **Håvard Skjærstein**, [Automating Injury Surveillance: LLMs for Clinical Data Extraction](https://nva.sikt.no/registration/019fdbf73a44-fc0186d0-5acc-4bd2-ad9f-bc88a642eaf6), 2026.
+* **Ludvig Jenssen Hellesvik**, [Design and Evaluation of a User-Centred AI Assistant for FMDS Reporting in DIPS Arena](https://nva.sikt.no/registration/019fdbf70a05-50e6d581-14a8-4202-bab2-4087ac922d89), 2026.
 * **Zin Anwar**, Insights into the Biofilm-associated Genetic Background of
   Escherichia coli. Master thesis, 2025. (co-advisor)
 * **Elias E.G. Riise**,
