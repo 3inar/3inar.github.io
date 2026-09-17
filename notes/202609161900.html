@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>./einar.sh : When the wifi driver disappears</title>
+
+  <meta name="description" content="Various writing, etc.">
+  <meta name="author" content="Einar Holsbø">
+
+  <script data-goatcounter="https://elleve.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+  <link rel="stylesheet" href="/meta/main.css" />
+  <link rel="stylesheet" href="/meta/syntax.css" />
+</head>
+<body>
+
+
+<div class="menu">
+  <a href="/">about</a>
+  —
+  <a href="/research/">research</a>
+  —
+  <a href="/talks/">talks</a>
+  —
+  <a href="/notes/">notes</a>
+  —
+  <a href="/links/">links</a>
+  —
+  <a href="/screenshot_garden/">screenshot garden</a>
+  —
+  <a href="/meta/"><em>meta</em></a>
+</div>
+
+
+
+<h1 id="when-the-wifi-driver-disappears">When the wifi driver
+disappears</h1>
+<h2 id="from-your-2014ish-macbook-air-with-debian-on-it">(from your
+2014ish macbook air with debian on it)</h2>
+<p>The debian website is <a
+href="https://wiki.debian.org/InstallingDebianOn/Apple/MacBookAir/6-2">surprisingly
+helpful</a> if you want to install Debian on this machine. It’s a bit of
+a hassle because the wifi card won’t work out of the box so you go back
+and forth with a USB stick until you can get it to work. Fine.</p>
+<p>Now the driver has stopped working or disappeared after an update so
+I have to retrace my steps from last year.</p>
+<p>Need these packages to build the driver/module:</p>
+<pre><code>  linux-kbuild-$(uname -r)
+  linux-headers-$(uname -r)_amd64.deb,
+  linux-headers-$(uname -r)-common.deb</code></pre>
+<p>Install packages from <code>.deb</code> by</p>
+<pre><code> sudo dpkg -i &lt;your .deb file here&gt;</code></pre>
+<p>Having installed linux headers it actually rebuilt the module for
+me.</p>
+<h2 id="well-actually">Well actually</h2>
+<p>So apparently I might get away with just</p>
+<pre><code>sudo apt install linux-headers-amd64</code></pre>
+<p>and then it will update the headers when the rest of the packages
+update. Not sure how I got onto the track of installing versioned
+packages in the first place?</p>
+<p><strong>Backlinks:</strong></p>
+<ul>
+<li><a href="/notes/202508281422.html">(202508281422)</a> Bits of
+string: computers</li>
+</ul>
+
+
+
+
+<small>this file last touched 2026.09.16</small></body>
+</html>
