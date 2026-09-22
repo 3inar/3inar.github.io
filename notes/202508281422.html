@@ -56,6 +56,13 @@ both available in homebrew. OS X provides some coreutils but not
 all.</p>
 <p>(§) When the wifi driver disappears <a
 href="/notes/202609161900.html">(202609161900)</a></p>
+<p>(§) Change remote repo (to migrate from Microsoft GitHub
+sourcehut)</p>
+<pre><code>git remote rename origin github
+git remote add origin git@git.sr.ht:~einar/somerepo
+git push origin main</code></pre>
+<p>(§) Related: <a href="https://git-send-email.io/">how to set up git
+over email</a></p>
 <p><strong>Backlinks:</strong></p>
 <ul>
 <li><a href="/notes/202508181349.html">(202508181349)</a> Bits of
@@ -65,5 +72,5 @@ string</li>
 
 
 
-<small>this file last touched 2026.09.18</small></body>
+<small>this file last touched 2026.09.22</small></body>
 </html>
