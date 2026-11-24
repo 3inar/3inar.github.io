@@ -36,25 +36,62 @@
 
 <h1 id="chicken-scheme-quick-reference">CHICKEN scheme quick
 reference</h1>
-<p>How to do things. For a homebrew install on mac there are docs in <a
-href="file:///opt/homebrew/Cellar/chicken/6.1.0/share/chicken/doc/manual"></a>.
-your version number may vary.</p>
+<p>How to do things. For a homebrew install on mac there are docs in</p>
+<pre><code>file:///opt/homebrew/Cellar/chicken/6.1.0/share/chicken/doc/manual).</code></pre>
+<p>your version number may vary.</p>
+<h2 id="comments">Comments</h2>
+<pre><code>; single line comment
+
+#|
+multi
+line
+comment
+|#
+
+#; (comments
+    out
+    this () entire S-expr 
+    (ess (io)) n)</code></pre>
 <h2 id="importing-some-libraries">Importing some libraries</h2>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(import (chicken <span class="kw">string</span>) (chicken <span class="kw">condition</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(import (chicken <span class="kw">string</span>) (chicken <span class="kw">condition</span>))</span></code></pre></div>
 <p>All scheme modules + <code>(chicken base)</code> are imported by
 default.</p>
 <h2 id="strings">Strings</h2>
 <h3 id="in-chicken-string">In <code>(chicken string)</code></h3>
-<pre><code>(string-split &quot;hello w&quot; &quot; &quot;) ==&gt; (&quot;hello&quot; &quot;w&quot;)</code></pre>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(string-split <span class="st">&quot;hello w&quot;</span> <span class="st">&quot; &quot;</span>) ==&gt; (<span class="st">&quot;hello&quot;</span> <span class="st">&quot;w&quot;</span>)</span></code></pre></div>
+<h2 id="io">I/O</h2>
+<h3 id="read-all-the-lines-in-a-file">Read all the lines in a file</h3>
+<p>The <code>read-lines</code> function is in
+<code>(chicken io)</code></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">with-input-from-file</span> <span class="st">&quot;myfile.txt&quot;</span> read-lines)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>(<span class="st">&quot;firstline&quot;</span> <span class="st">&quot;nextline&quot;</span> <span class="st">&quot;nextline&quot;</span> <span class="st">&quot;nextline&quot;</span>)</span></code></pre></div>
+<h2 id="what-is-a-thunk">What is a thunk?</h2>
+<p>It’s a function that takes no argument and does a little thing. It’s
+used for lazy evaluation apparently.</p>
+<p>See <a
+href="https://stackoverflow.com/questions/925365/what-is-a-thunk-as-used-in-scheme-or-in-general">this
+stackoverflow A</a>:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#;11&gt;</span> (<span class="ex">define</span><span class="fu"> foo </span>(<span class="op">+</span> <span class="dv">2</span> <span class="dv">3</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#;12&gt;</span> foo</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#;13&gt;</span> (<span class="ex">define</span><span class="fu"> foo </span>(<span class="kw">lambda</span> () (<span class="op">+</span> <span class="dv">2</span> <span class="dv">3</span>)))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#;14&gt;</span> foo</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="st">#&lt;procedure</span><span class="ot"> (foo)</span><span class="st">&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="st">#;15&gt; (foo)</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="st">5</span></span></code></pre></div>
 <h2 id="define-a-struct">Define a struct</h2>
 <p>It’s in <code>(chicken base)</code>. They call it a record:</p>
-<pre><code>(define-record point x y)
-(define p1 (make-point 123 456))
-(point? p1)                      ==&gt; #t
-(point-x p1)                     ==&gt; 123
-(point-y-set! p1 99)
-(point-y p1)                     ==&gt; 99</code></pre>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(define-record point x y)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> p1 </span>(make-point <span class="dv">123</span> <span class="dv">456</span>))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>(point? p1)                      ==&gt; <span class="dv">#t</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>(point-x p1)                     ==&gt; <span class="dv">123</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>(point-y-set! p1 <span class="dv">99</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>(point-y p1)                     ==&gt; <span class="dv">99</span></span></code></pre></div>
 <p><strong>Backlinks:</strong></p>
 <ul>
 <li><a href="/notes/202508281422.html">(202508281422)</a> Bits of
@@ -64,5 +101,5 @@ string: computers</li>
 
 
 
-<small>this file last touched 2026.11.20</small></body>
+<small>this file last touched 2026.11.24</small></body>
 </html>
