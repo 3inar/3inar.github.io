@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>./einar.sh : CHICKEN scheme quick reference</title>
+
+  <meta name="description" content="Various writing, etc.">
+  <meta name="author" content="Einar Holsbø">
+
+  <script data-goatcounter="https://elleve.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+  <link rel="stylesheet" href="/meta/main.css" />
+  <link rel="stylesheet" href="/meta/syntax.css" />
+</head>
+<body>
+
+
+<div class="menu">
+  <a href="/">about</a>
+  —
+  <a href="/research/">research</a>
+  —
+  <a href="/talks/">talks</a>
+  —
+  <a href="/notes/">notes</a>
+  —
+  <a href="/links/">links</a>
+  —
+  <a href="/screenshot_garden/">screenshot garden</a>
+  —
+  <a href="/meta/"><em>meta</em></a>
+</div>
+
+
+
+<h1 id="chicken-scheme-quick-reference">CHICKEN scheme quick
+reference</h1>
+<p>How to do things. For a homebrew install on mac there are docs in <a
+href="file:///opt/homebrew/Cellar/chicken/6.1.0/share/chicken/doc/manual"></a>.
+your version number may vary.</p>
+<h2 id="importing-some-libraries">Importing some libraries</h2>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(import (chicken <span class="kw">string</span>) (chicken <span class="kw">condition</span>))</span></code></pre></div>
+<p>All scheme modules + <code>(chicken base)</code> are imported by
+default.</p>
+<h2 id="strings">Strings</h2>
+<h3 id="in-chicken-string">In <code>(chicken string)</code></h3>
+<pre><code>(string-split &quot;hello w&quot; &quot; &quot;) ==&gt; (&quot;hello&quot; &quot;w&quot;)</code></pre>
+<h2 id="define-a-struct">Define a struct</h2>
+<p>It’s in <code>(chicken base)</code>. They call it a record:</p>
+<pre><code>(define-record point x y)
+(define p1 (make-point 123 456))
+(point? p1)                      ==&gt; #t
+(point-x p1)                     ==&gt; 123
+(point-y-set! p1 99)
+(point-y p1)                     ==&gt; 99</code></pre>
+<p><strong>Backlinks:</strong></p>
+<ul>
+<li><a href="/notes/202508281422.html">(202508281422)</a> Bits of
+string: computers</li>
+</ul>
+
+
+
+
+<small>this file last touched 2026.11.20</small></body>
+</html>
